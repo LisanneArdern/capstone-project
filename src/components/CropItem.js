@@ -1,4 +1,10 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+CropItem.propTypes = {
+  name: PropTypes.node,
+  image: PropTypes.node,
+}
 
 export default function CropItem({ name, image }) {
   return (
