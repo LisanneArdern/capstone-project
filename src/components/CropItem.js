@@ -2,7 +2,7 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 CropItem.propTypes = {
-  name: PropTypes.node,
+  name: PropTypes.string,
   image: PropTypes.node,
 }
 
