@@ -17,10 +17,12 @@ const Wrapper = styled.section`
   img {
     width: 100px;
     height: auto;
+    max-height: 75px;
     border-radius: 8px;
   }
 
   h2 {
+    font-size: 1em;
     font-weight: 300;
   }
 `
