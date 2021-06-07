@@ -1,5 +1,5 @@
 import CropItem from './CropItem'
-import image from '../test-image.jpg'
+import image from './test-image.jpg'
 
 export default {
   title: 'CropItem',

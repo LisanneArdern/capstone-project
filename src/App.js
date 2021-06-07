@@ -1,12 +1,18 @@
 import CropItem from './components/CropItem'
-import crops from './crops1.json'
+import crops from './data.json'
 
 export default function App() {
   return (
     <div>
       {crops.map(crop => {
-        const { id, type } = crop
-        return <CropItem key={id} name={type} image="test" />
+        const { id, attributes } = crop
+        return (
+          <CropItem
+            key={id}
+            name={attributes.name}
+            image={attributes.main_image_path}
+          />
+        )
       })}
     </div>
   )
