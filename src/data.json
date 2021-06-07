@@ -1,0 +1,407 @@
+[
+  {
+    "type": "crops",
+    "id": "551dbfed3938340003160000",
+    "attributes": {
+      "name": "Apple",
+      "slug": "apple",
+      "binomial_name": "Malus pumila",
+      "common_names": null,
+      "description": "The apple is a deciduous tree in the Rose family grown for it's sweet fruit. The apple originated in Central Asia and has spread across the world. There are now over 7,500 cultivars bred for a variety of climates and characteristics. Apples are propagated through grafting because seeds do not breed true.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Bare root tree",
+      "spread": 500,
+      "row_spacing": null,
+      "height": 300,
+      "processing_pictures": 0,
+      "guides_count": 1,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/5939df7401f8790004000005.jpg?1496964975",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "542e99216331360002620300",
+    "attributes": {
+      "name": "Avocado",
+      "slug": "avocado",
+      "binomial_name": "Persea americana",
+      "common_names": ["avocado", "avo", "alligator pear"],
+      "description": "The avocado is a tree native to South Central America that produces large edible berries with rippled green to black skin that are egg or pear-shaped. There are three main groups of avocado: Mexican, Guatemalan, and West Indian, with Mexican avocados being the most cold-tolerant. Avocados are a subtropical species and need a frost-free climate with little wind. They will not produce fruit outside of tropical climates, but they can be grown as evergreen ornamentals. Avocados grown from seed rarely produce fruit because they are only partially self-pollinating. For a fruiting tree, plant a grafted sapling in a subtropical climate.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Grafted sapling",
+      "spread": null,
+      "row_spacing": 600,
+      "height": 2000,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/576b7393fe8d7500030002ea.jpg?1466659729",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "5939f8cff731ad0004000027",
+    "attributes": {
+      "name": "Banana",
+      "slug": "banana",
+      "binomial_name": "Musa spp.",
+      "common_names": ["banana"],
+      "description": "The banana is a tropical perennial herb that produces edible fruits. There are many different species of banana within the Musa genus. Banana trees can be grown outdoors in tropic and subtropical climates, and indoors in northern areas. Bananas like company: plant them in blocks or clumps so they can shelter one another from wind and build humidity. The best bananas will grow towards the middle of the clump. Hot, dry air and temperatures below 0ºC will seriously harm or kill a banana tree.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Rhizome or sucker",
+      "spread": null,
+      "row_spacing": null,
+      "height": 4000,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/5939f8db01f879000400000d.jpg?1496971476",
+      "taxon": "Genus"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "551ddaf53938340003580000",
+    "attributes": {
+      "name": "Carrot",
+      "slug": "carrot",
+      "binomial_name": "Daucus Carota",
+      "common_names": ["Carrot", "Karotte", "Möhre"],
+      "description": "The carrot is a root vegetable. It is usually orange in color, but some cultivars are purple, black, red, white, and yellow. The most commonly eaten part of the plant is the taproot, but the greens are sometimes eaten as well. The leaves appear first, and the taproot grows more slowly beneath the soil. Fast-growing cultivars mature within three months of sowing the seed. Slower-maturing cultivars are harvested four months after sowing.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Direct Seed, thin to 3cm apart when seedlings are 8cm high",
+      "spread": 5,
+      "row_spacing": 5,
+      "height": 10,
+      "processing_pictures": 0,
+      "guides_count": 9,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/58c312395865650004000000.jpg?1489179191",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "59aedf1d9a096e000400000d",
+    "attributes": {
+      "name": "Cayenne Pepper",
+      "slug": "cayenne-pepper",
+      "binomial_name": "Capsicum annuum",
+      "common_names": [
+        "Guinea spice",
+        "cow-horn pepper",
+        "red hot chili pepper",
+        "aleva",
+        "bird pepper",
+        "red pepper"
+      ],
+      "description": "Cayenne peppers are a cultivar of Capsicum annuum. They are members of the nightshade family, Solanaceae, and related to tomatoes and eggplant. The upright plants produce long, thin, red fruit that can be up to 25cm long. Cayenne peppers have a Scoville rating of 30,000 to 50,000 units and are slightly hotter than jalapenos. They are generally dried and ground to make cayenne spice, but they can also be used whole or in a thin, vinegar-based sauce.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Direct seed indoors, transplant seedlings outside after hardening off",
+      "spread": 60,
+      "row_spacing": 45,
+      "height": 90,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/59aedf2e8afacc00040000c4.jpg?1504632618",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "542e999d6331360002290600",
+    "attributes": {
+      "name": "Common Fig",
+      "slug": "common-fig",
+      "binomial_name": "Ficus carica",
+      "common_names": ["common fig", "fig", "higuera"],
+      "description": "The fig is a perennial, flowering, deciduous shrub or small tree in the Mulberry (Moraceae) family. Figs are native to the Middle East and western Asia and are grown for their fruit, which are also known as figs, and as an ornamental plant. In the right climate, they can grow as tall as 10 meters, but they can also be grown in containers and brought indoors in the winter in cooler regions. The plant has smooth white bark, deeply lobed fragrant leaves, and multiple, spreading trunks. Flowers are often pollinated by fig wasps, and develop into 3-5cm long fruit with green skin that, depending on the variety, can ripen to a deep purple. Figs need to ripen fully on the tree before harvest. They are ripe when they droop and are soft to the touch. If they ooze a white sap when they are pulled from the tree, they are not ripe. Fig trees have an aggressive root system that searches for groundwater in aquifers, ravines, and cracks in rocks. Once established, they can tolerate seasonal drought and are affected by few pests. Figs are propagated through cuttings or division, and generally produce fruit the year after planting. In warmer climates, they can produce two crops, one in early summer, and the other in fall.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Cuttings, young tree, or seeds",
+      "spread": 300,
+      "row_spacing": 500,
+      "height": 800,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/59e6995ca4beeb00040000c8.jpg?1508284761",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "54afe37a3166630002961100",
+    "attributes": {
+      "name": "Coriander",
+      "slug": "coriander",
+      "binomial_name": "Coriandrum sativum",
+      "common_names": [
+        "coriander",
+        " collender",
+        " chinese parsley",
+        " coriandro",
+        " cilantro",
+        " cilandrio",
+        " culantro",
+        " curatù",
+        " coriandre",
+        " dhania"
+      ],
+      "description": "Coriander is the English (UK) name for Cilantro. In America, Coriander is used to refer to the dried round seeds of the Cilantro plant, which have a warm, spicy flavor and are used in curries, pickles, sausages, soups, and stews. The essential oil of the seeds is used in herbal remedies and dietary supplements, and to flavor liqueurs, gin, vermouth, tobacco, and perfumes. Cilantro is an annual herb in the Apiaceae family with soft leaves that are broadly lobed at the base of the plant and become slender and feathery higher up the stems. The leaves will be ready to harvest within 50-55 days, the seeds take up to 100 days to mature and then need to be dried.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Direct seed indoors, transplant seedlings outside after hardening off",
+      "spread": 10,
+      "row_spacing": 15,
+      "height": 30,
+      "processing_pictures": 0,
+      "guides_count": 1,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/59d7d7ea2af7270004000004.jpg?1507317736",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "5556e32b65623300032c0000",
+    "attributes": {
+      "name": "Eggplant",
+      "slug": "eggplant",
+      "binomial_name": "Solanum melongena",
+      "common_names": [
+        "Brinjal",
+        "aubergine",
+        "eggplant",
+        "terong",
+        "mad apple",
+        "melongene"
+      ],
+      "description": "Eggplants commonly are egg-shaped with glossy black skin, but can come in a variety of other shapes and colors. They can be white, yellow, and pale to deep purple. Some are as small as goose eggs. The 'Rosa Bianca' cultivar is squat and round, while Asian cultivars can be long and thin. Eggplant stems are often spiny and their flowers range from white to purple. \n\nTheir flesh is generally white with a meaty texture and small seeds in the center. They are delicious grilled, roasted, in soups and stews, and breaded and fried.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Sow seeds indoors and transplant out, or plant nursery seedlings",
+      "spread": 30,
+      "row_spacing": 60,
+      "height": 50,
+      "processing_pictures": 0,
+      "guides_count": 1,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/576b79ddfe8d75000300038a.jpg?1466661339",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "58cee6252c21f1000400002b",
+    "attributes": {
+      "name": "Green Zucchini",
+      "slug": "green-zucchini",
+      "binomial_name": "Cucurbita pepo",
+      "common_names": ["Zucchini", "courgette", "long marrow", "garden marrow"],
+      "description": "Green Griller Zucchini\nAs the name suggests, this variety of zucchini squash is practically made for the grill. Oblong zucchinis are fatter and blockier than other varieties, yielding broad slices that are easy to flip. Fruits grow on a low, open bush, so picking them is a cinch. Leaves boast a green and silver variegated pattern that looks really attractive in the garden. Fruits mature quite quickly!Resistant to Zucchini Yellow Mosaic Virus.  Fruit is 6-7 in long.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Direct seed 2 seeds, thin to 1 plant when seedlings have 2 sets of leaves",
+      "spread": 80,
+      "row_spacing": 90,
+      "height": 45,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/5ec97a6d33654700046739d0.jpg?1590262380",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "551dc1493938340003180000",
+    "attributes": {
+      "name": "Habanero Pepper",
+      "slug": "habanero-pepper",
+      "binomial_name": "Capsicum chinense",
+      "common_names": ["habanero pepper"],
+      "description": "Habaneros are a very hot chili pepper variety that have a rating of 100,000-350,000 Scoville units and a floral aroma. The fruit is green when unripe. Various cultivars turn orange, red, white, brown, yellow, or purple as they ripen. Ripe fruit are typically 2-6 cm long.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Direct seed indoors, transplant seedlings outside after hardening off",
+      "spread": 40,
+      "row_spacing": 45,
+      "height": 50,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/551dc1923732390003690100.jpg?1428013453",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "544c88bd3432630002000000",
+    "attributes": {
+      "name": "Lettuce",
+      "slug": "lettuce",
+      "binomial_name": "Lactuca Sativa",
+      "common_names": null,
+      "description": "Lettuce is a cool weather crop and high temperatures will impede germination and/or cause the plant to bolt (go to seed quickly). Some hybrid cultivars have been bred to be more heat-resistant.",
+      "sun_requirements": "Partial Sun",
+      "sowing_method": "Direct seed outdoors, thin to 20cm when seedlings are 3cm tall",
+      "spread": 15,
+      "row_spacing": 40,
+      "height": 20,
+      "processing_pictures": 0,
+      "guides_count": 8,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/551dcbb23732390003790100.jpg?1428016048",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "576b8b819250090003000090",
+    "attributes": {
+      "name": "Olive",
+      "slug": "olive",
+      "binomial_name": "Olea europaea",
+      "common_names": ["european olive"],
+      "description": "The Olive is an evergreen shrub or tree native to the Mediterranean, Asia, and Africa that is grown for its fruits, which are also known as olives. The plant is short and squat, with a gnarled trunk, rounded crown, oblong silvery green leaves, and shallow roots. Olive trees produce fruit in their third or fourth year from small, white, feathery flowers that bloom on the previous year's wood. There are hundreds of cultivars of olives, most of which are self-sterile and require a secondary cultivar nearby for cross-pollination. Some cultivars are bred for oil production, others for fresh eating. Trees are drought-tolerant and require about 200 hours of temperatures below 10° C to produce flowers. Temperatures below -5.5° C can kill young trees, mature trees cannot survive temperatures below to -9.4° C. Olive fruits are small, oblong drupes 1-2.5 cm long. They are harvested when green to purple and are usually pickled or cured for fresh eating to reduce their bitterness. Olives can be grown in containers and indoors in cooler regions.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Transplant grafted sapling",
+      "spread": 600,
+      "row_spacing": 500,
+      "height": 760,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/576b8b85fe8d750003000430.jpg?1466665857",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "54c7650e6236310003000000",
+    "attributes": {
+      "name": "Potato",
+      "slug": "potato",
+      "binomial_name": "Solanum tuberosum",
+      "common_names": ["Tatie", "Tater", "Spud"],
+      "description": "Potatoes are starchy root vegetables in the Solanaceae, or Nightshade, family, which also includes tomatoes, eggplants, and peppers. They originated in South America, and spread to become a worldwide staple. The leaves and fruit are usually poisonous and the stem tuber is the only edible part once it is cooked. The potato can be cooked in many ways, brewed into alcohol, and also used as the basis for creating bioplastics. More growing information is available in individual species entries.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Direct seed outdoors after last frost. Each piece must have one eye.",
+      "spread": 30,
+      "row_spacing": 90,
+      "height": 60,
+      "processing_pictures": 0,
+      "guides_count": 9,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/551dbd5a3732390003600100.jpg?1428012376",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "542ea23d6331360002071900",
+    "attributes": {
+      "name": "Raspberry",
+      "slug": "raspberry",
+      "binomial_name": "Rubus idaeus",
+      "common_names": ["Cultivated Raspberry"],
+      "description": "Raspberries are a perennial plant with erect to trailing canes that often have spines or thorns. The plants produce fruit in their second year of growth, but some \"primocane\" varieties exist that flower and fruit their first year. Canes are light green to blue in hue with alternate, compound leaves. Fruits are sweet, many-seeded, and hollow.",
+      "sun_requirements": "Partial Sun",
+      "sowing_method": "Transplant from roots or juvenile plants.",
+      "spread": 75,
+      "row_spacing": 200,
+      "height": 150,
+      "processing_pictures": 0,
+      "guides_count": 2,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/551dc30837323900036b0100.jpg?1428013830",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "54f578dc3361300003040000",
+    "attributes": {
+      "name": "Strawberry",
+      "slug": "strawberry",
+      "binomial_name": "Fragaria × ananassa",
+      "common_names": ["Aardbei", "Fraisier", "Erdbeere", "Grandian F1"],
+      "description": "Strawberries are a hybrid species of the genus Fragaria that produce sweet, bright red fruits. \n\nThere are three main types of strawberries: \n\n1) summer-fruiting: produce a single, large crop of fruit the year after planting. To grow, transplant plugs or crowns in early spring in rows spaced at least 120cm apart. Pinch off all flowers the first season and train the plant's runners, pressing them into the soil 15-22cm apart from the mother plant. Mulch with straw or pine needles in the fall when the plants have died back. When the plants start to grow back in the spring, move the mulch aside. After harvest the second season, set a lawnmower to about 10cm high and mow, being sure not to damage crowns.\n\n The other two types are \n\n2) Ever-bearing and 3) Day Neutral, both of which send out less runners and bear several crops of smaller fruit throughout the season. These two types can be grown using raised beds about 20cm high and 60cm wide. Transplant crowns or plugs in staggered double rows, about 30cm apart. Remove runners and flowers until July of the first year to give the roots time to develop, and then allow plants to produce fruit. All types of strawberries begin to produce fewer and less sweet fruit once they are two years or older. Because strawberries are a hybrid, seeds will not breed true. Strawberries are predominantly propagated using bare root plugs or crowns or dividing runners. Make sure not to bury the crown when transplanting plugs.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Transplant bare root plants/plugs or divide runners",
+      "spread": 30,
+      "row_spacing": 35,
+      "height": 30,
+      "processing_pictures": 0,
+      "guides_count": 6,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/551dc6103732390003730100.jpg?1428014606",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "543c216c3938620002020000",
+    "attributes": {
+      "name": "Thai Basil",
+      "slug": "thai-basil",
+      "binomial_name": "Ocimum basilicum",
+      "common_names": null,
+      "description": "Fragrant and delicious herb with tender green leaves. Great in just about anything - salad, sauces, meat marinades, and even popcorn.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Plant seeds under 1cm of soil in starting pots. Keep the plants indoors or transplant them outdoors in late spring.",
+      "spread": 30,
+      "row_spacing": 30,
+      "height": 45,
+      "processing_pictures": 0,
+      "guides_count": 10,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/55a9cd0c36303100030a0100.jpg?1437191423",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "58e32ad1ac2994000400007d",
+    "attributes": {
+      "name": "Thyme",
+      "slug": "thyme",
+      "binomial_name": "Thymus vulgaris",
+      "common_names": ["Thyme"],
+      "description": "Thyme is a perennial evergreen herb in the Lamiaceae (Mint) family. It is related to Oregano. Thyme is cold-hardy to -28.8 °C and a perennial in US Hardiness zones 5-8. Thyme can live for 5-6 years but needs to be divided or replaced after 3-4 years. It can be used fresh or dried to season dishes.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Transplant cuttings or seedlings or direct seed indoors",
+      "spread": 15,
+      "row_spacing": 30,
+      "height": 25,
+      "processing_pictures": 0,
+      "guides_count": 0,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/58e32ad6ca5bf60004000164.jpg?1491282642",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "54bda00e3961370003150400",
+    "attributes": {
+      "name": "Tiny Tim Tomato",
+      "slug": "tiny-tim-tomato",
+      "binomial_name": "Solanum lycopersicum",
+      "common_names": ["Tomato", "Tomate"],
+      "description": "The tomato is the fruit of the tomato plant, a member of the Nightshade family (Solanaceae). The fruit grows on a small compact bush.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Direct seed indoors, transplant seedlings outside after hardening off",
+      "spread": 45,
+      "row_spacing": 45,
+      "height": 45,
+      "processing_pictures": 0,
+      "guides_count": 37,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/5dc3618ef2c1020004f936e4.jpg?1573085580",
+      "taxon": "Species"
+    }
+  },
+  {
+    "type": "crops",
+    "id": "543998a83162320002000000",
+    "attributes": {
+      "name": "UF Micro Tom Tomato",
+      "slug": "uf-micro-tom-tomato",
+      "binomial_name": "Solanum lycopersicum var. cerasiforme",
+      "common_names": [],
+      "description": "Cherry tomatoes range in size from a thumbtip to the size of a golf ball. Their shape ranges from spherical to slightly oblong to pointed at the bottom. They are often red, but can also be yellow, green, striped, and even black. More oblong cherry tomatoes often share characteristics with plum tomatoes, and are known as grape tomatoes. Cherry tomatoes can be quite sweet (such as the Sungold or Sunsweet yellow varieties), more traditionally acidic, or deep in flavor. They are delicious for snacking, in salads, lightly roasted or grilled, or baked. They require little to no pruning unlike larger tomato plants.",
+      "sun_requirements": "Full Sun",
+      "sowing_method": "Sow seeds indoors 6-8 weeks before the last expected frost",
+      "spread": 45,
+      "row_spacing": 60,
+      "height": 60,
+      "processing_pictures": 0,
+      "guides_count": 14,
+      "main_image_path": "https://s3.amazonaws.com/openfarm-project/production/media/pictures/attachments/57073ec74a3af70003000009.jpg?1460092612",
+      "taxon": "Species"
+    }
+  }
+]
