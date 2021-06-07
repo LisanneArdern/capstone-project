@@ -10,6 +10,6 @@ const Template = args => <CropItem {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
-  name: 'Test1',
+  name: 'Potato',
   image: image,
 }
