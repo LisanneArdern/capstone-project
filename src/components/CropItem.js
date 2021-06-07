@@ -12,10 +12,15 @@ export default function CropItem({ name, image }) {
 const Wrapper = styled.section`
   display: flex;
   gap: 16px;
+  margin: 10px;
 
   img {
     width: 100px;
     height: auto;
     border-radius: 8px;
+  }
+
+  h2 {
+    font-weight: 300;
   }
 `
