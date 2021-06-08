@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import Button from './Button'
 
 CropItem.propTypes = {
   name: PropTypes.string,
@@ -15,10 +16,12 @@ export default function CropItem({ name, image }) {
   )
 }
 
-const Wrapper = styled.section`
+const Wrapper = styled(Button)`
   display: flex;
+  align-items: center;
   gap: 16px;
-  margin: 10px;
+  font-size: 1rem;
+  padding-left: 0.5em;
 
   img {
     width: 100px;
