@@ -1,4 +1,14 @@
 import styled from 'styled-components/macro'
+import PropTypes from 'prop-types'
+
+DetailedView.propTypes = {
+  name: PropTypes.string,
+  botanicalName: PropTypes.string,
+  sun: PropTypes.string,
+  spread: PropTypes.string,
+  rowSpace: PropTypes.string,
+  details: PropTypes.string,
+}
 
 export default function DetailedView({
   name,
