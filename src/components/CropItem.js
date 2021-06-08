@@ -20,8 +20,9 @@ const Wrapper = styled(Button)`
   display: flex;
   align-items: center;
   gap: 16px;
-  font-size: 1rem;
+  font-size: 1.5rem;
   padding-left: 0.5em;
+  border-color: transparent;
 
   img {
     width: 100px;
