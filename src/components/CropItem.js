@@ -9,20 +9,27 @@ CropItem.propTypes = {
 
 export default function CropItem({ name, image }) {
   return (
-    <Wrapper>
-      <img src={image} alt="" />
-      <h2>{name}</h2>
-    </Wrapper>
+    <Container>
+      <CropButton>
+        <img src={image} alt="" />
+        <h2>{name}</h2>
+      </CropButton>
+    </Container>
   )
 }
 
-const Wrapper = styled(Button)`
+const Container = styled.div`
+  padding: 10px;
+`
+
+const CropButton = styled(Button)`
   display: flex;
   align-items: center;
   gap: 16px;
   font-size: 1.5rem;
   padding-left: 0.5em;
-  border-color: transparent;
+  border-color: #707070;
+  width: 100%;
 
   img {
     width: 100px;
@@ -34,5 +41,8 @@ const Wrapper = styled(Button)`
   h2 {
     font-size: 1em;
     font-weight: 300;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
   }
 `
