@@ -1,11 +1,16 @@
+import { render, screen } from '@testing-library/react'
+import DetailedView from './DetailedView'
 
-  import{render, screen} from '@testing-library/react'
-  import DetailedView from './{name}'
-  
-  describe ('DetailedView', () => {
-    it('renders', () => {
-      render(<DetailedView />)
-      expect(screen.getByText('DetailedView')).toBeInTheDocument()
-    })
-  }) 
-  
+describe('DetailedView', () => {
+  it('renders the name as a heading', () => {
+    render(<DetailedView name="Strawberry" />)
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+      'Strawberry'
+    )
+  })
+
+  it('renders 3 listitems', () => {
+    render(<DetailedView />)
+    expect(screen.getAllByRole('listitem')).toHaveLength(3)
+  })
+})
