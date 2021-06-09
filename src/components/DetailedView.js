@@ -11,6 +11,7 @@ DetailedView.propTypes = {
 }
 
 export default function DetailedView({
+  image,
   name,
   botanicalName,
   sun,
@@ -20,6 +21,7 @@ export default function DetailedView({
 }) {
   return (
     <Wrapper>
+      <img src={image} alt="" />
       <h2>{name}</h2>
       <dl>
         <dt>Botanical Name:</dt>
