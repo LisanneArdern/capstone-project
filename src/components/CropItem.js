@@ -5,12 +5,13 @@ import Button from './Button'
 CropItem.propTypes = {
   name: PropTypes.string,
   image: PropTypes.node,
+  onClick: PropTypes.func.isRequired,
 }
 
-export default function CropItem({ name, image }) {
+export default function CropItem({ onClick, name, image }) {
   return (
     <Container>
-      <CropButton>
+      <CropButton onClick={onClick}>
         <img src={image} alt="" />
         <h2>{name}</h2>
       </CropButton>
