@@ -1,19 +1,29 @@
-import CropItem from './components/CropItem'
 import crops from './data.json'
+import { useState } from 'react'
+import CropListPage from './pages/CropListPage'
+import CropDetailsPage from './pages/CropDetailsPage'
 
 export default function App() {
+  const [activePage, setActivePage] = useState('croplist')
+  const [detailedCrop, setDetailedCrop] = useState()
   return (
-    <div>
-      {crops.map(crop => {
-        const { id, attributes } = crop
-        return (
-          <CropItem
-            key={id}
-            name={attributes.name}
-            image={attributes.main_image_path}
-          />
-        )
-      })}
-    </div>
+    <>
+      {activePage === 'croplist' && (
+        <CropListPage onNavigate={handleClickDetails} crops={crops} />
+      )}
+
+      {activePage === 'cropdetails' && (
+        <CropDetailsPage crop={detailedCrop} onNavigate={handleClickBack} />
+      )}
+    </>
   )
+
+  function handleClickDetails(id) {
+    setDetailedCrop(crops.find(crop => crop.id === id))
+    setActivePage('cropdetails')
+  }
+
+  function handleClickBack() {
+    setActivePage('croplist')
+  }
 }
