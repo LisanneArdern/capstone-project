@@ -13,7 +13,7 @@ export default function App() {
       )}
 
       {activePage === 'cropdetails' && (
-        <CropDetailsPage crop={detailedCrop} onNavigate={handleClickBack} />
+        <CropDetailsPage onNavigate={handleClickBack} crop={detailedCrop} />
       )}
     </>
   )

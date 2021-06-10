@@ -14,7 +14,7 @@ export default function CropListPage({ crops, onNavigate }) {
           key={id}
           name={attributes.name}
           image={attributes.main_image_path}
-          onClick={onNavigate}
+          onClick={() => onNavigate(id)}
         />
       ))}
     </div>
