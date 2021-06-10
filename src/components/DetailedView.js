@@ -2,11 +2,12 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 DetailedView.propTypes = {
+  image: PropTypes.node,
   name: PropTypes.string,
   botanicalName: PropTypes.string,
   sun: PropTypes.string,
-  spread: PropTypes.string,
-  rowSpace: PropTypes.string,
+  spread: PropTypes.number,
+  rowSpace: PropTypes.number,
   details: PropTypes.string,
 }
 

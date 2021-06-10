@@ -9,8 +9,15 @@ describe('DetailedView', () => {
     )
   })
 
-  it('renders 3 listitems', () => {
+  it('renders image', () => {
     render(<DetailedView />)
-    expect(screen.getAllByRole('listitem')).toHaveLength(3)
+    expect(screen.getByRole('img')).toBeInTheDocument()
+  })
+
+  it('renders botanical name, sun requirement and details', () => {
+    render(<DetailedView botanicalName="Malus" sun="Full sun" details="Text" />)
+    expect(screen.getByText('Malus')).toBeInTheDocument()
+    expect(screen.getByText('Full sun')).toBeInTheDocument()
+    expect(screen.getByText('Text')).toBeInTheDocument()
   })
 })
