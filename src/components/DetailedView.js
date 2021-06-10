@@ -31,21 +31,20 @@ export default function DetailedView({
         </dl>
         <QuickGuide>
           <h3>Quick Guide</h3>
-          <ul>
-            <li>{sun}</li>
-            <li>
-              <dl>
-                <dt>Spread</dt>
-                <dd>{spread}</dd>
-              </dl>
-            </li>
-            <li>
-              <dl>
-                <dt>Row Space</dt>
-                <dd>{rowSpace}</dd>
-              </dl>
-            </li>
-          </ul>
+          <dl>
+            <div>
+              <dt>Need of sun</dt>
+              <dd>{sun}</dd>
+            </div>
+            <div>
+              <dt>Spread</dt>
+              <dd>{spread} cm</dd>
+            </div>
+            <div>
+              <dt>Row Space</dt>
+              <dd>{rowSpace} cm</dd>
+            </div>
+          </dl>
         </QuickGuide>
         <h3>Details</h3>
         <p>{details}</p>
@@ -74,21 +73,17 @@ const Information = styled.section`
   }
 `
 const QuickGuide = styled.section`
-  ul {
-    list-style-type: none;
-    display: flex;
-    justify-content: space-evenly;
-    gap: 10px;
-  }
-
-  li {
-    border: 1px black solid;
-    border-radius: 0.12em;
-    padding: 0.5em;
-  }
-
   dl {
     display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+
+    gap: 0px 15px;
+  }
+
+  div {
+    padding: 0.5em;
+    border: 1px solid black;
+    border-radius: 8px;
   }
   dt {
     padding: 0;

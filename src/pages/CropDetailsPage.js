@@ -27,4 +27,6 @@ export default function CropDetailsPage({ onNavigate, crop }) {
 }
 const BackButton = styled(Button)`
   position: fixed;
+  padding: 15px 25px;
+  z-index: 1;
 `
