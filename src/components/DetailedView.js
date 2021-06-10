@@ -22,36 +22,53 @@ export default function DetailedView({
   return (
     <Wrapper>
       <img src={image} alt="" />
-      <h2>{name}</h2>
-      <dl>
-        <dt>Botanical Name:</dt>
-        <dd>{botanicalName}</dd>
-      </dl>
-      <QuickGuide>
-        <h3>Quick Guide</h3>
-        <ul>
-          <li>{sun}</li>
-          <li>
-            <dl>
-              <dt>Spread</dt>
-              <dd>{spread}</dd>
-            </dl>
-          </li>
-          <li>
-            <dl>
-              <dt>Row Space</dt>
-              <dd>{rowSpace}</dd>
-            </dl>
-          </li>
-        </ul>
-      </QuickGuide>
-      <h3>Details</h3>
-      <p>{details}</p>
+
+      <Information>
+        <h2>{name}</h2>
+        <dl>
+          <dt>Botanical Name:</dt>
+          <dd>{botanicalName}</dd>
+        </dl>
+        <QuickGuide>
+          <h3>Quick Guide</h3>
+          <ul>
+            <li>{sun}</li>
+            <li>
+              <dl>
+                <dt>Spread</dt>
+                <dd>{spread}</dd>
+              </dl>
+            </li>
+            <li>
+              <dl>
+                <dt>Row Space</dt>
+                <dd>{rowSpace}</dd>
+              </dl>
+            </li>
+          </ul>
+        </QuickGuide>
+        <h3>Details</h3>
+        <p>{details}</p>
+      </Information>
     </Wrapper>
   )
 }
 
 const Wrapper = styled.section`
+  img {
+    width: 100%;
+    height: auto;
+    position: sticky;
+    top: 0;
+    z-index: -1;
+  }
+`
+
+const Information = styled.section`
+  background: white;
+  padding: 10px;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
   dl {
     display: flex;
   }

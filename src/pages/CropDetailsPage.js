@@ -1,6 +1,7 @@
 import Button from '../components/Button'
 import DetailedView from '../components/DetailedView'
 import PropTypes from 'prop-types'
+import styled from 'styled-components/macro'
 
 CropDetailsPage.propTypes = {
   crop: PropTypes.object,
@@ -11,7 +12,7 @@ export default function CropDetailsPage({ onNavigate, crop }) {
   const { attributes } = crop
   return (
     <div>
-      <Button onClick={onNavigate}>&lt; back</Button>
+      <BackButton onClick={onNavigate}>&lt; back</BackButton>
       <DetailedView
         image={attributes.main_image_path}
         name={attributes.name}
@@ -24,3 +25,6 @@ export default function CropDetailsPage({ onNavigate, crop }) {
     </div>
   )
 }
+const BackButton = styled(Button)`
+  position: fixed;
+`
