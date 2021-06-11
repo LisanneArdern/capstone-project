@@ -1,11 +1,29 @@
+import { render, screen } from '@testing-library/react'
+import userEvent from '@testing-library/user-event'
+import CropDetailsPage from './CropDetailsPage'
 
-  import{render, screen} from '@testing-library/react'
-  import CropPage from './{name}'
-  
-  describe ('CropPage', () => {
-    it('renders', () => {
-      render(<CropPage />)
-      expect(screen.getByText('CropPage')).toBeInTheDocument()
-    })
-  }) 
-  
+describe('CropDetailsPage', () => {
+  it('calls onNavigate when clicking on back', () => {
+    const handleClickBack = jest.fn()
+    render(
+      <CropDetailsPage
+        onNavigate={handleClickBack}
+        crop={{
+          attributes: {
+            main_image_path: 'image',
+            name: 'Banana',
+            binomial_name: 'Botanic name',
+            sun_requirements: 'Full sun',
+            spread: 90,
+            row_spacing: 40,
+            description: 'Detail text',
+          },
+        }}
+      />
+    )
+
+    const Button = screen.getByRole('button')
+    userEvent.click(Button)
+    expect(handleClickBack).toHaveBeenCalled()
+  })
+})
