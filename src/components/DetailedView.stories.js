@@ -1,4 +1,6 @@
 import DetailedView from './DetailedView'
+import image from './test-image.jpg'
+
 export default {
   title: 'DetailedView',
   component: DetailedView,
@@ -8,6 +10,7 @@ const Template = args => <DetailedView {...args} />
 
 export const Default = Template.bind({})
 Default.args = {
+  image: image,
   name: 'Potato',
   botanicalName: 'Solanum tuberosum',
   sun: 'Full sun',

@@ -2,13 +2,13 @@ import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
 
 DetailedView.propTypes = {
-  image: PropTypes.node,
-  name: PropTypes.string,
-  botanicalName: PropTypes.string,
-  sun: PropTypes.string,
-  spread: PropTypes.number,
-  rowSpace: PropTypes.number,
-  details: PropTypes.string,
+  image: PropTypes.node.isRequired,
+  name: PropTypes.string.isRequired,
+  botanicalName: PropTypes.string.isRequired,
+  sun: PropTypes.string.isRequired,
+  spread: PropTypes.number.isRequired,
+  rowSpace: PropTypes.number.isRequired,
+  details: PropTypes.string.isRequired,
 }
 
 export default function DetailedView({
@@ -64,7 +64,7 @@ const Wrapper = styled.section`
   }
 `
 
-const Information = styled.section`
+const Information = styled.div`
   background: white;
   padding: 10px;
   border-top-left-radius: 10px;
@@ -73,7 +73,7 @@ const Information = styled.section`
     display: flex;
   }
 `
-const QuickGuide = styled.section`
+const QuickGuide = styled.div`
   dl {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;

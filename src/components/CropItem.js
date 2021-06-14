@@ -10,35 +10,25 @@ CropItem.propTypes = {
 
 export default function CropItem({ onClick, name, image }) {
   return (
-    <Container>
-      <CropButton onClick={onClick}>
-        <img src={image} alt="" />
+    <Wrapper>
+      <img src={image} alt="" />
+      <div>
         <h2>{name}</h2>
-      </CropButton>
-    </Container>
+        <CropButton onClick={onClick}>Show more details</CropButton>
+      </div>
+    </Wrapper>
   )
 }
-
-const Container = styled.div`
-  padding: 10px;
-`
-
-const CropButton = styled(Button)`
+const Wrapper = styled.section`
   display: flex;
-  align-items: center;
   gap: 16px;
-  font-size: 1.5rem;
-  padding-left: 0.5em;
-  border-color: #707070;
-  width: 100%;
-
+  margin: 10px;
   img {
     width: 100px;
     height: auto;
     max-height: 75px;
     border-radius: 8px;
   }
-
   h2 {
     font-size: 1em;
     font-weight: 300;
@@ -46,4 +36,8 @@ const CropButton = styled(Button)`
     overflow: hidden;
     text-overflow: ellipsis;
   }
+`
+
+const CropButton = styled(Button)`
+  border-color: #707070;
 `

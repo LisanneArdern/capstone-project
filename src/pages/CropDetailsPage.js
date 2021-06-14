@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 
 CropDetailsPage.propTypes = {
-  crop: PropTypes.object,
+  crop: PropTypes.object.isRequired,
   onNavigate: PropTypes.func.isRequired,
 }
 

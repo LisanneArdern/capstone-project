@@ -5,7 +5,7 @@ import CropDetailsPage from './pages/CropDetailsPage'
 
 export default function App() {
   const [activePage, setActivePage] = useState('croplist')
-  const [detailedCrop, setDetailedCrop] = useState()
+  const [detailedCrop, setDetailedCrop] = useState({})
   return (
     <>
       {activePage === 'croplist' && (

@@ -22,8 +22,8 @@ describe('CropDetailsPage', () => {
       />
     )
 
-    const Button = screen.getByRole('button')
-    userEvent.click(Button)
+    const button = screen.getByRole('button')
+    userEvent.click(button)
     expect(handleClickBack).toHaveBeenCalled()
   })
 })
