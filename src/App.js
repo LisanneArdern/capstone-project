@@ -2,6 +2,7 @@ import crops from './data.json'
 import { useState } from 'react'
 import CropListPage from './pages/CropListPage'
 import CropDetailsPage from './pages/CropDetailsPage'
+import MyGardenPage from './pages/MyGardenPage'
 
 export default function App() {
   const [activePage, setActivePage] = useState('croplist')
@@ -13,8 +14,14 @@ export default function App() {
       )}
 
       {activePage === 'cropdetails' && (
-        <CropDetailsPage onNavigate={handleClickBack} crop={detailedCrop} />
+        <CropDetailsPage
+          onNavigate={handleClickList}
+          crop={detailedCrop}
+          onSaveCrop={handleClickMyGarden}
+        />
       )}
+
+      {activePage === 'garden' && <MyGardenPage onNavigate={handleClickList} />}
     </>
   )
 
@@ -23,7 +30,11 @@ export default function App() {
     setActivePage('cropdetails')
   }
 
-  function handleClickBack() {
+  function handleClickList() {
     setActivePage('croplist')
+  }
+
+  function handleClickMyGarden() {
+    setActivePage('garden')
   }
 }

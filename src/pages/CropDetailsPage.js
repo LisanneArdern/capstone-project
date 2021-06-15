@@ -8,7 +8,7 @@ CropDetailsPage.propTypes = {
   onNavigate: PropTypes.func.isRequired,
 }
 
-export default function CropDetailsPage({ onNavigate, crop }) {
+export default function CropDetailsPage({ onNavigate, crop, onSaveCrop }) {
   const { attributes } = crop
   return (
     <div>
@@ -21,6 +21,7 @@ export default function CropDetailsPage({ onNavigate, crop }) {
         spread={attributes.spread}
         rowSpace={attributes.row_spacing}
         details={attributes.description}
+        onClick={onSaveCrop}
       />
     </div>
   )

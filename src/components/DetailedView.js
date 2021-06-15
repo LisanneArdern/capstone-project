@@ -1,5 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
+import Button from './Button'
 
 DetailedView.propTypes = {
   image: PropTypes.node.isRequired,
@@ -19,6 +20,7 @@ export default function DetailedView({
   spread,
   rowSpace,
   details,
+  onClick,
 }) {
   return (
     <Wrapper>
@@ -30,6 +32,9 @@ export default function DetailedView({
           <dt>Botanical Name:</dt>
           <dd>{botanicalName}</dd>
         </dl>
+
+        <Button onClick={onClick}>Add to My Garden</Button>
+
         <QuickGuide>
           <h3>Quick Guide</h3>
           <dl>
