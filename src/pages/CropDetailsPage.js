@@ -8,11 +8,16 @@ CropDetailsPage.propTypes = {
   onNavigate: PropTypes.func.isRequired,
 }
 
-export default function CropDetailsPage({ onNavigate, crop, onSaveCrop }) {
-  const { attributes } = crop
+export default function CropDetailsPage({
+  onClickList,
+  crop,
+  isFavorite,
+  onToggleFavorite,
+}) {
+  const { id, attributes } = crop
   return (
     <div>
-      <BackButton onClick={onNavigate}>&lt; back</BackButton>
+      <BackButton onClick={onClickList}>&lt; back</BackButton>
       <DetailedView
         image={attributes.main_image_path}
         name={attributes.name}
@@ -21,7 +26,9 @@ export default function CropDetailsPage({ onNavigate, crop, onSaveCrop }) {
         spread={attributes.spread}
         rowSpace={attributes.row_spacing}
         details={attributes.description}
-        onClick={onSaveCrop}
+        onClick={isFavorite}
+        onToggleFavorite={() => onToggleFavorite(id)}
+        // id={id}
       />
     </div>
   )

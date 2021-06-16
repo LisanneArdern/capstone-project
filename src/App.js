@@ -7,26 +7,40 @@ import MyGardenPage from './pages/MyGardenPage'
 export default function App() {
   const [activePage, setActivePage] = useState('croplist')
   const [detailedCrop, setDetailedCrop] = useState({})
+  const [favoriteCrops, setFavoriteCrops] = useState([])
+  const [isFavorite, setIsFavorite] = useState(false)
   return (
     <>
       {activePage === 'croplist' && (
-        <CropListPage onNavigate={handleClickDetails} crops={crops} />
+        <CropListPage
+          onClickDetails={handleClickDetails}
+          crops={crops}
+          onClickFavorites={handleClickFavorites}
+        />
       )}
 
       {activePage === 'cropdetails' && (
         <CropDetailsPage
-          onNavigate={handleClickList}
+          onClickList={handleClickList}
           crop={detailedCrop}
-          onSaveCrop={handleClickMyGarden}
+          onToggleFavorite={handleToggleFavorite}
+          isFavorite={isFavorite}
         />
       )}
 
-      {activePage === 'garden' && <MyGardenPage onNavigate={handleClickList} />}
+      {activePage === 'favorite' && (
+        <MyGardenPage
+          favoriteCrops={favoriteCrops}
+          onClickDetails={handleClickDetails}
+          onClickList={handleClickList}
+        />
+      )}
     </>
   )
 
   function handleClickDetails(id) {
     setDetailedCrop(crops.find(crop => crop.id === id))
+    setIsFavorite(favoriteCrops.some(crop => crop.id === id))
     setActivePage('cropdetails')
   }
 
@@ -34,7 +48,26 @@ export default function App() {
     setActivePage('croplist')
   }
 
-  function handleClickMyGarden() {
-    setActivePage('garden')
+  function handleClickFavorites() {
+    setActivePage('favorite')
+  }
+
+  function handleToggleFavorite(id) {
+    if (favoriteCrops.some(crop => crop.id === id)) {
+      handleRemoveFavorite(id)
+    } else {
+      handleAddFavorite(id)
+    }
+    setIsFavorite(!isFavorite)
+  }
+
+  function handleAddFavorite(id) {
+    console.log(id)
+    console.log({ ...crops.find(crop => crop.id === id), isFavorite: true })
+    setFavoriteCrops([crops.find(crop => crop.id === id), ...favoriteCrops])
+  }
+
+  function handleRemoveFavorite(id) {
+    setFavoriteCrops(favoriteCrops.filter(crop => crop.id !== id))
   }
 }

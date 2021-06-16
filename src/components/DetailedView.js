@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import Button from './Button'
+import ButtonFavorite from './ButtonFavorite'
 
 DetailedView.propTypes = {
   image: PropTypes.node.isRequired,
@@ -20,7 +20,9 @@ export default function DetailedView({
   spread,
   rowSpace,
   details,
-  onClick,
+  id,
+  onToggleFavorite,
+  isFavorite,
 }) {
   return (
     <Wrapper>
@@ -33,7 +35,11 @@ export default function DetailedView({
           <dd>{botanicalName}</dd>
         </dl>
 
-        <Button onClick={onClick}>Add to My Garden</Button>
+        <ButtonFavorite
+          id={id}
+          onToggleFavorite={onToggleFavorite}
+          isFavorite={isFavorite}
+        />
 
         <QuickGuide>
           <h3>Quick Guide</h3>
