@@ -12,7 +12,7 @@ DetailedView.propTypes = {
   details: PropTypes.string.isRequired,
 }
 
-export default function DetailedView({ crop, onToggleFavorite, isFavorite }) {
+export default function DetailedView({ crop, onToggleFavorite, favoriteId }) {
   const {
     id,
     attributes: {
@@ -25,6 +25,10 @@ export default function DetailedView({ crop, onToggleFavorite, isFavorite }) {
       description: details,
     },
   } = crop
+
+  const isFavorite = favoriteId.find(favoriteId => favoriteId === id)
+    ? true
+    : false
   return (
     <Wrapper>
       <img src={image} alt="" />
