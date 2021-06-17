@@ -1,3 +1,4 @@
+import styled from 'styled-components/macro'
 import CropItem from '../components/CropItem'
 import PropTypes from 'prop-types'
 import Button from '../components/Button'
@@ -13,17 +14,29 @@ export default function CropListPage({
   onClickFavorites,
 }) {
   return (
-    <div>
-      {crops.map(({ id, attributes }) => (
-        <CropItem
-          key={id}
-          name={attributes.name}
-          image={attributes.main_image_path}
-          onClick={() => onClickDetails(id)}
-        />
-      ))}
+    <Wrapper>
+      <Container>
+        {crops.map(({ id, attributes }) => (
+          <CropItem
+            key={id}
+            name={attributes.name}
+            image={attributes.main_image_path}
+            onClick={() => onClickDetails(id)}
+          />
+        ))}
+      </Container>
 
-      <Button onClick={onClickFavorites}>Favorites</Button>
-    </div>
+      <Button onClick={onClickFavorites}>My Garden</Button>
+    </Wrapper>
   )
 }
+
+const Wrapper = styled.div`
+  display: grid;
+  grid-template-rows: auto 48px;
+  height: 100vh;
+`
+
+const Container = styled.div`
+  overflow-y: scroll;
+`
