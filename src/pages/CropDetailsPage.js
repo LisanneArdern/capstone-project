@@ -11,24 +11,16 @@ CropDetailsPage.propTypes = {
 export default function CropDetailsPage({
   onClickList,
   crop,
-  isFavorite,
+  favoriteId,
   onToggleFavorite,
 }) {
-  const { id, attributes } = crop
   return (
     <div>
       <BackButton onClick={onClickList}>&lt; back</BackButton>
       <DetailedView
-        image={attributes.main_image_path}
-        name={attributes.name}
-        botanicalName={attributes.binomial_name}
-        sun={attributes.sun_requirements}
-        spread={attributes.spread}
-        rowSpace={attributes.row_spacing}
-        details={attributes.description}
-        onClick={isFavorite}
-        onToggleFavorite={() => onToggleFavorite(id)}
-        // id={id}
+        crop={crop}
+        favoriteId={favoriteId}
+        onToggleFavorite={onToggleFavorite}
       />
     </div>
   )
