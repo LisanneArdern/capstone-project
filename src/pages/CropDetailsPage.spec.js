@@ -34,7 +34,7 @@ describe('CropDetailsPage', () => {
     expect(handleToggleFavorite).toHaveBeenCalled()
   })
 
-  it('renders crop details: name as a heading, image', () => {
+  it('renders crop details', () => {
     const handleClickBack = jest.fn()
     const handleToggleFavorite = jest.fn()
     render(
