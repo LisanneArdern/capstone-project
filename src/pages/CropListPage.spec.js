@@ -7,6 +7,7 @@ describe('CropListPage', () => {
     render(
       <CropListPage
         onClickDetails={jest.fn()}
+        onClickFavorites={jest.fn()}
         crops={[
           {
             id: 1,
