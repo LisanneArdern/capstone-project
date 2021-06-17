@@ -5,7 +5,6 @@ import styled from 'styled-components/macro'
 
 CropDetailsPage.propTypes = {
   crop: PropTypes.object.isRequired,
-  onNavigate: PropTypes.func.isRequired,
 }
 
 export default function CropDetailsPage({
