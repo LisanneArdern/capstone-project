@@ -1,7 +1,15 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
+
+MyGardenPage.propTypes = {
+  crops: PropTypes.array.isRequired,
+  onClickDetails: PropTypes.func.isRequired,
+  onClickList: PropTypes.func.isRequired,
+  favoriteIds: PropTypes.array,
+}
 
 export default function MyGardenPage({
   crops,
