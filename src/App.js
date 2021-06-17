@@ -7,8 +7,8 @@ import MyGardenPage from './pages/MyGardenPage'
 export default function App() {
   const [activePage, setActivePage] = useState('croplist')
   const [detailedCrop, setDetailedCrop] = useState({})
-  const [favoriteCrops, setFavoriteCrops] = useState([])
-  const [isFavorite, setIsFavorite] = useState(false)
+  const [favoriteId, setFavoriteId] = useState([])
+
   return (
     <>
       {activePage === 'croplist' && (
@@ -24,13 +24,14 @@ export default function App() {
           onClickList={handleClickList}
           crop={detailedCrop}
           onToggleFavorite={handleToggleFavorite}
-          isFavorite={isFavorite}
+          favoriteId={favoriteId}
         />
       )}
 
       {activePage === 'favorite' && (
         <MyGardenPage
-          favoriteCrops={favoriteCrops}
+          crops={crops}
+          favoriteId={favoriteId}
           onClickDetails={handleClickDetails}
           onClickList={handleClickList}
         />
@@ -40,7 +41,6 @@ export default function App() {
 
   function handleClickDetails(id) {
     setDetailedCrop(crops.find(crop => crop.id === id))
-    setIsFavorite(favoriteCrops.some(crop => crop.id === id))
     setActivePage('cropdetails')
   }
 
@@ -53,21 +53,15 @@ export default function App() {
   }
 
   function handleToggleFavorite(id) {
-    if (favoriteCrops.some(crop => crop.id === id)) {
-      handleRemoveFavorite(id)
+    let newFavoriteId
+
+    if (favoriteId.some(crop => crop.id === id)) {
+      newFavoriteId = favoriteId.filter(crop => crop.id !== id)
     } else {
-      handleAddFavorite(id)
+      newFavoriteId = [crops.find(crop => crop.id === id), ...favoriteId]
     }
-    setIsFavorite(!isFavorite)
-  }
-
-  function handleAddFavorite(id) {
-    console.log(id)
-    console.log({ ...crops.find(crop => crop.id === id), isFavorite: true })
-    setFavoriteCrops([crops.find(crop => crop.id === id), ...favoriteCrops])
-  }
-
-  function handleRemoveFavorite(id) {
-    setFavoriteCrops(favoriteCrops.filter(crop => crop.id !== id))
+    console.log(crops)
+    console.log(newFavoriteId.map(({ id }) => id))
+    setFavoriteId(newFavoriteId.map(({ id }) => id))
   }
 }
