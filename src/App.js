@@ -1,7 +1,7 @@
-import crops from './data.json'
 import { useState } from 'react'
-import CropListPage from './pages/CropListPage'
+import crops from './data.json'
 import CropDetailsPage from './pages/CropDetailsPage'
+import CropListPage from './pages/CropListPage'
 import MyGardenPage from './pages/MyGardenPage'
 
 export default function App() {

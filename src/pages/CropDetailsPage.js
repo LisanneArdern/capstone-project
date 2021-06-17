@@ -1,6 +1,6 @@
-import Button from '../components/Button'
 import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+import Button from '../components/Button'
 
 CropDetailsPage.propTypes = {
   crop: PropTypes.object.isRequired,
