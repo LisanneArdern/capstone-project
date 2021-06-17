@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import ButtonFavorite from './ButtonFavorite'
+import Button from './Button'
 
 DetailedView.propTypes = {
   image: PropTypes.node.isRequired,
@@ -12,18 +12,19 @@ DetailedView.propTypes = {
   details: PropTypes.string.isRequired,
 }
 
-export default function DetailedView({
-  image,
-  name,
-  botanicalName,
-  sun,
-  spread,
-  rowSpace,
-  details,
-  id,
-  onToggleFavorite,
-  isFavorite,
-}) {
+export default function DetailedView({ crop, onToggleFavorite, isFavorite }) {
+  const {
+    id,
+    attributes: {
+      main_image_path: image,
+      name,
+      binomial_name: botanicalName,
+      sun_requirements: sun,
+      spread,
+      row_spacing: rowSpace,
+      description: details,
+    },
+  } = crop
   return (
     <Wrapper>
       <img src={image} alt="" />
@@ -35,11 +36,9 @@ export default function DetailedView({
           <dd>{botanicalName}</dd>
         </dl>
 
-        <ButtonFavorite
-          id={id}
-          onToggleFavorite={onToggleFavorite}
-          isFavorite={isFavorite}
-        />
+        <Button onClick={() => onToggleFavorite(id)} isFavorite={isFavorite}>
+          {isFavorite ? 'Remove from My Garden' : 'Add to My Garden'}
+        </Button>
 
         <QuickGuide>
           <h3>Quick Guide</h3>
