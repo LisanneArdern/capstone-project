@@ -5,6 +5,8 @@ import Button from '../components/Button'
 
 CropListPage.propTypes = {
   crops: PropTypes.array.isRequired,
+  onClickDetails: PropTypes.func.isRequired,
+  onClickFavorites: PropTypes.func.isRequired,
 }
 
 export default function CropListPage({
