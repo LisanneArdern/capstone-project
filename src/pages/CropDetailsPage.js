@@ -4,12 +4,15 @@ import styled from 'styled-components/macro'
 
 CropDetailsPage.propTypes = {
   crop: PropTypes.object.isRequired,
+  favoriteIds: PropTypes.array,
+  onClickList: PropTypes.func.isRequired,
+  onToggleFavorite: PropTypes.func.isRequired,
 }
 
 export default function CropDetailsPage({
-  onClickList,
   crop,
   favoriteIds,
+  onClickList,
   onToggleFavorite,
 }) {
   const {

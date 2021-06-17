@@ -3,27 +3,65 @@ import userEvent from '@testing-library/user-event'
 import CropDetailsPage from './CropDetailsPage'
 
 describe('CropDetailsPage', () => {
-  it('calls onNavigate when clicking on back', () => {
+  it('calls onClickList when clicking on back and onToggleFavorite', () => {
     const handleClickBack = jest.fn()
+    const handleToggleFavorite = jest.fn()
     render(
       <CropDetailsPage
-        onNavigate={handleClickBack}
+        onClickList={handleClickBack}
+        favoriteIds={[{ id: '1a' }, { id: '2a' }]}
+        onToggleFavorite={handleToggleFavorite}
         crop={{
           attributes: {
-            main_image_path: 'image',
-            name: 'Banana',
-            binomial_name: 'Botanic name',
-            sun_requirements: 'Full sun',
-            spread: 90,
-            row_spacing: 40,
-            description: 'Detail text',
+            image: './image',
+            name: 'Strawberry',
+            botanicalName: 'botanical name',
+            sun: 'sun',
+            spread: 60,
+            rowSpace: 60,
+            details: 'details',
           },
         }}
       />
     )
 
-    const button = screen.getByRole('button')
-    userEvent.click(button)
+    const buttons = screen.getAllByRole('button')
+    const backButton = buttons[0]
+    const favorizeButton = buttons[1]
+    userEvent.click(backButton)
     expect(handleClickBack).toHaveBeenCalled()
+    userEvent.click(favorizeButton)
+    expect(handleToggleFavorite).toHaveBeenCalled()
+  })
+
+  it('renders crop details: name as a heading, image', () => {
+    const handleClickBack = jest.fn()
+    const handleToggleFavorite = jest.fn()
+    render(
+      <CropDetailsPage
+        onClickList={handleClickBack}
+        favoriteIds={[{ id: '1a' }, { id: '2a' }]}
+        onToggleFavorite={handleToggleFavorite}
+        crop={{
+          attributes: {
+            main_image_path: './image',
+            name: 'Strawberry',
+            binomial_name: 'Fragaria',
+            sun_requirements: 'Full sun',
+            spread: 60,
+            rowSpace: 60,
+            description: 'Text',
+          },
+        }}
+      />
+    )
+    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+      'Strawberry'
+    )
+    const image = screen.getByRole('img')
+    expect(image).toContainHTML('./image')
+    expect(screen.getByText('Fragaria')).toBeInTheDocument()
+    expect(screen.getByText('Full sun')).toBeInTheDocument()
+    expect(screen.getByText('Text')).toBeInTheDocument()
   })
 })
