@@ -56,7 +56,6 @@ export default function App() {
     if (favoriteIds.some(favId => favId === id)) {
       setFavoriteIds(favoriteIds.filter(favId => favId !== id))
     } else {
-      console.log(favoriteIds)
       setFavoriteIds([...favoriteIds, id])
     }
   }
