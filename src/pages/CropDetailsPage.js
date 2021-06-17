@@ -9,7 +9,7 @@ CropDetailsPage.propTypes = {
 export default function CropDetailsPage({
   onClickList,
   crop,
-  favoriteId,
+  favoriteIds,
   onToggleFavorite,
 }) {
   const {
@@ -25,7 +25,7 @@ export default function CropDetailsPage({
     },
   } = crop
 
-  const isFavorite = favoriteId.find(favoriteId => favoriteId === id)
+  const isFavorite = favoriteIds.find(favoriteId => favoriteId === id)
     ? true
     : false
   return (

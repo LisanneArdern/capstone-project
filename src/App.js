@@ -7,7 +7,7 @@ import MyGardenPage from './pages/MyGardenPage'
 export default function App() {
   const [activePage, setActivePage] = useState('croplist')
   const [detailedCrop, setDetailedCrop] = useState({})
-  const [favoriteId, setFavoriteId] = useState([])
+  const [favoriteIds, setFavoriteIds] = useState([])
 
   return (
     <>
@@ -24,14 +24,14 @@ export default function App() {
           onClickList={handleClickList}
           crop={detailedCrop}
           onToggleFavorite={handleToggleFavorite}
-          favoriteId={favoriteId}
+          favoriteIds={favoriteIds}
         />
       )}
 
       {activePage === 'favorite' && (
         <MyGardenPage
           crops={crops}
-          favoriteId={favoriteId}
+          favoriteIds={favoriteIds}
           onClickDetails={handleClickDetails}
           onClickList={handleClickList}
         />
@@ -53,15 +53,11 @@ export default function App() {
   }
 
   function handleToggleFavorite(id) {
-    let newFavoriteId
-
-    if (favoriteId.some(crop => crop.id === id)) {
-      newFavoriteId = favoriteId.filter(crop => crop.id !== id)
+    if (favoriteIds.some(favId => favId === id)) {
+      setFavoriteIds(favoriteIds.filter(favId => favId !== id))
     } else {
-      newFavoriteId = [crops.find(crop => crop.id === id), ...favoriteId]
+      console.log(favoriteIds)
+      setFavoriteIds([...favoriteIds, id])
     }
-    console.log(crops)
-    console.log(newFavoriteId.map(({ id }) => id))
-    setFavoriteId(newFavoriteId.map(({ id }) => id))
   }
 }

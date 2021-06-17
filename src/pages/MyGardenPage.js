@@ -7,10 +7,10 @@ export default function MyGardenPage({
   crops,
   onClickDetails,
   onClickList,
-  favoriteId,
+  favoriteIds,
 }) {
   const favoriteCrops = crops.filter(crop =>
-    favoriteId.find(id => id === crop.id)
+    favoriteIds.find(id => id === crop.id)
   )
   return (
     <Wrapper>
