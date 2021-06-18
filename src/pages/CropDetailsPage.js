@@ -92,6 +92,8 @@ const Information = styled.div`
   padding: 10px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
+  position: relative;
+  z-index: 2;
   dl {
     display: flex;
   }
