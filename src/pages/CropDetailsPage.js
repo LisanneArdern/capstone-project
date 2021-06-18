@@ -100,7 +100,6 @@ const QuickGuide = styled.div`
   dl {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-
     gap: 0px 15px;
   }
 
