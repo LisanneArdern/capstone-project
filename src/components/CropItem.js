@@ -4,7 +4,7 @@ import Button from './Button'
 
 CropItem.propTypes = {
   name: PropTypes.string,
-  image: PropTypes.node,
+  image: PropTypes.string,
   onClick: PropTypes.func.isRequired,
 }
 

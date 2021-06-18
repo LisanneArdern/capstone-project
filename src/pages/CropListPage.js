@@ -39,5 +39,5 @@ const Wrapper = styled.div`
 `
 
 const Container = styled.div`
-  overflow-y: scroll;
+  overflow-y: auto;
 `

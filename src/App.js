@@ -15,13 +15,13 @@ export default function App() {
         <CropListPage
           onClickDetails={handleClickDetails}
           crops={crops}
-          onClickFavorites={handleClickFavorites}
+          onClickFavorites={() => handleClickPage('favorite')}
         />
       )}
 
       {activePage === 'cropdetails' && (
         <CropDetailsPage
-          onClickList={handleClickList}
+          onClickList={() => handleClickPage('croplist')}
           crop={detailedCrop}
           onToggleFavorite={handleToggleFavorite}
           favoriteIds={favoriteIds}
@@ -33,7 +33,7 @@ export default function App() {
           crops={crops}
           favoriteIds={favoriteIds}
           onClickDetails={handleClickDetails}
-          onClickList={handleClickList}
+          onClickList={() => handleClickPage('croplist')}
         />
       )}
     </>
@@ -44,12 +44,8 @@ export default function App() {
     setActivePage('cropdetails')
   }
 
-  function handleClickList() {
-    setActivePage('croplist')
-  }
-
-  function handleClickFavorites() {
-    setActivePage('favorite')
+  function handleClickPage(page) {
+    setActivePage(page)
   }
 
   function handleToggleFavorite(id) {
