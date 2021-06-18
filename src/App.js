@@ -1,4 +1,5 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
+import { loadFromLocal, saveToLocal } from './utils/localStorage'
 import crops from './data.json'
 import CropDetailsPage from './pages/CropDetailsPage'
 import CropListPage from './pages/CropListPage'
@@ -7,7 +8,13 @@ import MyGardenPage from './pages/MyGardenPage'
 export default function App() {
   const [activePage, setActivePage] = useState('croplist')
   const [detailedCrop, setDetailedCrop] = useState({})
-  const [favoriteIds, setFavoriteIds] = useState([])
+  const [favoriteIds, setFavoriteIds] = useState(
+    loadFromLocal('favoriteIds') ?? []
+  )
+
+  useEffect(() => {
+    saveToLocal('favoriteIds', favoriteIds)
+  }, [favoriteIds])
 
   return (
     <>
