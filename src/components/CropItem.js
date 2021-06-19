@@ -1,6 +1,6 @@
 import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-import Button from './Button'
+// import Button from './Button'
 
 CropItem.propTypes = {
   name: PropTypes.string,
@@ -10,12 +10,9 @@ CropItem.propTypes = {
 
 export default function CropItem({ onClick, name, image }) {
   return (
-    <Wrapper>
+    <Wrapper role="button" onClick={onClick}>
       <img src={image} alt="" />
-      <div>
-        <h2>{name}</h2>
-        <CropButton onClick={onClick}>Show more details</CropButton>
-      </div>
+      <h2>{name}</h2>
     </Wrapper>
   )
 }
@@ -23,6 +20,11 @@ const Wrapper = styled.section`
   display: flex;
   gap: 16px;
   margin: 10px;
+  padding: 0.35em;
+  border: 0.1em solid #d3d3d3;
+  border-radius: 1em;
+  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+
   img {
     width: 100px;
     height: auto;
@@ -36,8 +38,4 @@ const Wrapper = styled.section`
     overflow: hidden;
     text-overflow: ellipsis;
   }
-`
-
-const CropButton = styled(Button)`
-  border-color: #707070;
 `

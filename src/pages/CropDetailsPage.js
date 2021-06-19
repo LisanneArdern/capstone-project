@@ -107,7 +107,7 @@ const QuickGuide = styled.div`
 
   div {
     padding: 0.5em;
-    border: 1px solid black;
+    border: 1px dotted lightgrey;
     border-radius: 8px;
   }
   dt {
