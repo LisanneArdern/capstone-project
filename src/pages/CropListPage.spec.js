@@ -6,7 +6,8 @@ describe('CropListPage', () => {
   it('renders two crops', () => {
     render(
       <CropListPage
-        onNavigate={jest.fn()}
+        onClickDetails={jest.fn()}
+        onClickFavorites={jest.fn()}
         crops={[
           {
             id: 1,
@@ -32,8 +33,9 @@ describe('CropListPage', () => {
     expect(imageListLength).toBe(2)
   })
 
-  it('calls onNavigate when clickling on crop', () => {
+  it('calls correct action when clicking on buttons', () => {
     const handleClickDetails = jest.fn()
+    const handleClickFavorites = jest.fn()
     render(
       <CropListPage
         crops={[
@@ -45,12 +47,18 @@ describe('CropListPage', () => {
             },
           },
         ]}
-        onNavigate={handleClickDetails}
+        onClickDetails={handleClickDetails}
+        onClickFavorites={handleClickFavorites}
       />
     )
 
-    const button = screen.getByRole('button')
-    userEvent.click(button)
+    const buttons = screen.getAllByRole('button')
+    const detailsButton = buttons[0]
+    const favoriteButton = buttons[1]
+    userEvent.click(detailsButton)
     expect(handleClickDetails).toHaveBeenCalled()
+
+    userEvent.click(favoriteButton)
+    expect(handleClickFavorites).toHaveBeenCalled()
   })
 })
