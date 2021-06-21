@@ -7,7 +7,7 @@ import CropListPage from './pages/CropListPage'
 import MyGardenPage from './pages/MyGardenPage'
 
 export default function App() {
-  const { push } = useHistory()
+  const history = useHistory()
   const [detailedCrop, setDetailedCrop] = useState({})
   const [favoriteIds, setFavoriteIds] = useState(
     loadFromLocal('favoriteIds') ?? []
@@ -29,7 +29,7 @@ export default function App() {
         </Route>
         <Route path="/details">
           <CropDetailsPage
-            onClickList={handleClickList}
+            onClickBack={handleClickBack}
             crop={detailedCrop}
             onToggleFavorite={handleToggleFavorite}
             favoriteIds={favoriteIds}
@@ -49,15 +49,19 @@ export default function App() {
 
   function handleClickDetails(id) {
     setDetailedCrop(crops.find(crop => crop.id === id))
-    push('/details')
+    history.push('/details')
   }
 
   function handleClickFavorites() {
-    push('/mygarden')
+    history.push('/mygarden')
+  }
+
+  function handleClickBack() {
+    history.goBack()
   }
 
   function handleClickList() {
-    push('/')
+    history.push('/')
   }
 
   function handleToggleFavorite(id) {

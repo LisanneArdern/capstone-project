@@ -12,7 +12,7 @@ CropDetailsPage.propTypes = {
 export default function CropDetailsPage({
   crop,
   favoriteIds,
-  onClickList,
+  onClickBack,
   onToggleFavorite,
 }) {
   const {
@@ -33,7 +33,7 @@ export default function CropDetailsPage({
     : false
   return (
     <div>
-      <BackButton onClick={onClickList}>&lt; back</BackButton>
+      <BackButton onClick={onClickBack}>&lt; back</BackButton>
       <DetailedView>
         <img src={image} alt="" />
 
