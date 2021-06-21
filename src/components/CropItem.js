@@ -11,7 +11,7 @@ CropItem.propTypes = {
 export default function CropItem({ onClick, name, image }) {
   return (
     <Wrapper role="button" onClick={onClick}>
-      <img src={image} alt="" />
+      <img src={image} alt="" width="100" height="66" />
       <h2>{name}</h2>
     </Wrapper>
   )
@@ -28,7 +28,7 @@ const Wrapper = styled.section`
   img {
     width: 100px;
     height: auto;
-    max-height: 75px;
+    /* max-height: 75px; */
     border-radius: 8px;
   }
   h2 {
