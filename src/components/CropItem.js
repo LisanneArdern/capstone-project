@@ -25,8 +25,8 @@ const Wrapper = styled.section`
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
   img {
-    width: 100px;
     height: auto;
+    height: 66px;
     border-radius: 8px;
   }
   h2 {
