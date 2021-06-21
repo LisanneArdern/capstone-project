@@ -24,14 +24,24 @@ export default function MyGardenPage({
     <Wrapper>
       <Header>My Garden</Header>
       <Container>
-        {favoriteCrops.map(({ id, attributes }) => (
-          <CropItem
-            key={id}
-            name={attributes.name}
-            image={attributes.main_image_path}
-            onClick={() => onClickDetails(id)}
-          />
-        ))}
+        {favoriteIds.length === 0 ? (
+          <Paragraph>
+            Your garden is still empty.
+            <br />
+            Click on the button below and choose your favorite crop.
+          </Paragraph>
+        ) : (
+          <>
+            {favoriteCrops.map(({ id, attributes }) => (
+              <CropItem
+                key={id}
+                name={attributes.name}
+                image={attributes.main_image_path}
+                onClick={() => onClickDetails(id)}
+              />
+            ))}
+          </>
+        )}
       </Container>
       <Button onClick={onClickList}>Back to List</Button>
     </Wrapper>
@@ -45,4 +55,8 @@ const Wrapper = styled.div`
 
 const Container = styled.div`
   overflow-y: scroll;
+`
+const Paragraph = styled.p`
+  text-align: center;
+  margin: 50px 0;
 `

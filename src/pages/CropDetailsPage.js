@@ -35,7 +35,7 @@ export default function CropDetailsPage({
     <div>
       <BackButton onClick={onClickBack}>&lt; back</BackButton>
       <DetailedView>
-        <img src={image} alt="" />
+        <img src={image} alt="" width="375" height="250" />
 
         <Information>
           <h2>{name}</h2>
