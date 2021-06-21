@@ -1,6 +1,5 @@
-import styled from 'styled-components/macro'
 import PropTypes from 'prop-types'
-// import Button from './Button'
+import styled from 'styled-components/macro'
 
 CropItem.propTypes = {
   name: PropTypes.string,
@@ -28,7 +27,6 @@ const Wrapper = styled.section`
   img {
     width: 100px;
     height: auto;
-    /* max-height: 75px; */
     border-radius: 8px;
   }
   h2 {

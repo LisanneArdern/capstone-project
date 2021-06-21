@@ -1,10 +1,10 @@
-import { useState, useEffect } from 'react'
-import { loadFromLocal, saveToLocal } from './utils/localStorage'
-import { Switch, Route, useHistory } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import crops from './data.json'
 import CropDetailsPage from './pages/CropDetailsPage'
 import CropListPage from './pages/CropListPage'
 import MyGardenPage from './pages/MyGardenPage'
+import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
   const history = useHistory()
