@@ -1,8 +1,15 @@
+import PropTypes from 'prop-types'
 import { useState } from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
+
+SearchPage.propTypes = {
+  crops: PropTypes.array.isRequired,
+  onClickDetails: PropTypes.func.isRequired,
+  onClickFavorites: PropTypes.func.isRequired,
+}
 
 export default function SearchPage({
   crops,
