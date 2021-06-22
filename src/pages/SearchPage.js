@@ -17,11 +17,12 @@ export default function SearchPage({
       <Header>Search</Header>
       <Input
         placeholder="Search your favorite crops  🔍"
+        name="Search"
         value={searchTerm}
         onChange={handleChange}
       />
       <Output>
-        {searchResults.length === 0 ? (
+        {searchTerm.length === 0 ? (
           <>
             {crops.map(({ id, attributes }) => (
               <CropItem
@@ -32,6 +33,8 @@ export default function SearchPage({
               />
             ))}
           </>
+        ) : searchResults.length === 0 ? (
+          <p>No Crops found</p>
         ) : (
           <>
             {searchResults.map(({ id, attributes }) => (
@@ -51,12 +54,13 @@ export default function SearchPage({
   )
 
   function handleChange(event) {
-    setSearchTerm(event.target.value)
+    const input = event.target.value
     const results = crops.filter(
       crop =>
-        crop.attributes.name.toLowerCase().includes(searchTerm) ||
-        crop.attributes.name.includes(searchTerm)
+        crop.attributes.name.toLowerCase().includes(input) ||
+        crop.attributes.name.includes(input)
     )
+    setSearchTerm(input)
     setSearchResults(results)
   }
 }
