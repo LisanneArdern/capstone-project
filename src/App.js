@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import crops from './data.json'
 import CropDetailsPage from './pages/CropDetailsPage'
-import CropListPage from './pages/CropListPage'
 import MyGardenPage from './pages/MyGardenPage'
+import SearchPage from './pages/SearchPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
@@ -21,10 +21,10 @@ export default function App() {
     <>
       <Switch>
         <Route exact path="/">
-          <CropListPage
-            onClickDetails={handleClickDetails}
+          <SearchPage
             crops={crops}
             onClickFavorites={handleClickFavorites}
+            onClickDetails={handleClickDetails}
           />
         </Route>
         <Route path="/details">
