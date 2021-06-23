@@ -18,13 +18,6 @@ This app is optimized for mobile usage, so please switch your browser to respons
 ## Tech stack
 
 - React
-- React Hooks
-- React Router
-- styled-components
-- prop-types
-- Storybook
-- Jest
-- React Testing Library
 
 ---
 
