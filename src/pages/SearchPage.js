@@ -23,7 +23,7 @@ export default function SearchPage({
     <Wrapper>
       <Header>Search</Header>
       <Input
-        placeholder="Search for your favorite crops  🔍"
+        placeholder="Search for your favorite crops"
         name="Search"
         value={searchTerm}
         onChange={handleChange}
