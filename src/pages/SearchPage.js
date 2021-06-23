@@ -54,6 +54,7 @@ export default function SearchPage({
     const results = crops.filter(
       crop =>
         crop.attributes.name.toLowerCase().includes(input) ||
+        crop.attributes.name.toUpperCase().includes(input) ||
         crop.attributes.name.includes(input)
     )
     setSearchTerm(input)
