@@ -2,7 +2,6 @@
 
 You want to grow crops on your balcony or in you garden but don't know how to start?
 That's what Harvestly is for! Harvestly will help you find crops quickly, show you how to plant them and help you care for them.
-This
 
 This app was developed as my capstone project during the final four weeks of the neuefische Web Development Bootcamp in Hamburg, Germany.
 
