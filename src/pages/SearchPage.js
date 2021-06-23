@@ -17,30 +17,19 @@ export default function SearchPage({
   onClickDetails,
 }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [searchResults, setSearchResults] = useState([])
+  const [searchResults, setSearchResults] = useState(crops)
 
   return (
     <Wrapper>
       <Header>Search</Header>
       <Input
-        placeholder="Search your favorite crops  🔍"
+        placeholder="Search for your favorite crops  🔍"
         name="Search"
         value={searchTerm}
         onChange={handleChange}
       />
       <Output>
-        {searchTerm.length === 0 ? (
-          <>
-            {crops.map(({ id, attributes }) => (
-              <CropItem
-                key={id}
-                name={attributes.name}
-                image={attributes.main_image_path}
-                onClick={() => onClickDetails(id)}
-              />
-            ))}
-          </>
-        ) : searchResults.length === 0 ? (
+        {searchResults.length === 0 ? (
           <p>No Crops found</p>
         ) : (
           <>
@@ -79,9 +68,9 @@ const Wrapper = styled.section`
 `
 const Input = styled.input`
   justify-self: center;
-  border: 0.1em solid #d3d3d3;
-  border-radius: 1em;
-  padding: 0.35em 1.2em;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
+  padding: 1px 10px;
 `
 const Output = styled.div`
   overflow-y: auto;

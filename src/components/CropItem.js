@@ -19,9 +19,9 @@ const Wrapper = styled.section`
   display: flex;
   gap: 16px;
   margin: 10px;
-  padding: 0.35em;
-  border: 0.1em solid #d3d3d3;
-  border-radius: 1em;
+  padding: 5px;
+  border: 1px solid #d3d3d3;
+  border-radius: 10px;
   box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
 
   img {
