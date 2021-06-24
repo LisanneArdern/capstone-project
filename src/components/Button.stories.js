@@ -13,6 +13,6 @@ Default.args = {
 
 export const Active = Template.bind({})
 Active.args = {
-  children: 'Back',
+  children: 'This is a very long button',
   isActive: true,
 }
