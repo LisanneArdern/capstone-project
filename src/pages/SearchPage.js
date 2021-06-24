@@ -17,11 +17,13 @@ export default function SearchPage({
   onClickDetails,
 }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [searchResults, setSearchResults] = useState(crops)
+  const searchResults = crops.filter(crop =>
+    crop.attributes.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   return (
     <Wrapper>
-      <Header>Search</Header>
+      <Header>Harvestly</Header>
       <Input
         placeholder="Search for your favorite crops"
         name="Search"
@@ -51,14 +53,7 @@ export default function SearchPage({
 
   function handleChange(event) {
     const input = event.target.value
-    const results = crops.filter(
-      crop =>
-        crop.attributes.name.toLowerCase().includes(input) ||
-        crop.attributes.name.toUpperCase().includes(input) ||
-        crop.attributes.name.includes(input)
-    )
     setSearchTerm(input)
-    setSearchResults(results)
   }
 }
 
