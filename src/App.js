@@ -12,7 +12,6 @@ export default function App() {
   const detailedCrop = crops.find(
     crop => crop.id === location.pathname.replace('/details/', '')
   )
-  // const [detailedCrop, setDetailedCrop] = useState({})
   const [favoriteIds, setFavoriteIds] = useState(
     loadFromLocal('favoriteIds') ?? []
   )
@@ -52,9 +51,7 @@ export default function App() {
   )
 
   function handleClickDetails(id) {
-    //setDetailedCrop(crops.find(crop => crop.id === id))
-    //history.push('/details')
-    history.push('/details' + id)
+    history.push('/details/' + id)
   }
 
   function handleClickFavorites() {
