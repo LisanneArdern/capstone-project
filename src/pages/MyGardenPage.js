@@ -7,14 +7,14 @@ import Header from '../components/Header'
 MyGardenPage.propTypes = {
   crops: PropTypes.array.isRequired,
   onClickDetails: PropTypes.func.isRequired,
-  onClickList: PropTypes.func.isRequired,
+  onBack: PropTypes.func.isRequired,
   favoriteIds: PropTypes.array,
 }
 
 export default function MyGardenPage({
   crops,
   onClickDetails,
-  onClickList,
+  onBack,
   favoriteIds,
 }) {
   const favoriteCrops = crops.filter(crop =>
@@ -43,7 +43,7 @@ export default function MyGardenPage({
           </>
         )}
       </Container>
-      <Button onClick={onClickList}>Back to List</Button>
+      <Button onClick={onBack}>Back to List</Button>
     </Wrapper>
   )
 }
