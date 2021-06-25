@@ -7,27 +7,28 @@ import Header from '../components/Header'
 
 SearchPage.propTypes = {
   crops: PropTypes.array.isRequired,
-  onClickDetails: PropTypes.func.isRequired,
-  onClickFavorites: PropTypes.func.isRequired,
+  onDetails: PropTypes.func.isRequired,
+  onFavorites: PropTypes.func.isRequired,
 }
 
-export default function SearchPage({
-  crops,
-  onClickFavorites,
-  onClickDetails,
-}) {
+export default function SearchPage({ crops, onFavorites, onDetails }) {
   const [searchTerm, setSearchTerm] = useState('')
-  const [searchResults, setSearchResults] = useState(crops)
+  const searchResults = crops.filter(crop =>
+    crop.attributes.name.toLowerCase().includes(searchTerm.toLowerCase())
+  )
 
   return (
     <Wrapper>
-      <Header>Search</Header>
+      <Header>Harvestly</Header>
+
       <Input
         placeholder="Search for your favorite crops"
         name="Search"
+        aria-label="Search for crops"
         value={searchTerm}
         onChange={handleChange}
       />
+
       <Output>
         {searchResults.length === 0 ? (
           <p>No Crops found</p>
@@ -38,27 +39,20 @@ export default function SearchPage({
                 key={id}
                 name={attributes.name}
                 image={attributes.main_image_path}
-                onClick={() => onClickDetails(id)}
+                onClick={() => onDetails(id)}
               />
             ))}
           </>
         )}
       </Output>
 
-      <Button onClick={onClickFavorites}>My Garden</Button>
+      <MyGardenButton onClick={onFavorites}>My Garden</MyGardenButton>
     </Wrapper>
   )
 
   function handleChange(event) {
     const input = event.target.value
-    const results = crops.filter(
-      crop =>
-        crop.attributes.name.toLowerCase().includes(input) ||
-        crop.attributes.name.toUpperCase().includes(input) ||
-        crop.attributes.name.includes(input)
-    )
     setSearchTerm(input)
-    setSearchResults(results)
   }
 }
 
@@ -67,6 +61,7 @@ const Wrapper = styled.section`
   grid-template-rows: 48px 40px auto 48px;
   height: 100vh;
 `
+
 const Input = styled.input`
   justify-self: center;
   border: 1px solid #d3d3d3;
@@ -75,4 +70,7 @@ const Input = styled.input`
 `
 const Output = styled.div`
   overflow-y: auto;
+`
+const MyGardenButton = styled(Button)`
+  margin: 0 10px;
 `

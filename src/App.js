@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
 import crops from './data.json'
 import CropDetailsPage from './pages/CropDetailsPage'
 import MyGardenPage from './pages/MyGardenPage'
@@ -8,7 +8,10 @@ import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
   const history = useHistory()
-  const [detailedCrop, setDetailedCrop] = useState({})
+  const location = useLocation()
+  const detailedCrop = crops.find(
+    crop => crop.id === location.pathname.replace('/details/', '')
+  )
   const [favoriteIds, setFavoriteIds] = useState(
     loadFromLocal('favoriteIds') ?? []
   )
@@ -23,15 +26,15 @@ export default function App() {
         <Route exact path="/">
           <SearchPage
             crops={crops}
-            onClickFavorites={handleClickFavorites}
-            onClickDetails={handleClickDetails}
+            onFavorites={navigateFavorites}
+            onDetails={navigateDetails}
           />
         </Route>
         <Route path="/details">
           <CropDetailsPage
-            onClickBack={handleClickBack}
+            onBack={navigateBack}
             crop={detailedCrop}
-            onToggleFavorite={handleToggleFavorite}
+            onToggleFavorite={toggleFavorite}
             favoriteIds={favoriteIds}
           />
         </Route>
@@ -39,36 +42,44 @@ export default function App() {
           <MyGardenPage
             crops={crops}
             favoriteIds={favoriteIds}
-            onClickDetails={handleClickDetails}
-            onClickList={handleClickList}
+            onDetails={navigateDetails}
+            onBack={navigateHome}
           />
         </Route>
       </Switch>
     </>
   )
 
-  function handleClickDetails(id) {
-    setDetailedCrop(crops.find(crop => crop.id === id))
-    history.push('/details')
+  function navigateDetails(id) {
+    history.push('/details/' + id)
   }
 
-  function handleClickFavorites() {
+  function navigateFavorites() {
     history.push('/mygarden')
   }
 
-  function handleClickBack() {
+  function navigateBack() {
     history.goBack()
   }
 
-  function handleClickList() {
+  function navigateHome() {
     history.push('/')
   }
 
-  function handleToggleFavorite(id) {
-    if (favoriteIds.some(favId => favId === id)) {
-      setFavoriteIds(favoriteIds.filter(favId => favId !== id))
+  function toggleFavorite(id) {
+    const isInFavorites = favoriteIds.some(favId => favId === id)
+    if (isInFavorites) {
+      removeFromFavorites(id)
     } else {
-      setFavoriteIds([...favoriteIds, id])
+      addToFavorites(id)
     }
+  }
+
+  function addToFavorites(id) {
+    setFavoriteIds([...favoriteIds, id])
+  }
+
+  function removeFromFavorites(id) {
+    setFavoriteIds(favoriteIds.filter(favId => favId !== id))
   }
 }

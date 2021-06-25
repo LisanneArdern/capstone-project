@@ -8,7 +8,7 @@ describe('CropDetailsPage', () => {
     const handleToggleFavorite = jest.fn()
     render(
       <CropDetailsPage
-        onClickBack={handleClickBack}
+        onBack={handleClickBack}
         favoriteIds={[{ id: '1a' }, { id: '2a' }]}
         onToggleFavorite={handleToggleFavorite}
         crop={{
@@ -39,7 +39,7 @@ describe('CropDetailsPage', () => {
     const handleToggleFavorite = jest.fn()
     render(
       <CropDetailsPage
-        onClickBack={handleClickBack}
+        onBack={handleClickBack}
         favoriteIds={[{ id: '1a' }, { id: '2a' }]}
         onToggleFavorite={handleToggleFavorite}
         crop={{
@@ -55,7 +55,7 @@ describe('CropDetailsPage', () => {
         }}
       />
     )
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
       'Strawberry'
     )
     const image = screen.getByRole('img')

@@ -5,14 +5,14 @@ import Button from '../components/Button'
 CropDetailsPage.propTypes = {
   crop: PropTypes.object.isRequired,
   favoriteIds: PropTypes.array,
-  onClickList: PropTypes.func.isRequired,
+  onBack: PropTypes.func.isRequired,
   onToggleFavorite: PropTypes.func.isRequired,
 }
 
 export default function CropDetailsPage({
   crop,
   favoriteIds,
-  onClickBack,
+  onBack,
   onToggleFavorite,
 }) {
   const {
@@ -28,17 +28,16 @@ export default function CropDetailsPage({
     },
   } = crop
 
-  const isFavorite = favoriteIds.find(favoriteId => favoriteId === id)
-    ? true
-    : false
+  const isFavorite = favoriteIds?.some(favoriteId => favoriteId === id)
+
   return (
     <div>
-      <BackButton onClick={onClickBack}>&lt; back</BackButton>
+      <BackButton onClick={onBack}>&lt; back</BackButton>
       <DetailedView>
         <img src={image} alt="" width="375" height="250" />
 
         <Information>
-          <h2>{name}</h2>
+          <h1>{name}</h1>
           <dl>
             <dt>Botanical Name:</dt>
             <dd>{botanicalName}</dd>
@@ -49,7 +48,7 @@ export default function CropDetailsPage({
           </Button>
 
           <QuickGuide>
-            <h3>Quick Guide</h3>
+            <h2>Quick Guide</h2>
             <dl>
               <div>
                 <dt>Need of sun</dt>
@@ -65,7 +64,7 @@ export default function CropDetailsPage({
               </div>
             </dl>
           </QuickGuide>
-          <h3>Details</h3>
+          <h2>Details</h2>
           <p>{details}</p>
         </Information>
       </DetailedView>
@@ -74,14 +73,16 @@ export default function CropDetailsPage({
 }
 const BackButton = styled(Button)`
   position: fixed;
-  padding: 15px 25px;
+  padding: 8px 12px;
+  left: 10px;
+  top: 10px;
   z-index: 1;
 `
 const DetailedView = styled.section`
   img {
     width: 100%;
     height: auto;
-    position: sticky;
+    position: fixed;
     top: 0;
     z-index: -1;
   }
@@ -89,11 +90,12 @@ const DetailedView = styled.section`
 
 const Information = styled.div`
   background: white;
-  padding: 10px;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
+  padding: 10px 20px;
+  border-radius: 10px 10px 0px 0px;
   position: relative;
+  top: 230px;
   z-index: 2;
+
   dl {
     display: flex;
   }

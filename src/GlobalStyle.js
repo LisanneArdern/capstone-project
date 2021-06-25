@@ -10,4 +10,11 @@ export default createGlobalStyle`
    font-size: 112.5%;
    line-height: 1.4;
  }
+
+ h1 {
+   font-size: 30px;
+ }
+ h2 {
+   font-size:20px;
+ }
 `
