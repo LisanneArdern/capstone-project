@@ -7,15 +7,11 @@ import Header from '../components/Header'
 
 SearchPage.propTypes = {
   crops: PropTypes.array.isRequired,
-  onClickDetails: PropTypes.func.isRequired,
-  onClickFavorites: PropTypes.func.isRequired,
+  onDetails: PropTypes.func.isRequired,
+  onFavorites: PropTypes.func.isRequired,
 }
 
-export default function SearchPage({
-  crops,
-  onClickFavorites,
-  onClickDetails,
-}) {
+export default function SearchPage({ crops, onFavorites, onDetails }) {
   const [searchTerm, setSearchTerm] = useState('')
   const searchResults = crops.filter(crop =>
     crop.attributes.name.toLowerCase().includes(searchTerm.toLowerCase())
@@ -43,14 +39,14 @@ export default function SearchPage({
                 key={id}
                 name={attributes.name}
                 image={attributes.main_image_path}
-                onClick={() => onClickDetails(id)}
+                onClick={() => onDetails(id)}
               />
             ))}
           </>
         )}
       </Output>
 
-      <MyGardenButton onClick={onClickFavorites}>My Garden</MyGardenButton>
+      <MyGardenButton onClick={onFavorites}>My Garden</MyGardenButton>
     </Wrapper>
   )
 

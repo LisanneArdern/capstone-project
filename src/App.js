@@ -26,8 +26,8 @@ export default function App() {
         <Route exact path="/">
           <SearchPage
             crops={crops}
-            onClickFavorites={handleClickFavorites}
-            onClickDetails={handleClickDetails}
+            onFavorites={handleClickFavorites}
+            onDetails={handleClickDetails}
           />
         </Route>
         <Route path="/details">
@@ -42,7 +42,7 @@ export default function App() {
           <MyGardenPage
             crops={crops}
             favoriteIds={favoriteIds}
-            onClickDetails={handleClickDetails}
+            onDetails={handleClickDetails}
             onBack={navigateHome}
           />
         </Route>

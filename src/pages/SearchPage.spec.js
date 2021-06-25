@@ -6,8 +6,8 @@ describe('SearchPage', () => {
   it('renders an input field', () => {
     render(
       <SearchPage
-        onClickDetails={jest.fn()}
-        onClickFavorites={jest.fn()}
+        onDetails={jest.fn()}
+        onFavorites={jest.fn()}
         crops={[
           {
             id: 1,
@@ -32,8 +32,8 @@ describe('SearchPage', () => {
   it('renders two crops', () => {
     render(
       <SearchPage
-        onClickDetails={jest.fn()}
-        onClickFavorites={jest.fn()}
+        onDetails={jest.fn()}
+        onFavorites={jest.fn()}
         crops={[
           {
             id: 1,
@@ -72,8 +72,8 @@ describe('SearchPage', () => {
             },
           },
         ]}
-        onClickDetails={handleClickDetails}
-        onClickFavorites={handleClickFavorites}
+        onDetails={handleClickDetails}
+        onFavorites={handleClickFavorites}
       />
     )
 

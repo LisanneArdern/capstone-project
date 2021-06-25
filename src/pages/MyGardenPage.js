@@ -6,14 +6,14 @@ import Header from '../components/Header'
 
 MyGardenPage.propTypes = {
   crops: PropTypes.array.isRequired,
-  onClickDetails: PropTypes.func.isRequired,
+  onDetails: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
   favoriteIds: PropTypes.array,
 }
 
 export default function MyGardenPage({
   crops,
-  onClickDetails,
+  onDetails,
   onBack,
   favoriteIds,
 }) {
@@ -37,7 +37,7 @@ export default function MyGardenPage({
                 key={id}
                 name={attributes.name}
                 image={attributes.main_image_path}
-                onClick={() => onClickDetails(id)}
+                onClick={() => onDetails(id)}
               />
             ))}
           </>

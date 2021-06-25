@@ -18,8 +18,8 @@ describe('MyGardenPage', () => {
             },
           },
         ]}
-        onClickList={handleClickList}
-        onClickDetails={handleClickDetails}
+        onBack={handleClickList}
+        onDetails={handleClickDetails}
       />
     )
 

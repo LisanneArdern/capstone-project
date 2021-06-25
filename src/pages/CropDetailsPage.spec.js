@@ -8,7 +8,7 @@ describe('CropDetailsPage', () => {
     const handleToggleFavorite = jest.fn()
     render(
       <CropDetailsPage
-        onClickBack={handleClickBack}
+        onBack={handleClickBack}
         favoriteIds={[{ id: '1a' }, { id: '2a' }]}
         onToggleFavorite={handleToggleFavorite}
         crop={{
@@ -39,7 +39,7 @@ describe('CropDetailsPage', () => {
     const handleToggleFavorite = jest.fn()
     render(
       <CropDetailsPage
-        onClickBack={handleClickBack}
+        onBack={handleClickBack}
         favoriteIds={[{ id: '1a' }, { id: '2a' }]}
         onToggleFavorite={handleToggleFavorite}
         crop={{
