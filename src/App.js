@@ -26,8 +26,8 @@ export default function App() {
         <Route exact path="/">
           <SearchPage
             crops={crops}
-            onFavorites={handleClickFavorites}
-            onDetails={handleClickDetails}
+            onFavorites={navigateFavorites}
+            onDetails={navigateDetails}
           />
         </Route>
         <Route path="/details">
@@ -42,7 +42,7 @@ export default function App() {
           <MyGardenPage
             crops={crops}
             favoriteIds={favoriteIds}
-            onDetails={handleClickDetails}
+            onDetails={navigateDetails}
             onBack={navigateHome}
           />
         </Route>
@@ -50,11 +50,11 @@ export default function App() {
     </>
   )
 
-  function handleClickDetails(id) {
+  function navigateDetails(id) {
     history.push('/details/' + id)
   }
 
-  function handleClickFavorites() {
+  function navigateFavorites() {
     history.push('/mygarden')
   }
 
