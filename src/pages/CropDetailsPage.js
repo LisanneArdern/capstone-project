@@ -37,7 +37,7 @@ export default function CropDetailsPage({
         <img src={image} alt="" width="375" height="250" />
 
         <Information>
-          <h2>{name}</h2>
+          <h1>{name}</h1>
           <dl>
             <dt>Botanical Name:</dt>
             <dd>{botanicalName}</dd>
@@ -48,7 +48,7 @@ export default function CropDetailsPage({
           </Button>
 
           <QuickGuide>
-            <h3>Quick Guide</h3>
+            <h2>Quick Guide</h2>
             <dl>
               <div>
                 <dt>Need of sun</dt>
@@ -64,7 +64,7 @@ export default function CropDetailsPage({
               </div>
             </dl>
           </QuickGuide>
-          <h3>Details</h3>
+          <h2>Details</h2>
           <p>{details}</p>
         </Information>
       </DetailedView>
@@ -96,6 +96,7 @@ const Information = styled.div`
   position: relative;
   top: 230px;
   z-index: 2;
+
   dl {
     display: flex;
   }
