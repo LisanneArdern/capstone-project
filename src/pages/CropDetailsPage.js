@@ -90,7 +90,7 @@ const DetailedView = styled.section`
 
 const Information = styled.div`
   background: white;
-  padding: 10px;
+  padding: 10px 20px;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   position: relative;
