@@ -55,7 +55,7 @@ describe('CropDetailsPage', () => {
         }}
       />
     )
-    expect(screen.getByRole('heading', { level: 2 })).toHaveTextContent(
+    expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent(
       'Strawberry'
     )
     const image = screen.getByRole('img')
