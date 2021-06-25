@@ -43,7 +43,7 @@ export default function MyGardenPage({
           </>
         )}
       </Container>
-      <Button onClick={onBack}>Back to List</Button>
+      <BackToListButton onClick={onBack}>Back to List</BackToListButton>
     </Wrapper>
   )
 }
@@ -59,4 +59,7 @@ const Container = styled.div`
 const Paragraph = styled.p`
   text-align: center;
   margin: 50px 0;
+`
+const BackToListButton = styled(Button)`
+  margin: 0 10px;
 `

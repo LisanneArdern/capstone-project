@@ -24,12 +24,15 @@ export default function SearchPage({
   return (
     <Wrapper>
       <Header>Harvestly</Header>
+
       <Input
         placeholder="Search for your favorite crops"
         name="Search"
+        aria-label="Search for crops"
         value={searchTerm}
         onChange={handleChange}
       />
+
       <Output>
         {searchResults.length === 0 ? (
           <p>No Crops found</p>
@@ -47,7 +50,7 @@ export default function SearchPage({
         )}
       </Output>
 
-      <Button onClick={onClickFavorites}>My Garden</Button>
+      <MyGardenButton onClick={onClickFavorites}>My Garden</MyGardenButton>
     </Wrapper>
   )
 
@@ -62,6 +65,7 @@ const Wrapper = styled.section`
   grid-template-rows: 48px 40px auto 48px;
   height: 100vh;
 `
+
 const Input = styled.input`
   justify-self: center;
   border: 1px solid #d3d3d3;
@@ -70,4 +74,7 @@ const Input = styled.input`
 `
 const Output = styled.div`
   overflow-y: auto;
+`
+const MyGardenButton = styled(Button)`
+  margin: 0 10px;
 `
