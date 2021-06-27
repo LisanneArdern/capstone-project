@@ -1,40 +1,40 @@
 import PropTypes from 'prop-types'
-import { useState } from 'react'
+//import { useEffect, useState } from 'react'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 
 SearchPage.propTypes = {
-  crops: PropTypes.array.isRequired,
   onDetails: PropTypes.func.isRequired,
   onFavorites: PropTypes.func.isRequired,
 }
 
-export default function SearchPage({ crops, onFavorites, onDetails }) {
-  const [searchTerm, setSearchTerm] = useState('')
-  const searchResults = crops.filter(crop =>
-    crop.attributes.name.toLowerCase().includes(searchTerm.toLowerCase())
-  )
-
+export default function SearchPage({
+  handleSubmit,
+  crops,
+  onFavorites,
+  onDetails,
+}) {
   return (
     <Wrapper>
       <Header>Harvestly</Header>
-
-      <Input
-        placeholder="Search for your favorite crops"
-        name="Search"
-        aria-label="Search for crops"
-        value={searchTerm}
-        onChange={handleChange}
-      />
+      <form onSubmit={handleSubmit}>
+        <Input
+          type="text"
+          placeholder="Search for your favorite crops"
+          name="search"
+          aria-label="Search for crops"
+          autoComplete="off"
+        />
+        <button>submit</button>
+      </form>
 
       <Output>
-        {searchResults.length === 0 ? (
-          <p>No Crops found</p>
-        ) : (
-          <>
-            {searchResults.map(({ id, attributes }) => (
+        <>
+          {crops
+            ?.filter(crop => crop.attributes.main_image_path.match(/(https)/gi))
+            .map(({ id, attributes }) => (
               <CropItem
                 key={id}
                 name={attributes.name}
@@ -42,18 +42,12 @@ export default function SearchPage({ crops, onFavorites, onDetails }) {
                 onClick={() => onDetails(id)}
               />
             ))}
-          </>
-        )}
+        </>
       </Output>
 
       <MyGardenButton onClick={onFavorites}>My Garden</MyGardenButton>
     </Wrapper>
   )
-
-  function handleChange(event) {
-    const input = event.target.value
-    setSearchTerm(input)
-  }
 }
 
 const Wrapper = styled.section`
