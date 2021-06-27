@@ -1,15 +1,27 @@
 import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
-import crops from './data.json'
+//import mostCommonCrops from './data.json'
 import CropDetailsPage from './pages/CropDetailsPage'
 import MyGardenPage from './pages/MyGardenPage'
 import SearchPage from './pages/SearchPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
+  const [crops, setCrops] = useState(null)
+  const [searchTerm, setSearchTerm] = useState('')
+
+  useEffect(() => {
+    if (searchTerm.length > 2) {
+      fetch(`https://openfarm.cc/api/v1/crops/?filter=${searchTerm}`)
+        .then(res => res.json())
+        .then(data => setCrops(data.data))
+        .catch(error => console.error(error))
+    }
+  }, [searchTerm])
+
   const history = useHistory()
   const location = useLocation()
-  const detailedCrop = crops.find(
+  const detailedCrop = crops?.find(
     crop => crop.id === location.pathname.replace('/details/', '')
   )
   const [favoriteIds, setFavoriteIds] = useState(
@@ -26,6 +38,7 @@ export default function App() {
         <Route exact path="/">
           <SearchPage
             crops={crops}
+            handleSubmit={handleSubmit}
             onFavorites={navigateFavorites}
             onDetails={navigateDetails}
           />
@@ -49,7 +62,13 @@ export default function App() {
       </Switch>
     </>
   )
-
+  function handleSubmit(event) {
+    event.preventDefault()
+    const form = event.target
+    const input = form.elements.search.value
+    setSearchTerm(input)
+    form.reset()
+  }
   function navigateDetails(id) {
     history.push('/details/' + id)
   }
