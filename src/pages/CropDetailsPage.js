@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import Button from '../components/Button'
 
 CropDetailsPage.propTypes = {
-  crop: PropTypes.object.isRequired,
+  crop: PropTypes.object,
   favoriteIds: PropTypes.array,
   onBack: PropTypes.func.isRequired,
   onToggleFavorite: PropTypes.func.isRequired,

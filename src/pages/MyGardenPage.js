@@ -5,7 +5,7 @@ import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 
 MyGardenPage.propTypes = {
-  crops: PropTypes.array.isRequired,
+  crops: PropTypes.array,
   onDetails: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
   favoriteIds: PropTypes.array,
@@ -17,7 +17,7 @@ export default function MyGardenPage({
   onBack,
   favoriteIds,
 }) {
-  const favoriteCrops = crops.filter(crop =>
+  const favoriteCrops = crops?.filter(crop =>
     favoriteIds.find(id => id === crop.id)
   )
   return (
