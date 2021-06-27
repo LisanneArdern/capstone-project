@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
 //import mostCommonCrops from './data.json'
 import CropDetailsPage from './pages/CropDetailsPage'
+import ResultsPage from './pages/ResultsPage'
 import MyGardenPage from './pages/MyGardenPage'
 import SearchPage from './pages/SearchPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
@@ -37,9 +38,16 @@ export default function App() {
       <Switch>
         <Route exact path="/">
           <SearchPage
+            onSubmit={handleSubmit}
             crops={crops}
-            handleSubmit={handleSubmit}
+            setSearchTerm={setSearchTerm}
             onFavorites={navigateFavorites}
+          />
+        </Route>
+        <Route path="/results">
+          <ResultsPage
+            crops={crops}
+            onBack={navigateHome}
             onDetails={navigateDetails}
           />
         </Route>
@@ -62,13 +70,10 @@ export default function App() {
       </Switch>
     </>
   )
-  function handleSubmit(event) {
-    event.preventDefault()
-    const form = event.target
-    const input = form.elements.search.value
-    setSearchTerm(input)
-    form.reset()
+  function handleSubmit() {
+    history.push('/results')
   }
+
   function navigateDetails(id) {
     history.push('/details/' + id)
   }
