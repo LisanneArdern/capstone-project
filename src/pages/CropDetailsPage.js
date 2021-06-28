@@ -4,14 +4,14 @@ import Button from '../components/Button'
 
 CropDetailsPage.propTypes = {
   crop: PropTypes.object,
-  favoriteIds: PropTypes.array,
+  favoriteCrops: PropTypes.array,
   onBack: PropTypes.func.isRequired,
   onToggleFavorite: PropTypes.func.isRequired,
 }
 
 export default function CropDetailsPage({
   crop,
-  favoriteIds,
+  favoriteCrops,
   onBack,
   onToggleFavorite,
 }) {
@@ -28,7 +28,7 @@ export default function CropDetailsPage({
     },
   } = crop
 
-  const isFavorite = favoriteIds?.some(favoriteId => favoriteId === id)
+  const isFavorite = favoriteCrops?.some(favoriteCrop => favoriteCrop.id === id)
 
   return (
     <div>
@@ -43,7 +43,10 @@ export default function CropDetailsPage({
             <dd>{botanicalName}</dd>
           </dl>
 
-          <Button onClick={() => onToggleFavorite(id)} isFavorite={isFavorite}>
+          <Button
+            onClick={() => onToggleFavorite(crop)}
+            isFavorite={isFavorite}
+          >
             {isFavorite ? 'Remove from My Garden' : 'Add to My Garden'}
           </Button>
 
