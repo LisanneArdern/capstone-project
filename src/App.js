@@ -8,7 +8,7 @@ import SearchPage from './pages/SearchPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
-  const [crops, setCrops] = useState(null)
+  const [crops, setCrops] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
