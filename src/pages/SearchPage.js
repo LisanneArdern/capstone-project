@@ -6,7 +6,10 @@ import BackgroundMobile from '../images/vegetable-frame-mobile.png'
 import BackgroundDesktop from '../images/vegetable-frame-desktop.png'
 
 SearchPage.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  crops: PropTypes.array,
   onFavorites: PropTypes.func.isRequired,
+  setSearchTerm: PropTypes.func.isRequired,
 }
 
 export default function SearchPage({
@@ -39,6 +42,7 @@ export default function SearchPage({
     const input = form.elements.search.value
     setSearchTerm(input)
     onSubmit(crops)
+    console.log(crops)
   }
 }
 
