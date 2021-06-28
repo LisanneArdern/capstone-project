@@ -14,18 +14,28 @@ export default function ResultsPage({ crops, onBack, onDetails }) {
     <div>
       <BackButton onClick={onBack}>&lt; back</BackButton>
       <Output>
-        <>
-          {crops
-            ?.filter(crop => crop.attributes.main_image_path.match(/(https)/gi))
-            .map(({ id, attributes }) => (
-              <CropItem
-                key={id}
-                name={attributes.name}
-                image={attributes.main_image_path}
-                onClick={() => onDetails(id)}
-              />
-            ))}
-        </>
+        {crops.length !== 0 ? (
+          <>
+            {crops
+              ?.filter(crop =>
+                crop.attributes.main_image_path.match(/(https)/gi)
+              )
+              .map(({ id, attributes }) => (
+                <CropItem
+                  key={id}
+                  name={attributes.name}
+                  image={attributes.main_image_path}
+                  onClick={() => onDetails(id)}
+                />
+              ))}
+          </>
+        ) : (
+          <Paragraph>
+            No crop found.
+            <br />
+            Please try again and type at least 3 letters.
+          </Paragraph>
+        )}
       </Output>
     </div>
   )
@@ -37,4 +47,8 @@ const BackButton = styled(Button)`
 `
 const Output = styled.div`
   overflow-y: auto;
+`
+const Paragraph = styled.p`
+  text-align: center;
+  margin: 50px 0;
 `
