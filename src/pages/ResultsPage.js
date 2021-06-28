@@ -4,8 +4,9 @@ import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 
 ResultsPage.propTypes = {
-  crop: PropTypes.object,
+  crops: PropTypes.array,
   onBack: PropTypes.func.isRequired,
+  onDetails: PropTypes.func.isRequired,
 }
 
 export default function ResultsPage({ crops, onBack, onDetails }) {
