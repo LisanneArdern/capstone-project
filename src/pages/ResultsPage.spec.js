@@ -1,30 +1,33 @@
 import { render, screen } from '@testing-library/react'
 import userEvent from '@testing-library/user-event'
 import ResultsPage from './ResultsPage'
+import { MemoryRouter } from 'react-router-dom'
 
 describe('ResultsPage', () => {
   it('renders two crops', () => {
     render(
-      <ResultsPage
-        onDetails={jest.fn()}
-        onBack={jest.fn()}
-        crops={[
-          {
-            id: 1,
-            attributes: {
-              name: 'Banana',
-              main_image_path: 'https:image',
+      <MemoryRouter>
+        <ResultsPage
+          onDetails={jest.fn()}
+          onBack={jest.fn()}
+          crops={[
+            {
+              id: 1,
+              attributes: {
+                name: 'Banana',
+                main_image_path: 'https:image',
+              },
             },
-          },
-          {
-            id: 2,
-            attributes: {
-              name: 'Apple',
-              main_image_path: 'https:image',
+            {
+              id: 2,
+              attributes: {
+                name: 'Apple',
+                main_image_path: 'https:image',
+              },
             },
-          },
-        ]}
-      />
+          ]}
+        />
+      </MemoryRouter>
     )
 
     expect(screen.getByText('Banana')).toBeInTheDocument()
@@ -35,19 +38,21 @@ describe('ResultsPage', () => {
   it('calls correct action when clicking on buttons', () => {
     const handleClickBack = jest.fn()
     render(
-      <ResultsPage
-        crops={[
-          {
-            id: 1,
-            attributes: {
-              name: 'Banana',
-              main_image_path: 'image',
+      <MemoryRouter>
+        <ResultsPage
+          crops={[
+            {
+              id: 1,
+              attributes: {
+                name: 'Banana',
+                main_image_path: 'image',
+              },
             },
-          },
-        ]}
-        onDetails={jest.fn()}
-        onBack={handleClickBack}
-      />
+          ]}
+          onDetails={jest.fn()}
+          onBack={handleClickBack}
+        />
+      </MemoryRouter>
     )
 
     const BackButton = screen.getByRole('button')
