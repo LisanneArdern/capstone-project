@@ -42,7 +42,6 @@ export default function SearchPage({
     const input = form.elements.search.value
     setSearchTerm(input)
     onSubmit(crops)
-    console.log(crops)
   }
 }
 
