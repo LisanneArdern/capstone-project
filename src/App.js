@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import useFetch from './hooks/useFetch.js'
 import CropDetailsPage from './pages/CropDetailsPage'
 import MyGardenPage from './pages/MyGardenPage'
@@ -13,10 +13,7 @@ export default function App() {
   const { data, isQuerying } = useFetch(searchTerm)
 
   const history = useHistory()
-  // const location = useLocation()
-  // const detailedCrop = data?.find(
-  //   crop => crop.id === location.pathname.replace('/details/', '')
-  // )
+
   const [favoriteCrops, setFavoriteCrops] = useState(
     loadFromLocal('favoriteCrops') ?? []
   )
@@ -44,10 +41,9 @@ export default function App() {
             isQuerying={isQuerying}
           />
         </Route>
-        <Route path="/details">
+        <Route path="/details/:id">
           <CropDetailsPage
             onBack={navigateBack}
-            // crop={detailedCrop}
             onToggleFavorite={toggleFavorite}
             favoriteCrops={favoriteCrops}
           />
@@ -63,7 +59,7 @@ export default function App() {
     </>
   )
   function handleSubmit() {
-    history.push('/results')
+    history.push('/results/')
   }
 
   function navigateDetails(id) {
