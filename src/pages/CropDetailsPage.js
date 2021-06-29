@@ -1,22 +1,27 @@
 import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
+import useCropDetails from './hooks/useCropDetails.js'
 
 CropDetailsPage.propTypes = {
-  crop: PropTypes.object,
+  // crop: PropTypes.object,
   favoriteCrops: PropTypes.array,
   onBack: PropTypes.func.isRequired,
   onToggleFavorite: PropTypes.func.isRequired,
 }
 
 export default function CropDetailsPage({
-  crop,
+  // crop,
   favoriteCrops,
   onBack,
   onToggleFavorite,
 }) {
+  const { id } = useParams()
+  const { data, isQuerying } = useCropDetails(id)
+
   const {
-    id,
+    // id,
     attributes: {
       main_image_path: image,
       name,
@@ -26,10 +31,11 @@ export default function CropDetailsPage({
       row_spacing: rowSpace,
       description: details,
     },
-  } = crop
+  } = data // davor: =crop
 
   const isFavorite = favoriteCrops?.some(favoriteCrop => favoriteCrop.id === id)
 
+  if (isQuerying) return <div>loading...</div>
   return (
     <div>
       <BackButton onClick={onBack}>&lt; back</BackButton>
@@ -44,7 +50,7 @@ export default function CropDetailsPage({
           </dl>
 
           <Button
-            onClick={() => onToggleFavorite(crop)}
+            onClick={() => onToggleFavorite(data)} // davor: (crop)
             isFavorite={isFavorite}
           >
             {isFavorite ? 'Remove from My Garden' : 'Add to My Garden'}
