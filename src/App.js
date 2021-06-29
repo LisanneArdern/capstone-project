@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
-import useFetch from './hooks/useFetch.js'
 import CropDetailsPage from './pages/CropDetailsPage'
 import MyGardenPage from './pages/MyGardenPage'
 import ResultsPage from './pages/ResultsPage'
@@ -8,10 +7,6 @@ import SearchPage from './pages/SearchPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
-  const [searchTerm, setSearchTerm] = useState('')
-
-  const { data, isQuerying } = useFetch(searchTerm)
-
   const history = useHistory()
 
   const [favoriteCrops, setFavoriteCrops] = useState(
@@ -26,20 +21,10 @@ export default function App() {
     <>
       <Switch>
         <Route exact path="/">
-          <SearchPage
-            onSubmit={handleSubmit}
-            crops={data}
-            setSearchTerm={setSearchTerm}
-            onFavorites={navigateFavorites}
-          />
+          <SearchPage onFavorites={navigateFavorites} />
         </Route>
-        <Route path="/results">
-          <ResultsPage
-            crops={data ? data : []}
-            onBack={navigateHome}
-            onDetails={navigateDetails}
-            isQuerying={isQuerying}
-          />
+        <Route path="/results/:searchTerm">
+          <ResultsPage onBack={navigateHome} onDetails={navigateDetails} />
         </Route>
         <Route path="/details/:id">
           <CropDetailsPage
@@ -58,9 +43,6 @@ export default function App() {
       </Switch>
     </>
   )
-  function handleSubmit() {
-    history.push('/results/')
-  }
 
   function navigateDetails(id) {
     history.push('/details/' + id)

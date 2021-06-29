@@ -47,7 +47,7 @@ export default function CropDetailsPage({
           </dl>
 
           <Button
-            onClick={() => onToggleFavorite(data)} // davor: (crop)
+            onClick={() => onToggleFavorite(data)}
             isFavorite={isFavorite}
           >
             {isFavorite ? 'Remove from My Garden' : 'Add to My Garden'}
@@ -58,20 +58,41 @@ export default function CropDetailsPage({
             <dl>
               <div>
                 <dt>Need of sun</dt>
-                <dd>{sun}</dd>
+                <dd>{sun !== null ? sun : <span>unknown</span>}</dd>
               </div>
               <div>
                 <dt>Spread</dt>
-                <dd>{spread} cm</dd>
+                <dd>
+                  {spread !== null ? (
+                    <span>{spread} cm</span>
+                  ) : (
+                    <span>unknown</span>
+                  )}
+                </dd>
               </div>
               <div>
                 <dt>Row Space</dt>
-                <dd>{rowSpace} cm</dd>
+                <dd>
+                  {rowSpace !== null ? (
+                    <span>{rowSpace} cm</span>
+                  ) : (
+                    <span>unknown</span>
+                  )}
+                </dd>
               </div>
             </dl>
           </QuickGuide>
           <h2>Details</h2>
-          <p>{details}</p>
+          <p>
+            {details !== null ? (
+              details
+            ) : (
+              <span>
+                Unfortunately, the description of this crop is not yet
+                available. Please be patient and check back later, thank you.
+              </span>
+            )}
+          </p>
         </Information>
       </DetailedView>
     </div>

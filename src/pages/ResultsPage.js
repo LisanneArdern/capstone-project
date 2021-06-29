@@ -2,22 +2,25 @@ import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
+import useFetch from '../hooks/useFetch.js'
+import { useParams } from 'react-router-dom'
 
 ResultsPage.propTypes = {
-  crops: PropTypes.array,
   onBack: PropTypes.func.isRequired,
   onDetails: PropTypes.func.isRequired,
 }
 
-export default function ResultsPage({ crops, onBack, onDetails, isQuerying }) {
+export default function ResultsPage({ onBack, onDetails }) {
+  const { searchTerm } = useParams()
+  const { data, isQuerying } = useFetch(searchTerm)
   if (isQuerying) return <div>loading...</div>
   return (
     <div>
       <BackButton onClick={onBack}>&lt; back</BackButton>
       <Output>
-        {crops.length !== 0 ? (
+        {data.length !== 0 ? (
           <>
-            {crops
+            {data
               ?.filter(crop =>
                 crop.attributes.main_image_path.match(/(https)/gi)
               )

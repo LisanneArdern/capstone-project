@@ -1,23 +1,17 @@
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import Header from '../components/Header'
-import BackgroundMobile from '../images/vegetable-frame-mobile.png'
 import BackgroundDesktop from '../images/vegetable-frame-desktop.png'
+import BackgroundMobile from '../images/vegetable-frame-mobile.png'
 
 SearchPage.propTypes = {
-  onSubmit: PropTypes.func.isRequired,
-  crops: PropTypes.array,
   onFavorites: PropTypes.func.isRequired,
-  setSearchTerm: PropTypes.func.isRequired,
 }
 
-export default function SearchPage({
-  onSubmit,
-  setSearchTerm,
-  crops,
-  onFavorites,
-}) {
+export default function SearchPage({ onFavorites }) {
+  const { push } = useHistory()
   return (
     <Wrapper>
       <SearchHeader>Harvestly</SearchHeader>
@@ -39,9 +33,8 @@ export default function SearchPage({
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const input = form.elements.search.value
-    setSearchTerm(input)
-    onSubmit(crops)
+    const searchTerm = form.elements.search.value
+    push(`/results/${searchTerm}`)
   }
 }
 
@@ -58,7 +51,6 @@ const Wrapper = styled.section`
   }
 `
 const SearchHeader = styled(Header)`
-  background: white;
   text-align: center;
   margin: 0;
   border-radius: 5px;
