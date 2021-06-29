@@ -9,7 +9,8 @@ ResultsPage.propTypes = {
   onDetails: PropTypes.func.isRequired,
 }
 
-export default function ResultsPage({ crops, onBack, onDetails }) {
+export default function ResultsPage({ crops, onBack, onDetails, isQuerying }) {
+  if (isQuerying) return <div>loading...</div>
   return (
     <div>
       <BackButton onClick={onBack}>&lt; back</BackButton>

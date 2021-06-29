@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
-//import mostCommonCrops from './data.json'
+import useFetch from './hooks/useFetch.js'
 import CropDetailsPage from './pages/CropDetailsPage'
 import MyGardenPage from './pages/MyGardenPage'
 import ResultsPage from './pages/ResultsPage'
@@ -8,23 +8,15 @@ import SearchPage from './pages/SearchPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
-  const [crops, setCrops] = useState([])
   const [searchTerm, setSearchTerm] = useState('')
 
-  useEffect(() => {
-    if (searchTerm.length > 2) {
-      fetch(`https://openfarm.cc/api/v1/crops/?filter=${searchTerm}`)
-        .then(res => res.json())
-        .then(data => setCrops(data.data))
-        .catch(error => console.error(error))
-    }
-  }, [searchTerm])
+  const { data, isQuerying } = useFetch(searchTerm)
 
   const history = useHistory()
-  const location = useLocation()
-  const detailedCrop = crops?.find(
-    crop => crop.id === location.pathname.replace('/details/', '')
-  )
+  // const location = useLocation()
+  // const detailedCrop = data?.find(
+  //   crop => crop.id === location.pathname.replace('/details/', '')
+  // )
   const [favoriteCrops, setFavoriteCrops] = useState(
     loadFromLocal('favoriteCrops') ?? []
   )
@@ -39,22 +31,23 @@ export default function App() {
         <Route exact path="/">
           <SearchPage
             onSubmit={handleSubmit}
-            crops={crops}
+            crops={data}
             setSearchTerm={setSearchTerm}
             onFavorites={navigateFavorites}
           />
         </Route>
         <Route path="/results">
           <ResultsPage
-            crops={crops}
+            crops={data ? data : []}
             onBack={navigateHome}
             onDetails={navigateDetails}
+            isQuerying={isQuerying}
           />
         </Route>
         <Route path="/details">
           <CropDetailsPage
             onBack={navigateBack}
-            crop={detailedCrop}
+            // crop={detailedCrop}
             onToggleFavorite={toggleFavorite}
             favoriteCrops={favoriteCrops}
           />
