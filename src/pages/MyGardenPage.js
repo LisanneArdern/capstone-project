@@ -5,26 +5,18 @@ import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 
 MyGardenPage.propTypes = {
-  crops: PropTypes.array.isRequired,
+  crops: PropTypes.array,
   onDetails: PropTypes.func.isRequired,
   onBack: PropTypes.func.isRequired,
-  favoriteIds: PropTypes.array,
+  favoriteCrops: PropTypes.array,
 }
 
-export default function MyGardenPage({
-  crops,
-  onDetails,
-  onBack,
-  favoriteIds,
-}) {
-  const favoriteCrops = crops.filter(crop =>
-    favoriteIds.find(id => id === crop.id)
-  )
+export default function MyGardenPage({ onDetails, onBack, favoriteCrops }) {
   return (
     <Wrapper>
       <Header>My Garden</Header>
       <Container>
-        {favoriteIds.length === 0 ? (
+        {favoriteCrops.length === 0 ? (
           <Paragraph>
             Your garden is still empty.
             <br />

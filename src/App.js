@@ -1,47 +1,41 @@
 import { useEffect, useState } from 'react'
-import { Route, Switch, useHistory, useLocation } from 'react-router-dom'
-import crops from './data.json'
+import { Route, Switch, useHistory } from 'react-router-dom'
 import CropDetailsPage from './pages/CropDetailsPage'
 import MyGardenPage from './pages/MyGardenPage'
+import ResultsPage from './pages/ResultsPage'
 import SearchPage from './pages/SearchPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
   const history = useHistory()
-  const location = useLocation()
-  const detailedCrop = crops.find(
-    crop => crop.id === location.pathname.replace('/details/', '')
-  )
-  const [favoriteIds, setFavoriteIds] = useState(
-    loadFromLocal('favoriteIds') ?? []
+
+  const [favoriteCrops, setFavoriteCrops] = useState(
+    loadFromLocal('favoriteCrops') ?? []
   )
 
   useEffect(() => {
-    saveToLocal('favoriteIds', favoriteIds)
-  }, [favoriteIds])
+    saveToLocal('favoriteCrops', favoriteCrops)
+  }, [favoriteCrops])
 
   return (
     <>
       <Switch>
         <Route exact path="/">
-          <SearchPage
-            crops={crops}
-            onFavorites={navigateFavorites}
-            onDetails={navigateDetails}
-          />
+          <SearchPage onFavorites={navigateFavorites} />
         </Route>
-        <Route path="/details">
+        <Route path="/results/:searchTerm">
+          <ResultsPage onBack={navigateHome} onDetails={navigateDetails} />
+        </Route>
+        <Route path="/details/:id">
           <CropDetailsPage
             onBack={navigateBack}
-            crop={detailedCrop}
             onToggleFavorite={toggleFavorite}
-            favoriteIds={favoriteIds}
+            favoriteCrops={favoriteCrops}
           />
         </Route>
         <Route path="/mygarden">
           <MyGardenPage
-            crops={crops}
-            favoriteIds={favoriteIds}
+            favoriteCrops={favoriteCrops}
             onDetails={navigateDetails}
             onBack={navigateHome}
           />
@@ -66,20 +60,20 @@ export default function App() {
     history.push('/')
   }
 
-  function toggleFavorite(id) {
-    const isInFavorites = favoriteIds.some(favId => favId === id)
+  function toggleFavorite(crop) {
+    const isInFavorites = favoriteCrops.some(favCrop => favCrop.id === crop.id)
     if (isInFavorites) {
-      removeFromFavorites(id)
+      removeFromFavorites(crop.id)
     } else {
-      addToFavorites(id)
+      addToFavorites(crop)
     }
   }
 
-  function addToFavorites(id) {
-    setFavoriteIds([...favoriteIds, id])
+  function addToFavorites(crop) {
+    setFavoriteCrops([...favoriteCrops, crop])
   }
 
   function removeFromFavorites(id) {
-    setFavoriteIds(favoriteIds.filter(favId => favId !== id))
+    setFavoriteCrops(favoriteCrops.filter(favCrop => favCrop.id !== id))
   }
 }
