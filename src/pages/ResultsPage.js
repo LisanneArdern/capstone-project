@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
+import Header from '../components/Header'
+import Spinner from '../components/Spinner'
 import useFetch from '../hooks/useFetch.js'
-import { useParams } from 'react-router-dom'
 
 ResultsPage.propTypes = {
   onBack: PropTypes.func.isRequired,
@@ -13,9 +15,15 @@ ResultsPage.propTypes = {
 export default function ResultsPage({ onBack, onDetails }) {
   const { searchTerm } = useParams()
   const { data, isQuerying } = useFetch(searchTerm)
-  if (isQuerying) return <div>loading...</div>
+  if (isQuerying)
+    return (
+      <SpinnerWrapper>
+        <Spinner />
+      </SpinnerWrapper>
+    )
   return (
     <div>
+      <Header>Search for '{searchTerm}'</Header>
       <BackButton onClick={onBack}>&lt; back</BackButton>
       <Output>
         {data.length !== 0 ? (
@@ -45,9 +53,17 @@ export default function ResultsPage({ onBack, onDetails }) {
   )
 }
 
+const SpinnerWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+`
+
 const BackButton = styled(Button)`
-  margin: 10px 0 0 10px;
+  position: fixed;
   padding: 8px 12px;
+  left: 10px;
+  top: 10px;
 `
 const Output = styled.div`
   overflow-y: auto;

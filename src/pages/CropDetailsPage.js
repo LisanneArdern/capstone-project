@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
+import Spinner from '../components/Spinner'
 import useCropDetails from '../hooks/useCropDetails.js'
 
 CropDetailsPage.propTypes = {
@@ -20,7 +21,12 @@ export default function CropDetailsPage({
 
   const isFavorite = favoriteCrops?.some(favoriteCrop => favoriteCrop.id === id)
 
-  if (isQuerying) return <div>loading...</div>
+  if (isQuerying)
+    return (
+      <SpinnerWrapper>
+        <Spinner />
+      </SpinnerWrapper>
+    )
 
   const {
     attributes: {
@@ -98,6 +104,11 @@ export default function CropDetailsPage({
     </div>
   )
 }
+const SpinnerWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+`
 const BackButton = styled(Button)`
   position: fixed;
   padding: 8px 12px;
