@@ -27,7 +27,7 @@ const Nav = styled.nav`
   width: 100%;
 
   a {
-    color: var(--color-border);
+    color: darkgrey;
     text-decoration: none;
   }
 `

@@ -1,6 +1,6 @@
 // import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro'
 // import Button from '../components/Button'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
@@ -42,12 +42,22 @@ export default function SearchPage() {
     push(`/search/${searchTerm}`)
   }
 }
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
 
 const Wrapper = styled.section`
   display: grid;
   grid-template-rows: auto 48px;
   height: 100vh;
   width: 100vw;
+  animation-duration: 1s;
+  animation-name: ${fadein};
 `
 const Background = styled.div`
   background-image: url(${BackgroundMobile});
@@ -85,6 +95,10 @@ const Input = styled.input`
   padding: 10px 20px;
   margin: 10px 0;
 `
+// const SearchNavigation = styled(Navigation)`
+//   animation-duration: 1s;
+//   animation-name: ${slidein};
+// `
 
 // const MyGardenButton = styled(Button)`
 //   margin: 0 10px;

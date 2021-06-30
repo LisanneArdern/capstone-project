@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro'
 // import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
@@ -41,10 +41,20 @@ export default function MyGardenPage({ onDetails, onBack, favoriteCrops }) {
     </Wrapper>
   )
 }
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: min-content auto 48px;
   height: 100vh;
+  animation-duration: 1s;
+  animation-name: ${fadein};
 `
 
 const Container = styled.div`

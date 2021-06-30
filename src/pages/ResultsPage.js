@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
@@ -22,9 +22,11 @@ export default function ResultsPage({ onBack, onDetails }) {
       </SpinnerWrapper>
     )
   return (
-    <div>
-      <Header>Search for '{searchTerm}'</Header>
-      <BackButton onClick={onBack}>&lt; back</BackButton>
+    <Animation>
+      <Test>
+        <Header>Search for '{searchTerm}'</Header>
+        <BackButton onClick={onBack}>x</BackButton>
+      </Test>
       <Output>
         {data.length !== 0 ? (
           <>
@@ -49,9 +51,27 @@ export default function ResultsPage({ onBack, onDetails }) {
           </Paragraph>
         )}
       </Output>
-    </div>
+    </Animation>
   )
 }
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
+const Test = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`
+
+const Animation = styled.div`
+  animation-duration: 1.5s;
+  animation-name: ${fadein};
+`
 
 const SpinnerWrapper = styled.section`
   display: flex;
@@ -60,10 +80,7 @@ const SpinnerWrapper = styled.section`
 `
 
 const BackButton = styled(Button)`
-  position: fixed;
   padding: 8px 12px;
-  left: 10px;
-  top: 10px;
 `
 const Output = styled.div`
   overflow-y: auto;
