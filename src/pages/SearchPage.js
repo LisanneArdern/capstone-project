@@ -38,7 +38,7 @@ export default function SearchPage({ onFavorites }) {
     event.preventDefault()
     const form = event.target
     const searchTerm = form.elements.search.value
-    push(`/results/${searchTerm}`)
+    push(`/search/${searchTerm}`)
   }
 }
 
@@ -69,6 +69,7 @@ const SearchHeader = styled(Header)`
   font-weight: 700;
   text-align: center;
   padding-bottom: 35px;
+  letter-spacing: 2px;
 `
 
 const Form = styled.form`
