@@ -1,22 +1,28 @@
 import PropTypes from 'prop-types'
+import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
+import useCropDetails from '../hooks/useCropDetails.js'
 
 CropDetailsPage.propTypes = {
-  crop: PropTypes.object,
-  favoriteIds: PropTypes.array,
+  favoriteCrops: PropTypes.array,
   onBack: PropTypes.func.isRequired,
   onToggleFavorite: PropTypes.func.isRequired,
 }
 
 export default function CropDetailsPage({
-  crop,
-  favoriteIds,
+  favoriteCrops,
   onBack,
   onToggleFavorite,
 }) {
+  const { id } = useParams()
+  const { data, isQuerying } = useCropDetails(id)
+
+  const isFavorite = favoriteCrops?.some(favoriteCrop => favoriteCrop.id === id)
+
+  if (isQuerying) return <div>loading...</div>
+
   const {
-    id,
     attributes: {
       main_image_path: image,
       name,
@@ -26,10 +32,7 @@ export default function CropDetailsPage({
       row_spacing: rowSpace,
       description: details,
     },
-  } = crop
-
-  const isFavorite = favoriteIds?.some(favoriteId => favoriteId === id)
-
+  } = data
   return (
     <div>
       <BackButton onClick={onBack}>&lt; back</BackButton>
@@ -43,7 +46,10 @@ export default function CropDetailsPage({
             <dd>{botanicalName}</dd>
           </dl>
 
-          <Button onClick={() => onToggleFavorite(id)} isFavorite={isFavorite}>
+          <Button
+            onClick={() => onToggleFavorite(data)}
+            isFavorite={isFavorite}
+          >
             {isFavorite ? 'Remove from My Garden' : 'Add to My Garden'}
           </Button>
 
@@ -52,20 +58,41 @@ export default function CropDetailsPage({
             <dl>
               <div>
                 <dt>Need of sun</dt>
-                <dd>{sun}</dd>
+                <dd>{sun !== null ? sun : <span>unknown</span>}</dd>
               </div>
               <div>
                 <dt>Spread</dt>
-                <dd>{spread} cm</dd>
+                <dd>
+                  {spread !== null ? (
+                    <span>{spread} cm</span>
+                  ) : (
+                    <span>unknown</span>
+                  )}
+                </dd>
               </div>
               <div>
                 <dt>Row Space</dt>
-                <dd>{rowSpace} cm</dd>
+                <dd>
+                  {rowSpace !== null ? (
+                    <span>{rowSpace} cm</span>
+                  ) : (
+                    <span>unknown</span>
+                  )}
+                </dd>
               </div>
             </dl>
           </QuickGuide>
           <h2>Details</h2>
-          <p>{details}</p>
+          <p>
+            {details !== null ? (
+              details
+            ) : (
+              <span>
+                Unfortunately, the description of this crop is not yet
+                available. Please be patient and check back later, thank you.
+              </span>
+            )}
+          </p>
         </Information>
       </DetailedView>
     </div>

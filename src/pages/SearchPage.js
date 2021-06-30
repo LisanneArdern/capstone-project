@@ -1,20 +1,17 @@
 import PropTypes from 'prop-types'
+import { useHistory } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import Header from '../components/Header'
-import BackgroundMobile from '../images/vegetable-frame-mobile.png'
 import BackgroundDesktop from '../images/vegetable-frame-desktop.png'
+import BackgroundMobile from '../images/vegetable-frame-mobile.png'
 
 SearchPage.propTypes = {
   onFavorites: PropTypes.func.isRequired,
 }
 
-export default function SearchPage({
-  onSubmit,
-  setSearchTerm,
-  crops,
-  onFavorites,
-}) {
+export default function SearchPage({ onFavorites }) {
+  const { push } = useHistory()
   return (
     <Wrapper>
       <Background>
@@ -40,9 +37,8 @@ export default function SearchPage({
   function handleSubmit(event) {
     event.preventDefault()
     const form = event.target
-    const input = form.elements.search.value
-    setSearchTerm(input)
-    onSubmit(crops)
+    const searchTerm = form.elements.search.value
+    push(`/results/${searchTerm}`)
   }
 }
 
