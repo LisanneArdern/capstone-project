@@ -25,7 +25,7 @@ export default function ResultsPage({ onBack, onDetails }) {
     <Animation>
       <Test>
         <Header>Search for '{searchTerm}'</Header>
-        <BackButton onClick={onBack}>x</BackButton>
+        <BackButton onClick={onBack}>X</BackButton>
       </Test>
       <Output>
         {data.length !== 0 ? (
@@ -80,7 +80,7 @@ const SpinnerWrapper = styled.section`
 `
 
 const BackButton = styled(Button)`
-  padding: 8px 12px;
+  padding: 10px 14px;
 `
 const Output = styled.div`
   overflow-y: auto;

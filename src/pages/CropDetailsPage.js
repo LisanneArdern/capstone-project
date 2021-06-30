@@ -52,12 +52,12 @@ export default function CropDetailsPage({
             <dd>{botanicalName}</dd>
           </dl>
 
-          <Button
+          <FavoriteButton
             onClick={() => onToggleFavorite(data)}
             isFavorite={isFavorite}
           >
             {isFavorite ? 'Remove from My Garden' : 'Add to My Garden'}
-          </Button>
+          </FavoriteButton>
 
           <QuickGuide>
             <h2>Quick Guide</h2>
@@ -111,7 +111,7 @@ const SpinnerWrapper = styled.section`
 `
 const BackButton = styled(Button)`
   position: fixed;
-  padding: 8px 12px;
+  padding: 12px 16px;
   left: 10px;
   top: 10px;
   z-index: 1;
@@ -158,4 +158,10 @@ const QuickGuide = styled.div`
   dd {
     margin: 0;
   }
+`
+const FavoriteButton = styled(Button)`
+  width: 100%;
+  padding: 10px 20px;
+  background: var(--color-dark-green);
+  color: white;
 `
