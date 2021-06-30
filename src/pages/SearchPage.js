@@ -48,11 +48,6 @@ const Wrapper = styled.section`
   height: 100vh;
   width: 100vw;
 `
-const SearchHeader = styled(Header)`
-  text-align: center;
-  padding-bottom: 35px;
-`
-
 const Background = styled.div`
   background-image: url(${BackgroundMobile});
   background-size: cover;
@@ -64,14 +59,21 @@ const Background = styled.div`
   justify-content: center;
   align-items: center;
 `
+
 const Content = styled.div`
   padding-bottom: 150px;
 `
 
+const SearchHeader = styled(Header)`
+  font-family: 'Vollkorn', serif;
+  font-weight: 700;
+  text-align: center;
+  padding-bottom: 35px;
+`
+
 const Form = styled.form`
-  /* align-self: center;
-  justify-self: center;
-  padding-bottom: 150px; */
+  text-align: center;
+  font-weight: 300;
 `
 
 const Input = styled.input`
