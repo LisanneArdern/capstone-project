@@ -162,6 +162,8 @@ const QuickGuide = styled.div`
 const FavoriteButton = styled(Button)`
   width: 100%;
   padding: 10px 20px;
-  background: var(--color-dark-green);
+  background-color: ${props =>
+    props.isFavorite ? '#418151' : 'var(--color-dark-green)'};
+  /* background: var(--color-dark-green); */
   color: white;
 `

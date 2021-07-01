@@ -94,6 +94,7 @@ const Input = styled.input`
   border-radius: 10px;
   padding: 10px 20px;
   margin: 10px 0;
+  width: 30ch;
 `
 // const SearchNavigation = styled(Navigation)`
 //   animation-duration: 1s;

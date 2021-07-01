@@ -8,8 +8,8 @@ export default function TasksPage({ toDos, onClick }) {
   return (
     <Wrapper>
       <Header>Tasks</Header>
-      <Main>
-        <Button onClick={onClick}>Add new Task</Button>
+      <Tasks>
+        <TaskButton onClick={onClick}>Set Reminder</TaskButton>
         <div>
           {toDos.map((toDo, index) => (
             <TaskEntry
@@ -19,7 +19,7 @@ export default function TasksPage({ toDos, onClick }) {
             />
           ))}
         </div>
-      </Main>
+      </Tasks>
       <Navigation />
     </Wrapper>
   )
@@ -29,6 +29,15 @@ const Wrapper = styled.section`
   grid-template-rows: min-content auto 48px;
   height: 100vh;
 `
-const Main = styled.main`
-  height: 100%;
+
+const Tasks = styled.div`
+  padding: 20px;
+`
+
+const TaskButton = styled(Button)`
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: var(--color-dark-green);
+  color: white;
 `

@@ -1,3 +1,4 @@
+//@ts-check
 import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import CropDetailsPage from './pages/CropDetailsPage'
@@ -10,8 +11,6 @@ import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
   const history = useHistory()
-  const [tasks, setTasks] = useState()
-  const [nameOfCrop, setNameOfCrop] = useState('')
   const [taskList, setTaskList] = useState([])
 
   const [favoriteCrops, setFavoriteCrops] = useState(
@@ -89,10 +88,8 @@ export default function App() {
   function removeFromFavorites(id) {
     setFavoriteCrops(favoriteCrops.filter(favCrop => favCrop.id !== id))
   }
-  function handleSubmit() {
+
+  function handleSubmit({ tasks, nameOfCrop }) {
     setTaskList([{ tasks, nameOfCrop }, ...taskList])
-    setTasks(tasks)
-    setNameOfCrop(nameOfCrop)
-    console.log(tasks)
   }
 }
