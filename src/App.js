@@ -3,11 +3,16 @@ import { Route, Switch, useHistory } from 'react-router-dom'
 import CropDetailsPage from './pages/CropDetailsPage'
 import MyGardenPage from './pages/MyGardenPage'
 import ResultsPage from './pages/ResultsPage'
+import TasksPage from './pages/TasksPage'
 import SearchPage from './pages/SearchPage'
+import FormPage from './pages/FormPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
   const history = useHistory()
+  const [tasks, setTasks] = useState()
+  const [nameOfCrop, setNameOfCrop] = useState('')
+  const [taskList, setTaskList] = useState([])
 
   const [favoriteCrops, setFavoriteCrops] = useState(
     loadFromLocal('favoriteCrops') ?? []
@@ -40,6 +45,12 @@ export default function App() {
             onBack={navigateHome}
           />
         </Route>
+        <Route path="/tasks">
+          <TasksPage onClick={navigateForm} toDos={taskList} />
+        </Route>
+        <Route path="/form">
+          <FormPage onSubmit={handleSubmit} />
+        </Route>
       </Switch>
     </>
   )
@@ -59,7 +70,9 @@ export default function App() {
   function navigateHome() {
     history.push('/')
   }
-
+  function navigateForm() {
+    history.push('/form')
+  }
   function toggleFavorite(crop) {
     const isInFavorites = favoriteCrops.some(favCrop => favCrop.id === crop.id)
     if (isInFavorites) {
@@ -75,5 +88,11 @@ export default function App() {
 
   function removeFromFavorites(id) {
     setFavoriteCrops(favoriteCrops.filter(favCrop => favCrop.id !== id))
+  }
+  function handleSubmit() {
+    setTaskList([{ tasks, nameOfCrop }, ...taskList])
+    setTasks(tasks)
+    setNameOfCrop(nameOfCrop)
+    console.log(tasks)
   }
 }

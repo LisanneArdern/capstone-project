@@ -14,6 +14,9 @@ export default function Navigation({ isActive }) {
       <NavLink to="/mygarden" activeStyle={activeStyle}>
         My Garden
       </NavLink>
+      <NavLink to="/tasks" activeStyle={activeStyle}>
+        Tasks
+      </NavLink>
     </Nav>
   )
 }
@@ -21,7 +24,7 @@ const Nav = styled.nav`
   display: grid;
   justify-items: center;
   align-items: center;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   border-top: 1px solid var(--color-dark-green);
   background-color: var(--color-basis);
   width: 100%;
