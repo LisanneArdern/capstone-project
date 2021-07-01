@@ -22,11 +22,11 @@ export default function ResultsPage({ onBack, onDetails }) {
       </SpinnerWrapper>
     )
   return (
-    <Animation>
-      <Test>
+    <Wrapper>
+      <Top>
         <Header>Search for '{searchTerm}'</Header>
         <BackButton onClick={onBack}>X</BackButton>
-      </Test>
+      </Top>
       <Output>
         {data.length !== 0 ? (
           <>
@@ -51,9 +51,14 @@ export default function ResultsPage({ onBack, onDetails }) {
           </Paragraph>
         )}
       </Output>
-    </Animation>
+    </Wrapper>
   )
 }
+const SpinnerWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+`
 const fadein = keyframes`
 from {
  opacity: 0;
@@ -62,22 +67,16 @@ to {
   opacity: 1;
 }
 `
-const Test = styled.div`
+const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
   border-bottom: 1px solid var(--color-dark-green);
 `
 
-const Animation = styled.div`
+const Wrapper = styled.section`
   animation-duration: 1.5s;
   animation-name: ${fadein};
-`
-
-const SpinnerWrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  padding-top: 200px;
 `
 
 const BackButton = styled(Button)`

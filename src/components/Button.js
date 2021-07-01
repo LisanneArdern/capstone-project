@@ -9,8 +9,6 @@ const Button = styled.button`
   font-weight: 300px;
   box-shadow: 0px 8px 15px var(--color-light-shadow);
   background-color: white;
-  /* background-color: ${props =>
-    props.isFavorite ? 'var(--color-dark-green)' : '#418151'}; */
 `
 
 export default Button

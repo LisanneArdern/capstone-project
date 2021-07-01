@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types'
 import styled, { keyframes } from 'styled-components/macro'
-// import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
@@ -37,7 +36,6 @@ export default function MyGardenPage({ onDetails, onBack, favoriteCrops }) {
         )}
       </Container>
       <Navigation />
-      {/* <BackToListButton onClick={onBack}>Back to List</BackToListButton> */}
     </Wrapper>
   )
 }
@@ -54,7 +52,7 @@ const PageHeader = styled(Header)`
   border-bottom: 1px solid var(--color-dark-green);
 `
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: grid;
   grid-template-rows: min-content auto 48px;
   height: 100vh;
@@ -69,6 +67,3 @@ const Paragraph = styled.p`
   text-align: center;
   margin: 50px 0;
 `
-// const BackToListButton = styled(Button)`
-//   margin: 0 10px;
-// `

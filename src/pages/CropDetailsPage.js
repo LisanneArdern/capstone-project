@@ -46,13 +46,11 @@ export default function CropDetailsPage({
         <img src={image} alt="" width="375" height="250" />
 
         <Information>
-          <Name>
-            <h1>{name}</h1>
-            <dl>
-              <dt>Botanical Name:</dt>
-              <dd>{botanicalName}</dd>
-            </dl>
-          </Name>
+          <h1>{name}</h1>
+          <dl>
+            <dt>Botanical Name:</dt>
+            <dd>{botanicalName}</dd>
+          </dl>
 
           <FavoriteButton
             onClick={() => onToggleFavorite(data)}
@@ -113,11 +111,6 @@ const SpinnerWrapper = styled.section`
   justify-content: center;
   padding-top: 200px;
 `
-const Name = styled.div`
-  /* border-radius: 8px;
-  padding: 2px 7px;
-  margin-bottom: 5px; */
-`
 
 const BackButton = styled(Button)`
   position: fixed;
@@ -152,6 +145,15 @@ const Information = styled.div`
     display: flex;
   }
 `
+const FavoriteButton = styled(Button)`
+  width: 100%;
+  padding: 10px 20px;
+  background-color: ${props =>
+    props.isFavorite ? '#418151' : 'var(--color-dark-green)'};
+  color: white;
+  margin-bottom: 5px;
+`
+
 const QuickGuide = styled.div`
   border-radius: 8px;
   background: white;
@@ -177,15 +179,7 @@ const QuickGuide = styled.div`
     margin: 0;
   }
 `
-const FavoriteButton = styled(Button)`
-  width: 100%;
-  padding: 10px 20px;
-  background-color: ${props =>
-    props.isFavorite ? '#418151' : 'var(--color-dark-green)'};
-  /* background: var(--color-dark-green); */
-  color: white;
-  margin-bottom: 5px;
-`
+
 const Details = styled.div`
   border-radius: 8px;
   background: white;

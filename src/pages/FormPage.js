@@ -46,7 +46,7 @@ export default function FormPage({ onSubmit }) {
   }
 }
 
-const Wrapper = styled.div`
+const Wrapper = styled.section`
   display: grid;
 `
 const Top = styled.div`
@@ -71,15 +71,6 @@ const Label = styled.label`
   flex-direction: column;
   gap: 4px;
 `
-
-const SaveButton = styled(Button)`
-  width: 100%;
-  margin: 20px 0;
-  padding: 10px 20px;
-  background: var(--color-dark-green);
-  color: white;
-`
-
 const Input = styled.input`
   width: 100%;
   padding: 5px 10px;
@@ -90,4 +81,12 @@ const Input = styled.input`
   box-shadow: 34px 34px 89px var(--color-shadow-13);
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1.5px;
+`
+
+const SaveButton = styled(Button)`
+  width: 100%;
+  margin: 20px 0;
+  padding: 10px 20px;
+  background: var(--color-dark-green);
+  color: white;
 `
