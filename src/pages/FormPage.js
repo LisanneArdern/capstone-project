@@ -21,7 +21,7 @@ export default function FormPage({ onSubmit }) {
           Add task
           <Input
             name="task"
-            placeholder="e.g. water, fertilze"
+            placeholder="e.g. water, fertilize"
             autoComplete="off"
           />
         </Label>
