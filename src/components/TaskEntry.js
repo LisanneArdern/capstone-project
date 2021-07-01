@@ -11,6 +11,7 @@ export default function TaskEntry({ nameOfCrop, tasks }) {
   )
 }
 const Wrapper = styled.section`
+  background: white;
   display: flex;
   justify-content: flex-start;
   align-items: center;
