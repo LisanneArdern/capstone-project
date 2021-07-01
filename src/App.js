@@ -23,7 +23,7 @@ export default function App() {
         <Route exact path="/">
           <SearchPage onFavorites={navigateFavorites} />
         </Route>
-        <Route path="/results/:searchTerm">
+        <Route path="/search/:searchTerm">
           <ResultsPage onBack={navigateHome} onDetails={navigateDetails} />
         </Route>
         <Route path="/details/:id">

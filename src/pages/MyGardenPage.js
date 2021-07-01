@@ -1,8 +1,9 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
-import Button from '../components/Button'
+import styled, { keyframes } from 'styled-components/macro'
+// import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
+import Navigation from '../components/Navigation'
 
 MyGardenPage.propTypes = {
   crops: PropTypes.array,
@@ -35,14 +36,25 @@ export default function MyGardenPage({ onDetails, onBack, favoriteCrops }) {
           </>
         )}
       </Container>
-      <BackToListButton onClick={onBack}>Back to List</BackToListButton>
+      <Navigation />
+      {/* <BackToListButton onClick={onBack}>Back to List</BackToListButton> */}
     </Wrapper>
   )
 }
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 48px auto 48px;
+  grid-template-rows: min-content auto 48px;
   height: 100vh;
+  animation-duration: 1s;
+  animation-name: ${fadein};
 `
 
 const Container = styled.div`
@@ -52,6 +64,6 @@ const Paragraph = styled.p`
   text-align: center;
   margin: 50px 0;
 `
-const BackToListButton = styled(Button)`
-  margin: 0 10px;
-`
+// const BackToListButton = styled(Button)`
+//   margin: 0 10px;
+// `

@@ -1,9 +1,11 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
+import { useParams } from 'react-router-dom'
+import styled, { keyframes } from 'styled-components/macro'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
+import Header from '../components/Header'
+import Spinner from '../components/Spinner'
 import useFetch from '../hooks/useFetch.js'
-import { useParams } from 'react-router-dom'
 
 ResultsPage.propTypes = {
   onBack: PropTypes.func.isRequired,
@@ -13,10 +15,18 @@ ResultsPage.propTypes = {
 export default function ResultsPage({ onBack, onDetails }) {
   const { searchTerm } = useParams()
   const { data, isQuerying } = useFetch(searchTerm)
-  if (isQuerying) return <div>loading...</div>
+  if (isQuerying)
+    return (
+      <SpinnerWrapper>
+        <Spinner />
+      </SpinnerWrapper>
+    )
   return (
-    <div>
-      <BackButton onClick={onBack}>&lt; back</BackButton>
+    <Animation>
+      <Test>
+        <Header>Search for '{searchTerm}'</Header>
+        <BackButton onClick={onBack}>X</BackButton>
+      </Test>
       <Output>
         {data.length !== 0 ? (
           <>
@@ -41,13 +51,36 @@ export default function ResultsPage({ onBack, onDetails }) {
           </Paragraph>
         )}
       </Output>
-    </div>
+    </Animation>
   )
 }
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
+const Test = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+`
+
+const Animation = styled.div`
+  animation-duration: 1.5s;
+  animation-name: ${fadein};
+`
+
+const SpinnerWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+`
 
 const BackButton = styled(Button)`
-  margin: 10px 0 0 10px;
-  padding: 8px 12px;
+  padding: 10px 14px;
 `
 const Output = styled.div`
   overflow-y: auto;

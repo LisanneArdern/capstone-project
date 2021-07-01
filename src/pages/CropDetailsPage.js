@@ -2,6 +2,7 @@ import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
+import Spinner from '../components/Spinner'
 import useCropDetails from '../hooks/useCropDetails.js'
 
 CropDetailsPage.propTypes = {
@@ -20,7 +21,12 @@ export default function CropDetailsPage({
 
   const isFavorite = favoriteCrops?.some(favoriteCrop => favoriteCrop.id === id)
 
-  if (isQuerying) return <div>loading...</div>
+  if (isQuerying)
+    return (
+      <SpinnerWrapper>
+        <Spinner />
+      </SpinnerWrapper>
+    )
 
   const {
     attributes: {
@@ -46,12 +52,12 @@ export default function CropDetailsPage({
             <dd>{botanicalName}</dd>
           </dl>
 
-          <Button
+          <FavoriteButton
             onClick={() => onToggleFavorite(data)}
             isFavorite={isFavorite}
           >
             {isFavorite ? 'Remove from My Garden' : 'Add to My Garden'}
-          </Button>
+          </FavoriteButton>
 
           <QuickGuide>
             <h2>Quick Guide</h2>
@@ -98,9 +104,14 @@ export default function CropDetailsPage({
     </div>
   )
 }
+const SpinnerWrapper = styled.section`
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+`
 const BackButton = styled(Button)`
   position: fixed;
-  padding: 8px 12px;
+  padding: 12px 16px;
   left: 10px;
   top: 10px;
   z-index: 1;
@@ -147,4 +158,10 @@ const QuickGuide = styled.div`
   dd {
     margin: 0;
   }
+`
+const FavoriteButton = styled(Button)`
+  width: 100%;
+  padding: 10px 20px;
+  background: var(--color-dark-green);
+  color: white;
 `
