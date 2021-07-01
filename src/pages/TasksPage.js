@@ -7,7 +7,7 @@ import Navigation from '../components/Navigation'
 export default function TasksPage({ toDos, onClick }) {
   return (
     <Wrapper>
-      <Header>Tasks</Header>
+      <PageHeader>Tasks</PageHeader>
       <Tasks>
         <TaskButton onClick={onClick}>Set Reminder</TaskButton>
         <div>
@@ -29,7 +29,9 @@ const Wrapper = styled.section`
   grid-template-rows: min-content auto 48px;
   height: 100vh;
 `
-
+const PageHeader = styled(Header)`
+  border-bottom: 1px solid var(--color-dark-green);
+`
 const Tasks = styled.div`
   padding: 20px;
 `

@@ -15,7 +15,7 @@ MyGardenPage.propTypes = {
 export default function MyGardenPage({ onDetails, onBack, favoriteCrops }) {
   return (
     <Wrapper>
-      <Header>My Garden</Header>
+      <PageHeader>My Garden</PageHeader>
       <Container>
         {favoriteCrops.length === 0 ? (
           <Paragraph>
@@ -49,6 +49,11 @@ to {
   opacity: 1;
 }
 `
+
+const PageHeader = styled(Header)`
+  border-bottom: 1px solid var(--color-dark-green);
+`
+
 const Wrapper = styled.div`
   display: grid;
   grid-template-rows: min-content auto 48px;

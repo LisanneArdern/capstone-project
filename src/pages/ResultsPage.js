@@ -66,6 +66,7 @@ const Test = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
+  border-bottom: 1px solid var(--color-dark-green);
 `
 
 const Animation = styled.div`

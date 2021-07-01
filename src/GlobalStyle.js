@@ -22,6 +22,7 @@ export default createGlobalStyle`
    font-family: 'Roboto', sans-serif;
    font-size: 112.5%;
    line-height: 1.4;
+   /* background: #e3f1e7; */
  }
 
  h1 {
