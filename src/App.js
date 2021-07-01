@@ -1,4 +1,3 @@
-//@ts-check
 import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import CropDetailsPage from './pages/CropDetailsPage'
