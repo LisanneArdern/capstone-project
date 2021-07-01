@@ -16,6 +16,7 @@ export default function CropItem({ onClick, name, image }) {
   )
 }
 const Wrapper = styled.section`
+  background: white;
   display: flex;
   gap: 16px;
   margin: 10px;
