@@ -15,16 +15,17 @@ export default function FormPage({ onSubmit }) {
       <Form onSubmit={handleSubmit}>
         <Label>
           Name of Crop
-          <Input name="name" />
+          <Input name="name" placeholder="e.g. Strawberry" autoComplete="off" />
         </Label>
         <Label>
           Add task
-          <Input name="task" placeholder="e.g. water, fertilze" />
+          <Input
+            name="task"
+            placeholder="e.g. water, fertilze"
+            autoComplete="off"
+          />
         </Label>
-        <Label>
-          Date
-          <Input name="date" type="date" />
-        </Label>
+
         <SaveButton>save</SaveButton>
       </Form>
     </Wrapper>
@@ -38,8 +39,8 @@ export default function FormPage({ onSubmit }) {
     const form = event.target
     const nameOfCrop = form.elements.name.value
     const tasks = form.elements.task.value
-    const date = form.elements.date.value
-    const toDos = { nameOfCrop, tasks, date }
+
+    const toDos = { nameOfCrop, tasks }
     onSubmit(toDos)
     history.push('/tasks')
   }
@@ -80,10 +81,12 @@ const SaveButton = styled(Button)`
 
 const Input = styled.input`
   width: 100%;
-  padding: 4px;
+  padding: 5px 10px;
   border-radius: 16px;
   overflow: auto;
-  font-size: 1em;
   line-height: 1.5em;
   resize: none;
+  box-shadow: 34px 34px 89px var(--color-shadow-13);
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.5px;
 `
