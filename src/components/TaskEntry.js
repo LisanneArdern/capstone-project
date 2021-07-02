@@ -1,19 +1,18 @@
 import styled from 'styled-components/macro'
+
 export default function TaskEntry({ onClick, date, nameOfCrop, tasks }) {
   return (
     <Wrapper>
       <input type="checkbox" onClick={onClick} />
       <Grid>
-        <h2>{nameOfCrop}:</h2>
-        <span>{tasks}</span>
-        <span>{formatDate(date)}</span>
+        <h2>{formatDate(date)}</h2>
+        {nameOfCrop}: {tasks}
       </Grid>
     </Wrapper>
   )
   function formatDate(date) {
     const options = {
       weekday: 'long',
-      year: 'numeric',
       month: 'long',
       day: 'numeric',
     }
