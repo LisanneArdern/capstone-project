@@ -23,7 +23,7 @@ export default function MyGardenPage({ onDetails, favoriteCrops }) {
           </Paragraph>
         ) : (
           <>
-            {favoriteCrops.map(({ id, attributes }) => (
+            {favoriteCrops?.map(({ id, attributes }) => (
               <CropItem
                 key={id}
                 name={attributes.name}

@@ -1,9 +1,15 @@
-import styled from 'styled-components/macro'
-import Button from '../components/Button'
+import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
-import Header from '../components/Header'
+import styled from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
+import Button from '../components/Button'
+import Header from '../components/Header'
 import Background from '../images/vegetables.png'
+
+FormPage.propTypes = {
+  onSubmit: PropTypes.func.isRequired,
+  favoriteCrops: PropTypes.array,
+}
 
 export default function FormPage({ onSubmit, favoriteCrops }) {
   const history = useHistory()
@@ -18,7 +24,7 @@ export default function FormPage({ onSubmit, favoriteCrops }) {
         <Label>
           Choose a crop from your Garden
           <Select name="name">
-            {favoriteCrops.map(({ id, attributes }) => (
+            {favoriteCrops?.map(({ id, attributes }) => (
               <option key={id}>{attributes.name}</option>
             ))}
           </Select>

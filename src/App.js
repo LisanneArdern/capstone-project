@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
 import CropDetailsPage from './pages/CropDetailsPage'
+import FormPage from './pages/FormPage'
 import MyGardenPage from './pages/MyGardenPage'
 import ResultsPage from './pages/ResultsPage'
-import TasksPage from './pages/TasksPage'
 import SearchPage from './pages/SearchPage'
-import FormPage from './pages/FormPage'
+import TasksPage from './pages/TasksPage'
 import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
@@ -44,7 +44,6 @@ export default function App() {
           <MyGardenPage
             favoriteCrops={favoriteCrops}
             onDetails={navigateDetails}
-            onBack={navigateHome}
           />
         </Route>
         <Route path="/tasks">

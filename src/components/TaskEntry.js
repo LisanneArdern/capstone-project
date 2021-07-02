@@ -1,4 +1,12 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
+
+TaskEntry.propTypes = {
+  nameOfCrop: PropTypes.string,
+  date: PropTypes.string,
+  tasks: PropTypes.string,
+  onClick: PropTypes.func.isRequired,
+}
 
 export default function TaskEntry({ onClick, date, nameOfCrop, tasks }) {
   return (

@@ -1,11 +1,18 @@
+import PropTypes from 'prop-types'
 import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import Header from '../components/Header'
-import TaskEntry from '../components/TaskEntry'
 import Navigation from '../components/Navigation'
+import TaskEntry from '../components/TaskEntry'
 import Background from '../images/vegetables.png'
 
-export default function TasksPage({ onDeleteTask, toDos, onClick }) {
+TasksPage.propTypes = {
+  toDos: PropTypes.array,
+  onClick: PropTypes.func.isRequired,
+  onDeleteTask: PropTypes.func.isRequired,
+}
+
+export default function TasksPage({ toDos, onClick, onDeleteTask }) {
   return (
     <Wrapper>
       <PageHeader>Tasks</PageHeader>
