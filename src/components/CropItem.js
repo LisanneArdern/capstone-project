@@ -21,9 +21,9 @@ const Wrapper = styled.section`
   gap: 16px;
   margin: 10px;
   padding: 5px;
-  border: 1px solid #d3d3d3;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
-  box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 8px 15px var(--color-shadow);
 
   img {
     height: auto;

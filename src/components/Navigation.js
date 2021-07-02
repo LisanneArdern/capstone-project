@@ -1,9 +1,9 @@
 import { NavLink } from 'react-router-dom'
 import styled from 'styled-components/macro'
 
-export default function Navigation({ isActive }) {
+export default function Navigation() {
   const activeStyle = {
-    color: 'var(--color-dark-green)',
+    color: 'var(--color-secondary)',
     scale: '1.05',
   }
   return (
@@ -25,12 +25,13 @@ const Nav = styled.nav`
   justify-items: center;
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  border-top: 1px solid var(--color-dark-green);
+  border-top: 1px solid var(--color-secondary);
   background-color: var(--color-basis);
   width: 100%;
+  background-color: var(--color-primary);
 
   a {
-    color: darkgrey;
+    color: var(--color-disabled);
     text-decoration: none;
   }
 `

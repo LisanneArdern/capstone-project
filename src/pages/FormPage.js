@@ -3,6 +3,7 @@ import Button from '../components/Button'
 import { useHistory } from 'react-router-dom'
 import Header from '../components/Header'
 import { v4 as uuidv4 } from 'uuid'
+import Background from '../images/vegetables.png'
 
 export default function FormPage({ onSubmit, favoriteCrops }) {
   const history = useHistory()
@@ -57,24 +58,30 @@ export default function FormPage({ onSubmit, favoriteCrops }) {
 }
 
 const Wrapper = styled.section`
+  background-image: url(${Background});
+  background-size: cover;
+  background-position: center;
   display: grid;
+  grid-template-rows: min-content auto;
+  height: 100vh;
 `
 const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid var(--color-dark-green);
+  border-bottom: 1px solid var(--color-secondary);
+  background-color: var(--color-primary-alpha);
 `
 const BackButton = styled(Button)`
   padding: 10px 14px;
 `
 
 const Form = styled.form`
-  margin-top: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
-  padding: 12px;
+  padding: 30px 15px;
+  background-color: var(--color-primary-alpha);
 `
 const Select = styled.select`
   width: 100%;
@@ -107,6 +114,6 @@ const SaveButton = styled(Button)`
   width: 100%;
   margin: 20px 0;
   padding: 10px 20px;
-  background: var(--color-dark-green);
+  background: var(--color-secondary);
   color: white;
 `

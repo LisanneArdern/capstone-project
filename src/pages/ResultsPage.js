@@ -6,6 +6,7 @@ import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 import Spinner from '../components/Spinner'
 import useFetch from '../hooks/useFetch.js'
+import Background from '../images/vegetables.png'
 
 ResultsPage.propTypes = {
   onBack: PropTypes.func.isRequired,
@@ -55,9 +56,11 @@ export default function ResultsPage({ onBack, onDetails }) {
   )
 }
 const SpinnerWrapper = styled.section`
+  height: 100vh;
   display: flex;
   justify-content: center;
   padding-top: 200px;
+  background-color: var(--color-primary-alpha);
 `
 const fadein = keyframes`
 from {
@@ -67,16 +70,21 @@ to {
   opacity: 1;
 }
 `
+const Wrapper = styled.section`
+  background-image: url(${Background});
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  animation-duration: 1.5s;
+  animation-name: ${fadein};
+  background-color: var(--color-primary-alpha);
+`
 const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  border-bottom: 1px solid var(--color-dark-green);
-`
-
-const Wrapper = styled.section`
-  animation-duration: 1.5s;
-  animation-name: ${fadein};
+  border-bottom: 1px solid var(--color-secondary);
+  background-color: var(--color-primary-alpha);
 `
 
 const BackButton = styled(Button)`
@@ -84,6 +92,8 @@ const BackButton = styled(Button)`
 `
 const Output = styled.div`
   overflow-y: auto;
+  height: 100%;
+  background-color: var(--color-primary-alpha);
 `
 const Paragraph = styled.p`
   text-align: center;

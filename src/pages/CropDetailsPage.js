@@ -134,7 +134,7 @@ const DetailedView = styled.section`
 `
 
 const Information = styled.div`
-  background: #e3f1e7;
+  background: var(--color-primary);
   padding: 10px 15px;
   border-radius: 10px 10px 0px 0px;
   position: relative;
@@ -149,14 +149,14 @@ const FavoriteButton = styled(Button)`
   width: 100%;
   padding: 10px 20px;
   background-color: ${props =>
-    props.isFavorite ? '#418151' : 'var(--color-dark-green)'};
-  color: white;
+    props.isFavorite ? 'var(--color-favorized)' : 'var(--color-secondary)'};
+  color: var(--color-basis);
   margin-bottom: 5px;
 `
 
 const QuickGuide = styled.div`
   border-radius: 8px;
-  background: white;
+  background: var(--color-basis);
   padding: 2px 7px;
   margin-bottom: 5px;
   dl {
@@ -167,7 +167,7 @@ const QuickGuide = styled.div`
 
   div {
     padding: 0.5em;
-    border: 1px dotted var(--color-dark-green);
+    border: 1px dotted var(--color-secondary);
     border-radius: 8px;
   }
   dt {
@@ -182,6 +182,6 @@ const QuickGuide = styled.div`
 
 const Details = styled.div`
   border-radius: 8px;
-  background: white;
+  background: var(--color-basis);
   padding: 2px 7px;
 `

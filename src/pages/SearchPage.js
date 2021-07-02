@@ -83,7 +83,7 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  border: 1px solid #d3d3d3;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 10px 20px;
   margin: 10px 0;

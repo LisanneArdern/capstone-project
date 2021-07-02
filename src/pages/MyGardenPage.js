@@ -3,6 +3,7 @@ import styled, { keyframes } from 'styled-components/macro'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
+import Background from '../images/vegetables.png'
 
 MyGardenPage.propTypes = {
   onDetails: PropTypes.func.isRequired,
@@ -46,19 +47,23 @@ to {
 }
 `
 
-const PageHeader = styled(Header)`
-  border-bottom: 1px solid var(--color-dark-green);
-`
-
 const Wrapper = styled.section`
+  background-image: url(${Background});
+  background-size: cover;
+  background-position: center;
   display: grid;
   grid-template-rows: min-content auto 48px;
   height: 100vh;
   animation-duration: 1s;
   animation-name: ${fadein};
 `
+const PageHeader = styled(Header)`
+  border-bottom: 1px solid var(--color-secondary);
+  background-color: var(--color-primary-alpha);
+`
 
 const Container = styled.div`
+  background-color: var(--color-primary-alpha);
   overflow-y: scroll;
 `
 const Paragraph = styled.p`
