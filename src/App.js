@@ -10,11 +10,15 @@ import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
   const history = useHistory()
-  const [taskList, setTaskList] = useState([])
+  const [taskList, setTaskList] = useState(loadFromLocal('taskList') ?? [])
 
   const [favoriteCrops, setFavoriteCrops] = useState(
     loadFromLocal('favoriteCrops') ?? []
   )
+
+  useEffect(() => {
+    saveToLocal('taskList', taskList)
+  }, [taskList])
 
   useEffect(() => {
     saveToLocal('favoriteCrops', favoriteCrops)
@@ -44,10 +48,14 @@ export default function App() {
           />
         </Route>
         <Route path="/tasks">
-          <TasksPage onClick={navigateForm} toDos={taskList} />
+          <TasksPage
+            onClick={navigateForm}
+            toDos={taskList}
+            onDeleteTask={deleteTask}
+          />
         </Route>
         <Route path="/form">
-          <FormPage onSubmit={handleSubmit} />
+          <FormPage onSubmit={addTask} favoriteCrops={favoriteCrops} />
         </Route>
       </Switch>
     </>
@@ -88,7 +96,14 @@ export default function App() {
     setFavoriteCrops(favoriteCrops.filter(favCrop => favCrop.id !== id))
   }
 
-  function handleSubmit({ tasks, nameOfCrop }) {
-    setTaskList([{ tasks, nameOfCrop }, ...taskList])
+  function addTask({ date, tasks, nameOfCrop, id }) {
+    setTaskList([{ date, tasks, nameOfCrop, id }, ...taskList])
+  }
+
+  function deleteTask(id) {
+    const isInTaskList = taskList.some(task => task.id === id)
+    if (isInTaskList) {
+      setTaskList(taskList.filter(task => task.id !== id))
+    }
   }
 }

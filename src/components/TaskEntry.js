@@ -1,14 +1,28 @@
 import styled from 'styled-components/macro'
-export default function TaskEntry({ nameOfCrop, tasks }) {
+export default function TaskEntry({ onClick, date, nameOfCrop, tasks }) {
   return (
     <Wrapper>
-      <input type="checkbox" />
-      <Flex>
+      <input type="checkbox" onClick={onClick} />
+      <Grid>
         <h2>{nameOfCrop}:</h2>
         <span>{tasks}</span>
-      </Flex>
+        <span>{formatDate(date)}</span>
+      </Grid>
     </Wrapper>
   )
+  function formatDate(date) {
+    const options = {
+      weekday: 'long',
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric',
+    }
+    console.log(date)
+    const newDate = new Date(date)
+    const formatedDate = newDate.toLocaleDateString('en-US', options)
+
+    return formatedDate
+  }
 }
 const Wrapper = styled.section`
   background: white;
@@ -30,8 +44,7 @@ const Wrapper = styled.section`
   }
 `
 
-const Flex = styled.div`
-  display: flex;
+const Grid = styled.div`
+  display: grid;
   gap: 10px;
-  align-items: baseline;
 `

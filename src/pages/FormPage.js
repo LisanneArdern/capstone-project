@@ -2,8 +2,9 @@ import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import { useHistory } from 'react-router-dom'
 import Header from '../components/Header'
+import { v4 as uuidv4 } from 'uuid'
 
-export default function FormPage({ onSubmit }) {
+export default function FormPage({ onSubmit, favoriteCrops }) {
   const history = useHistory()
 
   return (
@@ -14,8 +15,16 @@ export default function FormPage({ onSubmit }) {
       </Top>
       <Form onSubmit={handleSubmit}>
         <Label>
-          Name of Crop
-          <Input name="name" placeholder="e.g. Strawberry" autoComplete="off" />
+          Choose a crop from your Garden
+          <Select name="name">
+            {favoriteCrops.map(({ id, attributes }) => (
+              <option key={id}>{attributes.name}</option>
+            ))}
+          </Select>
+        </Label>
+        <Label>
+          Date
+          <Input name="date" type="date" />
         </Label>
         <Label>
           Add task
@@ -39,8 +48,9 @@ export default function FormPage({ onSubmit }) {
     const form = event.target
     const nameOfCrop = form.elements.name.value
     const tasks = form.elements.task.value
+    const date = form.elements.date.value
 
-    const toDos = { nameOfCrop, tasks }
+    const toDos = { id: uuidv4(), nameOfCrop, tasks, date }
     onSubmit(toDos)
     history.push('/tasks')
   }
@@ -66,6 +76,17 @@ const Form = styled.form`
   gap: 20px;
   padding: 12px;
 `
+const Select = styled.select`
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 10px;
+  overflow: auto;
+  line-height: 20px;
+  resize: none;
+  font-family: 'Roboto', sans-serif;
+  letter-spacing: 1.5px;
+`
+
 const Label = styled.label`
   display: flex;
   flex-direction: column;
@@ -74,11 +95,10 @@ const Label = styled.label`
 const Input = styled.input`
   width: 100%;
   padding: 5px 10px;
-  border-radius: 16px;
+  border-radius: 10px;
   overflow: auto;
-  line-height: 1.5em;
+  line-height: 20px;
   resize: none;
-  box-shadow: 34px 34px 89px var(--color-shadow-13);
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1.5px;
 `

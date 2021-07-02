@@ -4,18 +4,20 @@ import Header from '../components/Header'
 import TaskEntry from '../components/TaskEntry'
 import Navigation from '../components/Navigation'
 
-export default function TasksPage({ toDos, onClick }) {
+export default function TasksPage({ onDeleteTask, toDos, onClick }) {
   return (
     <Wrapper>
       <PageHeader>Tasks</PageHeader>
       <Tasks>
         <TaskButton onClick={onClick}>Set Reminder</TaskButton>
         <div>
-          {toDos.map((toDo, index) => (
+          {toDos.map(toDo => (
             <TaskEntry
-              key={index}
+              onClick={() => onDeleteTask(toDo.id)}
+              key={toDo.id}
               nameOfCrop={toDo.nameOfCrop}
               tasks={toDo.tasks}
+              date={toDo.date}
             />
           ))}
         </div>

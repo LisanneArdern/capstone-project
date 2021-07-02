@@ -5,13 +5,11 @@ import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 
 MyGardenPage.propTypes = {
-  crops: PropTypes.array,
   onDetails: PropTypes.func.isRequired,
-  onBack: PropTypes.func.isRequired,
   favoriteCrops: PropTypes.array,
 }
 
-export default function MyGardenPage({ onDetails, onBack, favoriteCrops }) {
+export default function MyGardenPage({ onDetails, favoriteCrops }) {
   return (
     <Wrapper>
       <PageHeader>My Garden</PageHeader>
