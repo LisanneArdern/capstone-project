@@ -7,6 +7,7 @@ export default createGlobalStyle`
    --color-primary-alpha: rgba(240, 248, 242, 0.7);
    --color-secondary: #204028;
    --color-border: #d3d3d3;
+   --color-border-info: #bbdfc4;
    --color-shadow: rgba(0, 0, 0, 0.1);
    --color-border: #d3d3d3;
    --color-disabled: #a9a9a9;

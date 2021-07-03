@@ -94,10 +94,13 @@ const Select = styled.select`
   padding: 5px 10px;
   border-radius: 10px;
   overflow: auto;
-  line-height: 20px;
   resize: none;
   font-family: 'Roboto', sans-serif;
   letter-spacing: 1.5px;
+
+  option {
+    background-color: var(--color-basis);
+  }
 `
 
 const Label = styled.label`

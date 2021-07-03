@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import Spinner from '../components/Spinner'
 import useCropDetails from '../hooks/useCropDetails.js'
+import Arrow from '../images/left-arrow.png'
 
 CropDetailsPage.propTypes = {
   favoriteCrops: PropTypes.array,
@@ -41,7 +42,9 @@ export default function CropDetailsPage({
   } = data
   return (
     <div>
-      <BackButton onClick={onBack}>&lt; back</BackButton>
+      <BackButton onClick={onBack}>
+        <ArrowLeft src={Arrow} alt="back" />
+      </BackButton>
       <DetailedView>
         <img src={image} alt="" width="375" height="250" />
 
@@ -113,12 +116,19 @@ const SpinnerWrapper = styled.section`
 `
 
 const BackButton = styled(Button)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   padding: 12px 16px;
   left: 10px;
   top: 10px;
   z-index: 1;
 `
+const ArrowLeft = styled.img`
+  width: 15px;
+`
+
 const DetailedView = styled.section`
   h1 {
     margin: 0;
@@ -157,6 +167,7 @@ const FavoriteButton = styled(Button)`
 const QuickGuide = styled.div`
   border-radius: 8px;
   background: var(--color-basis);
+  border: 1px dotted var(--color-border-info);
   padding: 2px 7px;
   margin-bottom: 5px;
   dl {
@@ -183,5 +194,6 @@ const QuickGuide = styled.div`
 const Details = styled.div`
   border-radius: 8px;
   background: var(--color-basis);
+  border: 1px dotted var(--color-border-info);
   padding: 2px 7px;
 `
