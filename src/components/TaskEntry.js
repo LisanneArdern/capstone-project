@@ -14,7 +14,10 @@ export default function TaskEntry({ onClick, date, nameOfCrop, tasks }) {
       <input type="checkbox" onClick={onClick} />
       <Grid>
         <h2>{formatDate(date)}</h2>
-        {nameOfCrop}: {tasks}
+        <Flex>
+          <span>{nameOfCrop}:</span>
+          <span>{tasks}</span>
+        </Flex>
       </Grid>
     </Wrapper>
   )
@@ -24,7 +27,7 @@ export default function TaskEntry({ onClick, date, nameOfCrop, tasks }) {
       month: 'long',
       day: 'numeric',
     }
-    console.log(date)
+
     const newDate = new Date(date)
     const formatedDate = newDate.toLocaleDateString('en-US', options)
 
@@ -54,4 +57,8 @@ const Wrapper = styled.section`
 const Grid = styled.div`
   display: grid;
   gap: 10px;
+`
+const Flex = styled.div`
+  display: flex;
+  gap: 5px;
 `
