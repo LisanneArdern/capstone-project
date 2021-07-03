@@ -7,4 +7,9 @@ export default {
 }
 
 export const Default = args => <FormPage {...args} />
-Default.args = {}
+Default.args = {
+  favoriteCrops: [
+    { id: 1, attributes: { name: 'Potato' } },
+    { id: 2, attributes: { name: 'Banana' } },
+  ],
+}
