@@ -19,13 +19,13 @@ export default function TasksPage({ toDos, onClick, onDeleteTask }) {
       <Tasks>
         <TaskButton onClick={onClick}>Set Reminder</TaskButton>
         <div>
-          {toDos.map(toDo => (
+          {toDos.map(({ id, nameOfCrop, tasks, date }) => (
             <TaskEntry
-              onClick={() => onDeleteTask(toDo.id)}
-              key={toDo.id}
-              nameOfCrop={toDo.nameOfCrop}
-              tasks={toDo.tasks}
-              date={toDo.date}
+              onClick={() => onDeleteTask(id)}
+              key={id}
+              nameOfCrop={nameOfCrop}
+              tasks={tasks}
+              date={date}
             />
           ))}
         </div>
