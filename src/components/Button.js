@@ -8,7 +8,7 @@ const Button = styled.button`
   margin: 0 1px 1px 0;
   font-weight: 300px;
   box-shadow: 0px 8px 15px var(--color--shadow);
-  background-color: white;
+  background-color: var(--color-basis);
 `
 
 export default Button
