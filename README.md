@@ -11,13 +11,23 @@ This app is optimized for mobile usage, so please switch your browser to respons
 
 ## App impressions
 
-
+<div align="center">
+  <img src="./public/Harvestly.gif"
+     height="410px"/>
+</div>
 
 ---
 
 ## Tech stack
 
+- Openfarm API
 - React
+- PropTypes
+- Styled Components
+- Storybook
+- React Testing Library
+- Jest
+- Vercel
 
 ---
 
