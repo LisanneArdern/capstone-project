@@ -1,28 +1,18 @@
-import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
+import useFavorites from './hooks/useFavorites'
+import useTasks from './hooks/useTask'
 import CropDetailsPage from './pages/CropDetailsPage'
 import FormPage from './pages/FormPage'
 import MyGardenPage from './pages/MyGardenPage'
 import ResultsPage from './pages/ResultsPage'
 import SearchPage from './pages/SearchPage'
 import TasksPage from './pages/TasksPage'
-import { loadFromLocal, saveToLocal } from './utils/localStorage'
 
 export default function App() {
   const history = useHistory()
-  const [taskList, setTaskList] = useState(loadFromLocal('taskList') ?? [])
 
-  const [favoriteCrops, setFavoriteCrops] = useState(
-    loadFromLocal('favoriteCrops') ?? []
-  )
-
-  useEffect(() => {
-    saveToLocal('taskList', taskList)
-  }, [taskList])
-
-  useEffect(() => {
-    saveToLocal('favoriteCrops', favoriteCrops)
-  }, [favoriteCrops])
+  const { addTask, deleteTask, taskList } = useTasks()
+  const { toggleFavorite, favoriteCrops } = useFavorites()
 
   return (
     <>
@@ -77,32 +67,5 @@ export default function App() {
   }
   function navigateForm() {
     history.push('/form')
-  }
-  function toggleFavorite(crop) {
-    const isInFavorites = favoriteCrops.some(favCrop => favCrop.id === crop.id)
-    if (isInFavorites) {
-      removeFromFavorites(crop.id)
-    } else {
-      addToFavorites(crop)
-    }
-  }
-
-  function addToFavorites(crop) {
-    setFavoriteCrops([...favoriteCrops, crop])
-  }
-
-  function removeFromFavorites(id) {
-    setFavoriteCrops(favoriteCrops.filter(favCrop => favCrop.id !== id))
-  }
-
-  function addTask({ date, tasks, nameOfCrop, id }) {
-    setTaskList([{ date, tasks, nameOfCrop, id }, ...taskList])
-  }
-
-  function deleteTask(id) {
-    const isInTaskList = taskList.some(task => task.id === id)
-    if (isInTaskList) {
-      setTaskList(taskList.filter(task => task.id !== id))
-    }
   }
 }
