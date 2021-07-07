@@ -1,15 +1,9 @@
-// import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components/macro'
-// import Button from '../components/Button'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import BackgroundDesktop from '../images/vegetable-frame-desktop.png'
 import BackgroundMobile from '../images/vegetable-frame-mobile.png'
-
-// SearchPage.propTypes = {
-//   onFavorites: PropTypes.func.isRequired,
-// }
 
 export default function SearchPage() {
   const { push } = useHistory()
@@ -32,7 +26,6 @@ export default function SearchPage() {
         </Content>
       </Background>
       <Navigation />
-      {/* <MyGardenButton onClick={onFavorites}>My Garden</MyGardenButton> */}
     </Wrapper>
   )
   function handleSubmit(event) {
@@ -90,16 +83,8 @@ const Form = styled.form`
 `
 
 const Input = styled.input`
-  border: 1px solid #d3d3d3;
+  border: 1px solid var(--color-border);
   border-radius: 10px;
   padding: 10px 20px;
   margin: 10px 0;
 `
-// const SearchNavigation = styled(Navigation)`
-//   animation-duration: 1s;
-//   animation-name: ${slidein};
-// `
-
-// const MyGardenButton = styled(Button)`
-//   margin: 0 10px;
-// `

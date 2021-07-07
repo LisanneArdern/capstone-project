@@ -4,14 +4,12 @@ import MyGardenPage from './MyGardenPage'
 import { MemoryRouter } from 'react-router-dom'
 
 describe('MyGardenPage', () => {
-  it('calls onClickDetails when clicking on the back button', () => {
-    const handleClickList = jest.fn()
+  it('renders favorite crops and calls onDetails when clicking on a favorized crop', () => {
     const handleClickDetails = jest.fn()
     render(
       <MemoryRouter>
         <MyGardenPage
-          favoriteIds={[{ id: '1a' }, { id: '2a' }]}
-          crops={[
+          favoriteCrops={[
             {
               id: 1,
               attributes: {
@@ -19,15 +17,23 @@ describe('MyGardenPage', () => {
                 main_image_path: 'image',
               },
             },
+            {
+              id: 2,
+              attributes: {
+                name: 'Apple',
+                main_image_path: 'image',
+              },
+            },
           ]}
-          onBack={handleClickList}
           onDetails={handleClickDetails}
         />
       </MemoryRouter>
     )
+    const banana = screen.getByText(/([b])\w+/gi)
+    userEvent.click(banana)
+    expect(handleClickDetails).toHaveBeenCalled()
 
-    const listButton = screen.getByText(/w*.\w*.list/gi)
-    userEvent.click(listButton)
-    expect(handleClickList).toHaveBeenCalled()
+    const apple = screen.getByText(/(ap)\w+/gi)
+    expect(apple).toBeInTheDocument()
   })
 })

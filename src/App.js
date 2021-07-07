@@ -1,21 +1,18 @@
-import { useEffect, useState } from 'react'
 import { Route, Switch, useHistory } from 'react-router-dom'
+import useFavorites from './hooks/useFavorites'
+import useTasks from './hooks/useTask'
 import CropDetailsPage from './pages/CropDetailsPage'
+import FormPage from './pages/FormPage'
 import MyGardenPage from './pages/MyGardenPage'
 import ResultsPage from './pages/ResultsPage'
 import SearchPage from './pages/SearchPage'
-import { loadFromLocal, saveToLocal } from './utils/localStorage'
+import TasksPage from './pages/TasksPage'
 
 export default function App() {
   const history = useHistory()
 
-  const [favoriteCrops, setFavoriteCrops] = useState(
-    loadFromLocal('favoriteCrops') ?? []
-  )
-
-  useEffect(() => {
-    saveToLocal('favoriteCrops', favoriteCrops)
-  }, [favoriteCrops])
+  const { addTask, deleteTask, taskList } = useTasks()
+  const { toggleFavorite, favoriteCrops } = useFavorites()
 
   return (
     <>
@@ -37,8 +34,17 @@ export default function App() {
           <MyGardenPage
             favoriteCrops={favoriteCrops}
             onDetails={navigateDetails}
-            onBack={navigateHome}
           />
+        </Route>
+        <Route path="/tasks">
+          <TasksPage
+            onClick={navigateForm}
+            toDos={taskList}
+            onDeleteTask={deleteTask}
+          />
+        </Route>
+        <Route path="/form">
+          <FormPage onSubmit={addTask} favoriteCrops={favoriteCrops} />
         </Route>
       </Switch>
     </>
@@ -59,21 +65,7 @@ export default function App() {
   function navigateHome() {
     history.push('/')
   }
-
-  function toggleFavorite(crop) {
-    const isInFavorites = favoriteCrops.some(favCrop => favCrop.id === crop.id)
-    if (isInFavorites) {
-      removeFromFavorites(crop.id)
-    } else {
-      addToFavorites(crop)
-    }
-  }
-
-  function addToFavorites(crop) {
-    setFavoriteCrops([...favoriteCrops, crop])
-  }
-
-  function removeFromFavorites(id) {
-    setFavoriteCrops(favoriteCrops.filter(favCrop => favCrop.id !== id))
+  function navigateForm() {
+    history.push('/form')
   }
 }

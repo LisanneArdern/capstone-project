@@ -6,6 +6,7 @@ import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 import Spinner from '../components/Spinner'
 import useFetch from '../hooks/useFetch.js'
+import Background from '../images/vegetables.png'
 
 ResultsPage.propTypes = {
   onBack: PropTypes.func.isRequired,
@@ -22,11 +23,11 @@ export default function ResultsPage({ onBack, onDetails }) {
       </SpinnerWrapper>
     )
   return (
-    <Animation>
-      <Test>
+    <Wrapper>
+      <Top>
         <Header>Search for '{searchTerm}'</Header>
         <BackButton onClick={onBack}>X</BackButton>
-      </Test>
+      </Top>
       <Output>
         {data.length !== 0 ? (
           <>
@@ -51,9 +52,16 @@ export default function ResultsPage({ onBack, onDetails }) {
           </Paragraph>
         )}
       </Output>
-    </Animation>
+    </Wrapper>
   )
 }
+const SpinnerWrapper = styled.section`
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding-top: 200px;
+  background-color: var(--color-primary-alpha);
+`
 const fadein = keyframes`
 from {
  opacity: 0;
@@ -62,21 +70,21 @@ to {
   opacity: 1;
 }
 `
-const Test = styled.div`
+const Wrapper = styled.section`
+  background-image: url(${Background});
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  animation-duration: 1.5s;
+  animation-name: ${fadein};
+  background-color: var(--color-primary-alpha);
+`
+const Top = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-`
-
-const Animation = styled.div`
-  animation-duration: 1.5s;
-  animation-name: ${fadein};
-`
-
-const SpinnerWrapper = styled.section`
-  display: flex;
-  justify-content: center;
-  padding-top: 200px;
+  border-bottom: 1px solid var(--color-secondary);
+  background-color: var(--color-primary-alpha);
 `
 
 const BackButton = styled(Button)`
@@ -84,6 +92,8 @@ const BackButton = styled(Button)`
 `
 const Output = styled.div`
   overflow-y: auto;
+  height: 100%;
+  background-color: var(--color-primary-alpha);
 `
 const Paragraph = styled.p`
   text-align: center;

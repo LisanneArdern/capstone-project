@@ -4,6 +4,7 @@ import styled from 'styled-components/macro'
 import Button from '../components/Button'
 import Spinner from '../components/Spinner'
 import useCropDetails from '../hooks/useCropDetails.js'
+import Arrow from '../images/left-arrow.png'
 
 CropDetailsPage.propTypes = {
   favoriteCrops: PropTypes.array,
@@ -41,7 +42,9 @@ export default function CropDetailsPage({
   } = data
   return (
     <div>
-      <BackButton onClick={onBack}>&lt; back</BackButton>
+      <BackButton onClick={onBack}>
+        <ArrowLeft src={Arrow} alt="back" />
+      </BackButton>
       <DetailedView>
         <img src={image} alt="" width="375" height="250" />
 
@@ -88,17 +91,19 @@ export default function CropDetailsPage({
               </div>
             </dl>
           </QuickGuide>
-          <h2>Details</h2>
-          <p>
-            {details !== null ? (
-              details
-            ) : (
-              <span>
-                Unfortunately, the description of this crop is not yet
-                available. Please be patient and check back later, thank you.
-              </span>
-            )}
-          </p>
+          <Details>
+            <h2>Details</h2>
+            <p>
+              {details !== null ? (
+                details
+              ) : (
+                <span>
+                  Unfortunately, the description of this crop is not yet
+                  available. Please be patient and check back later, thank you.
+                </span>
+              )}
+            </p>
+          </Details>
         </Information>
       </DetailedView>
     </div>
@@ -109,14 +114,26 @@ const SpinnerWrapper = styled.section`
   justify-content: center;
   padding-top: 200px;
 `
+
 const BackButton = styled(Button)`
+  display: flex;
+  align-items: center;
+  justify-content: center;
   position: fixed;
   padding: 12px 16px;
   left: 10px;
   top: 10px;
   z-index: 1;
 `
+const ArrowLeft = styled.img`
+  width: 15px;
+`
+
 const DetailedView = styled.section`
+  h1 {
+    margin: 0;
+    text-align: center;
+  }
   img {
     width: 100%;
     height: auto;
@@ -127,8 +144,8 @@ const DetailedView = styled.section`
 `
 
 const Information = styled.div`
-  background: white;
-  padding: 10px 20px;
+  background: var(--color-primary);
+  padding: 10px 15px;
   border-radius: 10px 10px 0px 0px;
   position: relative;
   top: 230px;
@@ -138,7 +155,21 @@ const Information = styled.div`
     display: flex;
   }
 `
+const FavoriteButton = styled(Button)`
+  width: 100%;
+  padding: 10px 20px;
+  background-color: ${props =>
+    props.isFavorite ? 'var(--color-favorized)' : 'var(--color-secondary)'};
+  color: var(--color-basis);
+  margin-bottom: 5px;
+`
+
 const QuickGuide = styled.div`
+  border-radius: 8px;
+  background: var(--color-basis);
+  border: 1px dotted var(--color-border-info);
+  padding: 2px 7px;
+  margin-bottom: 5px;
   dl {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -147,7 +178,7 @@ const QuickGuide = styled.div`
 
   div {
     padding: 0.5em;
-    border: 1px dotted lightgrey;
+    border: 1px dotted var(--color-secondary);
     border-radius: 8px;
   }
   dt {
@@ -159,9 +190,10 @@ const QuickGuide = styled.div`
     margin: 0;
   }
 `
-const FavoriteButton = styled(Button)`
-  width: 100%;
-  padding: 10px 20px;
-  background: var(--color-dark-green);
-  color: white;
+
+const Details = styled.div`
+  border-radius: 8px;
+  background: var(--color-basis);
+  border: 1px dotted var(--color-border-info);
+  padding: 2px 7px;
 `
