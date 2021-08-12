@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
@@ -34,6 +34,14 @@ export default function TasksPage({ toDos, onClick, onDeleteTask }) {
     </Wrapper>
   )
 }
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
 const Wrapper = styled.section`
   background-image: url(${Background});
   background-size: cover;
@@ -41,6 +49,8 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-rows: min-content auto 48px;
   height: 100vh;
+  animation-duration: 1s;
+  animation-name: ${fadein};
 `
 const PageHeader = styled(Header)`
   background-color: var(--color-primary-alpha);
