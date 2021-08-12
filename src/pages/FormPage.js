@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
-import styled from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro'
 import { v4 as uuidv4 } from 'uuid'
 import Button from '../components/Button'
 import Header from '../components/Header'
@@ -62,6 +62,14 @@ export default function FormPage({ onSubmit, favoriteCrops }) {
     history.push('/tasks')
   }
 }
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
 
 const Wrapper = styled.section`
   background-image: url(${Background});
@@ -70,6 +78,8 @@ const Wrapper = styled.section`
   display: grid;
   grid-template-rows: min-content auto;
   height: 100vh;
+  animation-duration: 1s;
+  animation-name: ${fadein};
 `
 const Top = styled.div`
   display: flex;
