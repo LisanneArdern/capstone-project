@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
-import styled from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components/macro'
 import Button from '../components/Button'
 import Spinner from '../components/Spinner'
 import useCropDetails from '../hooks/useCropDetails.js'
@@ -41,7 +41,7 @@ export default function CropDetailsPage({
     },
   } = data
   return (
-    <div>
+    <Wrapper>
       <BackButton onClick={onBack}>
         <ArrowLeft src={Arrow} alt="back" />
       </BackButton>
@@ -106,7 +106,7 @@ export default function CropDetailsPage({
           </Details>
         </Information>
       </DetailedView>
-    </div>
+    </Wrapper>
   )
 }
 const SpinnerWrapper = styled.section`
@@ -114,6 +114,19 @@ const SpinnerWrapper = styled.section`
   justify-content: center;
   padding-top: 200px;
 `
+const fadein = keyframes`
+from {
+ opacity: 0;
+}
+to {
+  opacity: 1;
+}
+`
+const Wrapper = styled.div`
+ 
+  animation-duration: 1s;
+  animation-name: ${fadein};
+  `
 
 const BackButton = styled(Button)`
   display: flex;
