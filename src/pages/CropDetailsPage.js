@@ -16,6 +16,7 @@ export default function CropDetailsPage({
   favoriteCrops,
   onBack,
   onToggleFavorite,
+  onFavorites
 }) {
   const { id } = useParams()
   const { data, isQuerying } = useCropDetails(id)
@@ -104,6 +105,7 @@ export default function CropDetailsPage({
               )}
             </p>
           </Details>
+          <NavigateFavoritesButton onClick={onFavorites}>Go to My Garden</NavigateFavoritesButton>
         </Information>
       </DetailedView>
     </Wrapper>
@@ -209,4 +211,11 @@ const Details = styled.div`
   background: var(--color-basis);
   border: 1px dotted var(--color-border-info);
   padding: 2px 7px;
+`
+const NavigateFavoritesButton = styled(Button)`
+  width: 100%;
+  padding: 10px 20px;
+  background-color: var(--color-secondary);
+  color: var(--color-basis);
+  margin-bottom: 5px;
 `

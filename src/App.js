@@ -28,6 +28,7 @@ export default function App() {
             onBack={navigateBack}
             onToggleFavorite={toggleFavorite}
             favoriteCrops={favoriteCrops}
+            onFavorites={navigateFavorites}
           />
         </Route>
         <Route path="/mygarden">
