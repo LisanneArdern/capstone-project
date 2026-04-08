@@ -11,11 +11,12 @@ describe('CropItem', () => {
     render(<CropItem name="Strawberry" image="./image" onClick={jest.fn} />)
     expect(screen.getByRole('img')).toBeInTheDocument()
   })
-  it('calls function when clicking on section', () => {
+  it('calls function when clicking on section', async () => {
     const handleClick = jest.fn()
+    const user = userEvent.setup()
     render(<CropItem name="Pineapple" image="./image" onClick={handleClick} />)
     const section = screen.getByRole('button')
-    userEvent.click(section)
+    await user.click(section)
     expect(handleClick).toHaveBeenCalled()
   })
 })

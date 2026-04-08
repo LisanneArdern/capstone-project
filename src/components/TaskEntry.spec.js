@@ -21,8 +21,9 @@ describe('TaskEntry', () => {
     expect(screen.getByRole('checkbox')).toBeInTheDocument()
   })
 
-  it('calls correct action when clicking on checkbox', () => {
+  it('calls correct action when clicking on checkbox', async () => {
     const deleteTask = jest.fn()
+    const user = userEvent.setup()
     render(
       <TaskEntry
         nameOfCrop="Pineapple"
@@ -32,7 +33,7 @@ describe('TaskEntry', () => {
       />
     )
     const checkbox = screen.getByRole('checkbox')
-    userEvent.click(checkbox)
+    await user.click(checkbox)
     expect(deleteTask).toHaveBeenCalled()
   })
 })

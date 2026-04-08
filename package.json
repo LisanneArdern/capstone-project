@@ -7,9 +7,9 @@
     "npm": ">=10"
   },
   "dependencies": {
-    "@testing-library/jest-dom": "^5.13.0",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
+    "@testing-library/jest-dom": "^6.9.1",
+    "@testing-library/react": "^12.1.5",
+    "@testing-library/user-event": "^14.6.1",
     "prop-types": "^15.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
@@ -27,8 +27,8 @@
     "lint": "eslint \"src/**/*.{js,jsx}\"",
     "format:check": "prettier --check \"**/*.{js,jsx,json,md,yml,yaml,css,html}\"",
     "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook dev -p 6006",
+    "build-storybook": "STORYBOOK_DISABLE_TELEMETRY=1 storybook build"
   },
   "eslintConfig": {
     "extends": [
@@ -59,13 +59,12 @@
     ]
   },
   "devDependencies": {
-    "@storybook/addon-actions": "^6.2.9",
-    "@storybook/addon-essentials": "^6.2.9",
-    "@storybook/addon-links": "^6.2.9",
-    "@storybook/node-logger": "^6.2.9",
-    "@storybook/preset-create-react-app": "^3.1.7",
-    "@storybook/react": "^6.2.9",
+    "@storybook/addon-essentials": "^8.6.14",
+    "@storybook/addon-links": "^8.6.18",
+    "@storybook/react-webpack5": "^8.6.18",
+    "@storybook/test": "^8.6.18",
     "eslint": "^7.32.0",
-    "prettier": "^3.8.1"
+    "prettier": "^3.8.1",
+    "storybook": "^8.6.18"
   }
 }

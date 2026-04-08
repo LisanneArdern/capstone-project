@@ -4,8 +4,9 @@ import MyGardenPage from './MyGardenPage'
 import { MemoryRouter } from 'react-router-dom'
 
 describe('MyGardenPage', () => {
-  it('renders favorite crops and calls onDetails when clicking on a favorized crop', () => {
+  it('renders favorite crops and calls onDetails when clicking on a favorized crop', async () => {
     const handleClickDetails = jest.fn()
+    const user = userEvent.setup()
     render(
       <MemoryRouter>
         <MyGardenPage
@@ -29,11 +30,11 @@ describe('MyGardenPage', () => {
         />
       </MemoryRouter>
     )
-    const banana = screen.getByText(/([b])\w+/gi)
-    userEvent.click(banana)
+    const banana = screen.getByText(/([b])\w+/i)
+    await user.click(banana)
     expect(handleClickDetails).toHaveBeenCalled()
 
-    const apple = screen.getByText(/(ap)\w+/gi)
+    const apple = screen.getByText(/(ap)\w+/i)
     expect(apple).toBeInTheDocument()
   })
 })

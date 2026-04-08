@@ -11,8 +11,9 @@ describe('FormPage', () => {
     expect(screen.getByRole('textbox')).toBeInTheDocument()
     expect(screen.getByLabelText('Date')).toBeInTheDocument()
   })
-  it('calls on correct action when submiting form', () => {
+  it('calls on correct action when submiting form', async () => {
     const submitForm = jest.fn()
+    const user = userEvent.setup()
     render(
       <MemoryRouter>
         <FormPage onSubmit={submitForm} />
@@ -21,7 +22,7 @@ describe('FormPage', () => {
 
     const buttons = screen.getAllByRole('button')
     const submitButton = buttons[1]
-    userEvent.click(submitButton)
+    await user.click(submitButton)
 
     expect(submitForm).toHaveBeenCalledTimes(1)
   })
