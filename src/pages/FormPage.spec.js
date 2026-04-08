@@ -5,14 +5,19 @@ import { MemoryRouter } from 'react-router-dom'
 
 describe('FormPage', () => {
   it('renders a form with a dropdown menu, a text input and date input', () => {
-    render(<FormPage onSubmit={jest.fn} />)
+    render(
+      <MemoryRouter>
+        <FormPage onSubmit={jest.fn} />
+      </MemoryRouter>
+    )
 
     expect(screen.getByRole('combobox')).toBeInTheDocument()
     expect(screen.getByRole('textbox')).toBeInTheDocument()
     expect(screen.getByLabelText('Date')).toBeInTheDocument()
   })
-  it('calls on correct action when submiting form', () => {
+  it('calls on correct action when submiting form', async () => {
     const submitForm = jest.fn()
+    const user = userEvent.setup()
     render(
       <MemoryRouter>
         <FormPage onSubmit={submitForm} />
@@ -21,7 +26,7 @@ describe('FormPage', () => {
 
     const buttons = screen.getAllByRole('button')
     const submitButton = buttons[1]
-    userEvent.click(submitButton)
+    await user.click(submitButton)
 
     expect(submitForm).toHaveBeenCalledTimes(1)
   })

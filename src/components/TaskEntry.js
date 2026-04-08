@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 
 TaskEntry.propTypes = {
   nameOfCrop: PropTypes.string,

@@ -1,20 +1,18 @@
 import { NavLink } from 'react-router-dom'
-import styled from 'styled-components/macro'
+import styled from 'styled-components'
 
 export default function Navigation() {
-  const activeStyle = {
-    color: 'var(--color-secondary)',
-    scale: '1.05',
-  }
+  const getActiveStyle = ({ isActive }) =>
+    isActive ? { color: 'var(--color-secondary)', scale: '1.05' } : undefined
   return (
     <Nav>
-      <NavLink exact to="/" activeStyle={activeStyle}>
+      <NavLink to="/" end style={getActiveStyle}>
         Search
       </NavLink>
-      <NavLink to="/mygarden" activeStyle={activeStyle}>
+      <NavLink to="/mygarden" style={getActiveStyle}>
         My Garden
       </NavLink>
-      <NavLink to="/tasks" activeStyle={activeStyle}>
+      <NavLink to="/tasks" style={getActiveStyle}>
         Tasks
       </NavLink>
     </Nav>

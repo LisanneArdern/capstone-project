@@ -28,14 +28,15 @@ describe('TasksPage', () => {
       </MemoryRouter>
     )
 
-    const apple = screen.getByText(/(wa)\w+/gi)
-    const potato = screen.getByText(/(tri)\w+/g)
+    const apple = screen.getByText(/(wa)\w+/i)
+    const potato = screen.getByText(/(tri)\w+/i)
     expect(apple).toBeInTheDocument()
     expect(potato).toBeInTheDocument()
   })
-  it('calls correct functions', () => {
+  it('calls correct functions', async () => {
     const handleClick = jest.fn()
     const handleDelete = jest.fn()
+    const user = userEvent.setup()
     render(
       <MemoryRouter>
         <TasksPage
@@ -54,11 +55,11 @@ describe('TasksPage', () => {
     )
 
     const checkbox = screen.getByRole('checkbox')
-    userEvent.click(checkbox)
+    await user.click(checkbox)
     expect(handleDelete).toHaveBeenCalled()
 
     const taskButton = screen.getByRole('button')
-    userEvent.click(taskButton)
+    await user.click(taskButton)
     expect(handleClick).toHaveBeenCalled()
   })
 })
