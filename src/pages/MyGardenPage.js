@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import styled, { keyframes } from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'

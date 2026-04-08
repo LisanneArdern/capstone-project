@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useHistory } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components'
 import { v4 as uuidv4 } from 'uuid'
 import Button from '../components/Button'
 import Header from '../components/Header'

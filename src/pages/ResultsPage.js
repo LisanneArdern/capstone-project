@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 import { useParams } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components'
 import Button from '../components/Button'
 import CropItem from '../components/CropItem'
 import Header from '../components/Header'

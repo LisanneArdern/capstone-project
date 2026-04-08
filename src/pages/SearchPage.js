@@ -1,5 +1,5 @@
 import { useHistory } from 'react-router-dom'
-import styled, { keyframes } from 'styled-components/macro'
+import styled, { keyframes } from 'styled-components'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import BackgroundDesktop from '../images/vegetable-frame-desktop.png'
