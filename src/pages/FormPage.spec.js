@@ -5,7 +5,11 @@ import { MemoryRouter } from 'react-router-dom'
 
 describe('FormPage', () => {
   it('renders a form with a dropdown menu, a text input and date input', () => {
-    render(<FormPage onSubmit={jest.fn} />)
+    render(
+      <MemoryRouter>
+        <FormPage onSubmit={jest.fn} />
+      </MemoryRouter>
+    )
 
     expect(screen.getByRole('combobox')).toBeInTheDocument()
     expect(screen.getByRole('textbox')).toBeInTheDocument()

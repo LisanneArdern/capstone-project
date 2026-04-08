@@ -1,4 +1,4 @@
-import { Route, Switch, useHistory } from 'react-router-dom'
+import { Route, Routes, useNavigate } from 'react-router-dom'
 import useFavorites from './hooks/useFavorites'
 import useTasks from './hooks/useTask'
 import CropDetailsPage from './pages/CropDetailsPage'
@@ -9,64 +9,80 @@ import SearchPage from './pages/SearchPage'
 import TasksPage from './pages/TasksPage'
 
 export default function App() {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   const { addTask, deleteTask, taskList } = useTasks()
   const { toggleFavorite, favoriteCrops } = useFavorites()
 
   return (
     <>
-      <Switch>
-        <Route exact path="/">
-          <SearchPage onFavorites={navigateFavorites} />
-        </Route>
-        <Route path="/search/:searchTerm">
-          <ResultsPage onBack={navigateHome} onDetails={navigateDetails} />
-        </Route>
-        <Route path="/details/:id">
-          <CropDetailsPage
-            onBack={navigateBack}
-            onToggleFavorite={toggleFavorite}
-            favoriteCrops={favoriteCrops}
-            onFavorites={navigateFavorites}
-          />
-        </Route>
-        <Route path="/mygarden">
-          <MyGardenPage
-            favoriteCrops={favoriteCrops}
-            onDetails={navigateDetails}
-          />
-        </Route>
-        <Route path="/tasks">
-          <TasksPage
-            onClick={navigateForm}
-            toDos={taskList}
-            onDeleteTask={deleteTask}
-          />
-        </Route>
-        <Route path="/form">
-          <FormPage onSubmit={addTask} favoriteCrops={favoriteCrops} />
-        </Route>
-      </Switch>
+      <Routes>
+        <Route
+          path="/"
+          element={<SearchPage onFavorites={navigateFavorites} />}
+        />
+        <Route
+          path="/search/:searchTerm"
+          element={
+            <ResultsPage onBack={navigateHome} onDetails={navigateDetails} />
+          }
+        />
+        <Route
+          path="/details/:id"
+          element={
+            <CropDetailsPage
+              onBack={navigateBack}
+              onToggleFavorite={toggleFavorite}
+              favoriteCrops={favoriteCrops}
+              onFavorites={navigateFavorites}
+            />
+          }
+        />
+        <Route
+          path="/mygarden"
+          element={
+            <MyGardenPage
+              favoriteCrops={favoriteCrops}
+              onDetails={navigateDetails}
+            />
+          }
+        />
+        <Route
+          path="/tasks"
+          element={
+            <TasksPage
+              onClick={navigateForm}
+              toDos={taskList}
+              onDeleteTask={deleteTask}
+            />
+          }
+        />
+        <Route
+          path="/form"
+          element={
+            <FormPage onSubmit={addTask} favoriteCrops={favoriteCrops} />
+          }
+        />
+      </Routes>
     </>
   )
 
   function navigateDetails(id) {
-    history.push('/details/' + id)
+    navigate('/details/' + id)
   }
 
   function navigateFavorites() {
-    history.push('/mygarden')
+    navigate('/mygarden')
   }
 
   function navigateBack() {
-    history.goBack()
+    navigate(-1)
   }
 
   function navigateHome() {
-    history.push('/')
+    navigate('/')
   }
   function navigateForm() {
-    history.push('/form')
+    navigate('/form')
   }
 }

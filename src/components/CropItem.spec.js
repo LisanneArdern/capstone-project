@@ -9,7 +9,7 @@ describe('CropItem', () => {
   })
   it('an image', () => {
     render(<CropItem name="Strawberry" image="./image" onClick={jest.fn} />)
-    expect(screen.getByRole('img')).toBeInTheDocument()
+    expect(screen.getByRole('presentation')).toBeInTheDocument()
   })
   it('calls function when clicking on section', async () => {
     const handleClick = jest.fn()

@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types'
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import { v4 as uuidv4 } from 'uuid'
 import Button from '../components/Button'
@@ -12,7 +12,7 @@ FormPage.propTypes = {
 }
 
 export default function FormPage({ onSubmit, favoriteCrops }) {
-  const history = useHistory()
+  const navigate = useNavigate()
 
   return (
     <Wrapper>
@@ -47,7 +47,7 @@ export default function FormPage({ onSubmit, favoriteCrops }) {
     </Wrapper>
   )
   function navigateBack() {
-    history.push('/tasks')
+    navigate('/tasks')
   }
 
   function handleSubmit(event) {
@@ -59,7 +59,7 @@ export default function FormPage({ onSubmit, favoriteCrops }) {
 
     const toDos = { id: uuidv4(), nameOfCrop, tasks, date }
     onSubmit(toDos)
-    history.push('/tasks')
+    navigate('/tasks')
   }
 }
 const fadein = keyframes`

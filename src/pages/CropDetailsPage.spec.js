@@ -1,5 +1,5 @@
 import { render, screen } from '@testing-library/react'
-import { MemoryRouter, Route } from 'react-router-dom'
+import { MemoryRouter, Route, Routes } from 'react-router-dom'
 import CropDetailsPage from './CropDetailsPage'
 
 jest.mock('../hooks/useCropDetails.js', () => () => ({
@@ -21,14 +21,19 @@ describe('CropDetailsPage', () => {
   it('renders crop details', () => {
     render(
       <MemoryRouter initialEntries={['/crop/1']}>
-        <Route path="/crop/:id">
-          <CropDetailsPage
-            favoriteCrops={[]}
-            onBack={jest.fn()}
-            onToggleFavorite={jest.fn()}
-            onFavorites={jest.fn()}
+        <Routes>
+          <Route
+            path="/crop/:id"
+            element={
+              <CropDetailsPage
+                favoriteCrops={[]}
+                onBack={jest.fn()}
+                onToggleFavorite={jest.fn()}
+                onFavorites={jest.fn()}
+              />
+            }
           />
-        </Route>
+        </Routes>
       </MemoryRouter>
     )
 

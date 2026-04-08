@@ -1,4 +1,4 @@
-import { useHistory } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import styled, { keyframes } from 'styled-components'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
@@ -6,7 +6,7 @@ import BackgroundDesktop from '../images/vegetable-frame-desktop.png'
 import BackgroundMobile from '../images/vegetable-frame-mobile.png'
 
 export default function SearchPage() {
-  const { push } = useHistory()
+  const navigate = useNavigate()
   return (
     <Wrapper>
       <Background>
@@ -32,7 +32,7 @@ export default function SearchPage() {
     event.preventDefault()
     const form = event.target
     const searchTerm = form.elements.search.value
-    push(`/search/${searchTerm}`)
+    navigate(`/search/${searchTerm}`)
   }
 }
 const fadein = keyframes`
