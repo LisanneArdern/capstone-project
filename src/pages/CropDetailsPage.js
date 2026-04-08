@@ -16,7 +16,7 @@ export default function CropDetailsPage({
   favoriteCrops,
   onBack,
   onToggleFavorite,
-  onFavorites
+  onFavorites,
 }) {
   const { id } = useParams()
   const { data, isQuerying } = useCropDetails(id)
@@ -105,7 +105,9 @@ export default function CropDetailsPage({
               )}
             </p>
           </Details>
-          <NavigateFavoritesButton onClick={onFavorites}>Go to My Garden</NavigateFavoritesButton>
+          <NavigateFavoritesButton onClick={onFavorites}>
+            Go to My Garden
+          </NavigateFavoritesButton>
         </Information>
       </DetailedView>
     </Wrapper>
@@ -125,10 +127,9 @@ to {
 }
 `
 const Wrapper = styled.div`
- 
   animation-duration: 1s;
   animation-name: ${fadein};
-  `
+`
 
 const BackButton = styled(Button)`
   display: flex;
