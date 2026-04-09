@@ -2,17 +2,17 @@ import { createGlobalStyle } from 'styled-components'
 
 export default createGlobalStyle`
  :root {
-   --color-basis: #fff;
-   --color-primary: #f0f8f2;
-   --color-primary-alpha: rgba(240, 248, 242, 0.7);
-   --color-secondary: #204028;
-   --color-border: #d3d3d3;
-   --color-border-info: #bbdfc4;
-   --color-shadow: rgba(0, 0, 0, 0.1);
-   --color-border: #d3d3d3;
-   --color-disabled: #a9a9a9;
-   --color-favorized: #418151;
-
+   --color-basis: #f9fdf8;
+   --color-surface: #ffffff;
+   --color-primary: #edf6ef;
+   --color-primary-alpha: rgba(237, 246, 239, 0.88);
+   --color-secondary: #234b33;
+   --color-secondary-soft: #3f7a58;
+   --color-border: #cfe1d3;
+   --color-border-info: #b8d6c0;
+   --color-shadow: rgba(20, 48, 31, 0.16);
+   --color-disabled: #7f9887;
+   --color-favorized: #2f8f56;
  }
 
  * {
@@ -21,18 +21,18 @@ export default createGlobalStyle`
 
  body {
    color: var(--color-secondary);
-   background-color: var(--color-primary);
+  background: linear-gradient(180deg, #f7fcf7 0%, #edf6ef 100%);
    margin: 0;
    font-family: 'Roboto', sans-serif;
-   font-size: 112.5%;
+  font-size: 106.25%;
    line-height: 1.4;
-  
+  -webkit-font-smoothing: antialiased;
  }
 
  h1 {
-   font-size: 35px;
+  font-size: 2rem;
  }
  h2 {
-   font-size: 20px;
+  font-size: 1.1rem;
  }
 `

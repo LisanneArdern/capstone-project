@@ -140,6 +140,8 @@ const BackButton = styled(Button)`
   left: 10px;
   top: 10px;
   z-index: 1;
+  background: var(--color-primary-alpha);
+  backdrop-filter: blur(6px);
 `
 const ArrowLeft = styled.img`
   width: 15px;
@@ -160,9 +162,9 @@ const DetailedView = styled.section`
 `
 
 const Information = styled.div`
-  background: var(--color-primary);
-  padding: 10px 15px;
-  border-radius: 10px 10px 0px 0px;
+  background: var(--color-primary-alpha);
+  padding: 14px 16px;
+  border-radius: 16px 16px 0 0;
   position: relative;
   top: 230px;
   z-index: 2;
@@ -173,7 +175,7 @@ const Information = styled.div`
 `
 const FavoriteButton = styled(Button)`
   width: 100%;
-  padding: 10px 20px;
+  padding: 11px 20px;
   background-color: ${props =>
     props.isFavorite ? 'var(--color-favorized)' : 'var(--color-secondary)'};
   color: var(--color-basis);
@@ -181,11 +183,11 @@ const FavoriteButton = styled(Button)`
 `
 
 const QuickGuide = styled.div`
-  border-radius: 8px;
-  background: var(--color-basis);
+  border-radius: 12px;
+  background: var(--color-surface);
   border: 1px dotted var(--color-border-info);
-  padding: 2px 7px;
-  margin-bottom: 5px;
+  padding: 8px 10px;
+  margin-bottom: 8px;
   dl {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -208,14 +210,14 @@ const QuickGuide = styled.div`
 `
 
 const Details = styled.div`
-  border-radius: 8px;
-  background: var(--color-basis);
+  border-radius: 12px;
+  background: var(--color-surface);
   border: 1px dotted var(--color-border-info);
-  padding: 2px 7px;
+  padding: 8px 10px;
 `
 const NavigateFavoritesButton = styled(Button)`
   width: 100%;
-  padding: 10px 20px;
+  padding: 11px 20px;
   background-color: var(--color-secondary);
   color: var(--color-basis);
   margin-bottom: 5px;

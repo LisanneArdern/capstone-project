@@ -35,22 +35,23 @@ export default function TaskEntry({ onClick, date, nameOfCrop, tasks }) {
   }
 }
 const Wrapper = styled.section`
-  background: var(--color-basis);
+  background: var(--color-surface);
   display: flex;
   justify-content: flex-start;
   align-items: center;
-  gap: 40px;
-  margin: 10px;
-  padding: 5px;
+  gap: 24px;
+  margin: 12px;
+  padding: 12px;
   border: 1px solid var(--color-border);
-  border-radius: 10px;
-  box-shadow: 0px 8px 15px var(--color-shadow);
+  border-radius: 14px;
+  box-shadow: 0 10px 24px var(--color-shadow);
 
   h2 {
     margin: 0;
   }
   input {
-    margin-left: 15px;
+    margin-left: 8px;
+    accent-color: var(--color-secondary-soft);
   }
 `
 

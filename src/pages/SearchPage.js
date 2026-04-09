@@ -65,26 +65,35 @@ const Background = styled.div`
 `
 
 const Content = styled.div`
-  padding-bottom: 150px;
+  width: min(560px, 92vw);
+  padding: 28px 24px 36px;
+  border: 1px solid var(--color-border);
+  border-radius: 20px;
+  background: var(--color-primary-alpha);
+  backdrop-filter: blur(7px);
+  box-shadow: 0 20px 35px var(--color-shadow);
 `
 
 const SearchHeader = styled(Header)`
   font-family: 'Vollkorn', serif;
   font-weight: 700;
   text-align: center;
-  padding-bottom: 30px;
+  padding-bottom: 22px;
   letter-spacing: 2px;
   font-size: 45px;
 `
 
 const Form = styled.form`
   text-align: center;
-  font-weight: 300;
+  font-weight: 400;
 `
 
 const Input = styled.input`
   border: 1px solid var(--color-border);
-  border-radius: 10px;
-  padding: 10px 20px;
+  border-radius: 12px;
+  width: 100%;
+  padding: 13px 16px;
   margin: 10px 0;
+  background: var(--color-surface);
+  color: var(--color-secondary);
 `

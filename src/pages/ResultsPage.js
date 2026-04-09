@@ -82,9 +82,11 @@ const Wrapper = styled.section`
 const Top = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  border-bottom: 1px solid var(--color-secondary);
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--color-border);
   background-color: var(--color-primary-alpha);
+  backdrop-filter: blur(6px);
 `
 
 const BackButton = styled(Button)`
@@ -93,6 +95,7 @@ const BackButton = styled(Button)`
 const Output = styled.div`
   overflow-y: auto;
   height: 100%;
+  padding: 6px 4px 12px;
   background-color: var(--color-primary-alpha);
 `
 const Paragraph = styled.p`
