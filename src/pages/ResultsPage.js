@@ -15,7 +15,7 @@ ResultsPage.propTypes = {
 
 export default function ResultsPage({ onBack, onDetails }) {
   const { searchTerm } = useParams()
-  const { data, isQuerying } = useFetch(searchTerm)
+  const { data, isQuerying, error } = useFetch(searchTerm)
   if (isQuerying)
     return (
       <SpinnerWrapper>
@@ -29,6 +29,7 @@ export default function ResultsPage({ onBack, onDetails }) {
         <BackButton onClick={onBack}>X</BackButton>
       </Top>
       <Output>
+        {error ? <ErrorMessage role="alert">{error}</ErrorMessage> : null}
         {data.length !== 0 ? (
           <>
             {data
@@ -101,4 +102,14 @@ const Output = styled.div`
 const Paragraph = styled.p`
   text-align: center;
   margin: 50px 0;
+`
+
+const ErrorMessage = styled.p`
+  margin: 8px 12px 12px;
+  padding: 10px 12px;
+  border: 1px solid #e8c8a1;
+  border-radius: 10px;
+  background: #fff3e6;
+  color: #6b4a23;
+  font-size: 0.92rem;
 `

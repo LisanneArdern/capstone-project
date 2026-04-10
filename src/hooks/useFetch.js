@@ -1,15 +1,27 @@
 import { useEffect, useState } from 'react'
+import { searchCrops } from '../utils/cropsApi'
 
 export default function useFetch(searchTerm) {
   const [data, setData] = useState(null)
+  const [error, setError] = useState(null)
   const isQuerying = data === null
 
   useEffect(() => {
-    fetch(`https://openfarm.cc/api/v1/crops/?filter=${searchTerm}`)
-      .then(res => res.json())
-      .then(data => setData(data.data))
-      .catch(error => console.error(error))
+    let isMounted = true
+
+    setData(null)
+    setError(null)
+
+    searchCrops(searchTerm).then(result => {
+      if (!isMounted) return
+      setData(result.data)
+      setError(result.error)
+    })
+
+    return () => {
+      isMounted = false
+    }
   }, [searchTerm])
 
-  return { data, isQuerying }
+  return { data, isQuerying, error }
 }

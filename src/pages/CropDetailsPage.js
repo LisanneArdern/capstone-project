@@ -19,7 +19,7 @@ export default function CropDetailsPage({
   onFavorites,
 }) {
   const { id } = useParams()
-  const { data, isQuerying } = useCropDetails(id)
+  const { data, isQuerying, error } = useCropDetails(id)
 
   const isFavorite = favoriteCrops?.some(favoriteCrop => favoriteCrop.id === id)
 
@@ -50,6 +50,7 @@ export default function CropDetailsPage({
         <img src={image} alt="" width="375" height="250" />
 
         <Information>
+          {error ? <ErrorMessage role="alert">{error}</ErrorMessage> : null}
           <h1>{name}</h1>
           <dl>
             <dt>Botanical Name:</dt>
@@ -221,4 +222,14 @@ const NavigateFavoritesButton = styled(Button)`
   background-color: var(--color-secondary);
   color: var(--color-basis);
   margin-bottom: 5px;
+`
+
+const ErrorMessage = styled.p`
+  margin: 0 0 10px;
+  padding: 10px 12px;
+  border: 1px solid #e8c8a1;
+  border-radius: 10px;
+  background: #fff3e6;
+  color: #6b4a23;
+  font-size: 0.92rem;
 `
