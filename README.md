@@ -20,7 +20,7 @@ This app is optimized for mobile usage, so please switch your browser to respons
 
 ## Tech stack
 
-- Openfarm API
+- Perenual API
 - React
 - PropTypes
 - Styled Components
@@ -36,7 +36,9 @@ This app is optimized for mobile usage, so please switch your browser to respons
 - clone this repository
 - install all npm dependencies  
    `npm install`
-- to run the app in development mode `npm start`, then open [http://localhost:3000](http://localhost:3000) to view it in the browser
+- create an `.env.local` file and add your API key:
+  `VITE_PERENUAL_API_KEY=your_api_key_here`
+- to run the app in development mode `npm start`, then open [http://localhost:5173](http://localhost:5173) to view it in the browser
 - to run Storybook  
   `npm run storybook`
 - to run React Testing Library & Jest  

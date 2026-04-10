@@ -1,15 +1,27 @@
 import { useEffect, useState } from 'react'
+import { getCropDetails } from '../utils/cropsApi'
 
 export default function useCropDetails(id) {
   const [data, setData] = useState(null)
+  const [error, setError] = useState(null)
   const isQuerying = data === null
 
   useEffect(() => {
-    fetch(`https://openfarm.cc/api/v1/crops/${id}/`)
-      .then(res => res.json())
-      .then(data => setData(data.data))
-      .catch(error => console.error(error))
+    let isMounted = true
+
+    setData(null)
+    setError(null)
+
+    getCropDetails(id).then(result => {
+      if (!isMounted) return
+      setData(result.data)
+      setError(result.error)
+    })
+
+    return () => {
+      isMounted = false
+    }
   }, [id])
 
-  return { data, isQuerying }
+  return { data, isQuerying, error }
 }

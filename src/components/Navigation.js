@@ -23,13 +23,15 @@ const Nav = styled.nav`
   justify-items: center;
   align-items: center;
   grid-template-columns: 1fr 1fr 1fr;
-  border-top: 1px solid var(--color-secondary);
-  background-color: var(--color-basis);
+  border-top: 1px solid var(--color-border);
   width: 100%;
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-alpha);
+  backdrop-filter: blur(8px);
 
   a {
     color: var(--color-disabled);
     text-decoration: none;
+    font-weight: 500;
+    padding: 10px 0;
   }
 `

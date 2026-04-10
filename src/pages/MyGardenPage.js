@@ -58,12 +58,14 @@ const Wrapper = styled.section`
   animation-name: ${fadein};
 `
 const PageHeader = styled(Header)`
-  border-bottom: 1px solid var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
   background-color: var(--color-primary-alpha);
+  backdrop-filter: blur(6px);
 `
 
 const Container = styled.div`
   background-color: var(--color-primary-alpha);
+  padding: 8px 4px 14px;
   overflow-y: scroll;
 `
 const Paragraph = styled.p`

@@ -15,7 +15,7 @@ ResultsPage.propTypes = {
 
 export default function ResultsPage({ onBack, onDetails }) {
   const { searchTerm } = useParams()
-  const { data, isQuerying } = useFetch(searchTerm)
+  const { data, isQuerying, error } = useFetch(searchTerm)
   if (isQuerying)
     return (
       <SpinnerWrapper>
@@ -29,6 +29,7 @@ export default function ResultsPage({ onBack, onDetails }) {
         <BackButton onClick={onBack}>X</BackButton>
       </Top>
       <Output>
+        {error ? <ErrorMessage role="alert">{error}</ErrorMessage> : null}
         {data.length !== 0 ? (
           <>
             {data
@@ -82,9 +83,11 @@ const Wrapper = styled.section`
 const Top = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  border-bottom: 1px solid var(--color-secondary);
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--color-border);
   background-color: var(--color-primary-alpha);
+  backdrop-filter: blur(6px);
 `
 
 const BackButton = styled(Button)`
@@ -93,9 +96,20 @@ const BackButton = styled(Button)`
 const Output = styled.div`
   overflow-y: auto;
   height: 100%;
+  padding: 6px 4px 12px;
   background-color: var(--color-primary-alpha);
 `
 const Paragraph = styled.p`
   text-align: center;
   margin: 50px 0;
+`
+
+const ErrorMessage = styled.p`
+  margin: 8px 12px 12px;
+  padding: 10px 12px;
+  border: 1px solid #e8c8a1;
+  border-radius: 10px;
+  background: #fff3e6;
+  color: #6b4a23;
+  font-size: 0.92rem;
 `

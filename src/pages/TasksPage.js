@@ -54,11 +54,12 @@ const Wrapper = styled.section`
 `
 const PageHeader = styled(Header)`
   background-color: var(--color-primary-alpha);
-  border-bottom: 1px solid var(--color-secondary);
+  border-bottom: 1px solid var(--color-border);
+  backdrop-filter: blur(6px);
 `
 const Tasks = styled.div`
   background-color: var(--color-primary-alpha);
-  padding: 20px;
+  padding: 16px 12px;
 `
 
 const TaskButton = styled(Button)`

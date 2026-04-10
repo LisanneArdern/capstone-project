@@ -84,9 +84,11 @@ const Wrapper = styled.section`
 const Top = styled.div`
   display: flex;
   align-items: center;
-  justify-content: space-around;
-  border-bottom: 1px solid var(--color-secondary);
+  justify-content: space-between;
+  padding: 0 12px;
+  border-bottom: 1px solid var(--color-border);
   background-color: var(--color-primary-alpha);
+  backdrop-filter: blur(6px);
 `
 const BackButton = styled(Button)`
   padding: 10px 14px;
@@ -95,14 +97,15 @@ const BackButton = styled(Button)`
 const Form = styled.form`
   display: flex;
   flex-direction: column;
-  gap: 20px;
-  padding: 30px 15px;
+  gap: 16px;
+  padding: 20px 16px;
   background-color: var(--color-primary-alpha);
 `
 const Select = styled.select`
   width: 100%;
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
   overflow: auto;
   resize: none;
   font-family: 'Roboto', sans-serif;
@@ -120,8 +123,9 @@ const Label = styled.label`
 `
 const Input = styled.input`
   width: 100%;
-  padding: 5px 10px;
-  border-radius: 10px;
+  padding: 11px 12px;
+  border-radius: 12px;
+  border: 1px solid var(--color-border);
   overflow: auto;
   line-height: 20px;
   resize: none;
