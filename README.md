@@ -20,7 +20,7 @@ This app is optimized for mobile usage, so please switch your browser to respons
 
 ## Tech stack
 
-- Openfarm API
+- Crops API, built to replace OpenFarm API because OpenFarm is now archived
 - React
 - PropTypes
 - Styled Components
@@ -31,12 +31,21 @@ This app is optimized for mobile usage, so please switch your browser to respons
 
 ---
 
+## API
+
+Harvestly was originally built with the OpenFarm API. Since OpenFarm is now archived, the app now uses a custom `crops-api` service with the crop data needed for search and detail pages.
+
+---
+
 ## How to set it up
 
 - clone this repository
 - install all npm dependencies  
    `npm install`
-- to run the app in development mode `npm start`, then open [http://localhost:3000](http://localhost:3000) to view it in the browser
+- start the crops API from the `crops-api` repository  
+  `npm run seed && npm run dev`
+- copy `.env.example` to `.env.local` if your crops API does not run on `http://localhost:4000`
+- to run the app in development mode `npm start`, then open the local Vite URL printed in your terminal
 - to run Storybook  
   `npm run storybook`
 - to run React Testing Library & Jest  

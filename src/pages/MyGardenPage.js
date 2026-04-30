@@ -4,6 +4,7 @@ import CropItem from '../components/CropItem'
 import Header from '../components/Header'
 import Navigation from '../components/Navigation'
 import Background from '../images/vegetables.png'
+import { getCropName, getCropPhoto } from '../utils/crops'
 
 MyGardenPage.propTypes = {
   onDetails: PropTypes.func.isRequired,
@@ -23,12 +24,12 @@ export default function MyGardenPage({ onDetails, favoriteCrops }) {
           </Paragraph>
         ) : (
           <>
-            {favoriteCrops?.map(({ id, attributes }) => (
+            {favoriteCrops?.map(crop => (
               <CropItem
-                key={id}
-                name={attributes.name}
-                image={attributes.main_image_path}
-                onClick={() => onDetails(id)}
+                key={crop.id}
+                name={getCropName(crop)}
+                image={getCropPhoto(crop)}
+                onClick={() => onDetails(crop.id)}
               />
             ))}
           </>

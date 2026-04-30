@@ -5,6 +5,7 @@ import { v4 as uuidv4 } from 'uuid'
 import Button from '../components/Button'
 import Header from '../components/Header'
 import Background from '../images/vegetables.png'
+import { getCropName } from '../utils/crops'
 
 FormPage.propTypes = {
   onSubmit: PropTypes.func.isRequired,
@@ -24,8 +25,8 @@ export default function FormPage({ onSubmit, favoriteCrops }) {
         <Label>
           Choose a crop from your Garden
           <Select name="name">
-            {favoriteCrops?.map(({ id, attributes }) => (
-              <option key={id}>{attributes.name}</option>
+            {favoriteCrops?.map(crop => (
+              <option key={crop.id}>{getCropName(crop)}</option>
             ))}
           </Select>
         </Label>
