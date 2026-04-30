@@ -7,6 +7,7 @@ import Header from '../components/Header'
 import Spinner from '../components/Spinner'
 import useFetch from '../hooks/useFetch.js'
 import Background from '../images/vegetables.png'
+import { getCropName, getCropPhoto } from '../utils/crops'
 
 ResultsPage.propTypes = {
   onBack: PropTypes.func.isRequired,
@@ -15,7 +16,7 @@ ResultsPage.propTypes = {
 
 export default function ResultsPage({ onBack, onDetails }) {
   const { searchTerm } = useParams()
-  const { data, isQuerying } = useFetch(searchTerm)
+  const { data, error, isQuerying } = useFetch(searchTerm)
   if (isQuerying)
     return (
       <SpinnerWrapper>
@@ -29,20 +30,22 @@ export default function ResultsPage({ onBack, onDetails }) {
         <BackButton onClick={onBack}>X</BackButton>
       </Top>
       <Output>
-        {data.length !== 0 ? (
+        {error ? (
+          <Paragraph>
+            We could not load crops right now.
+            <br />
+            {error}
+          </Paragraph>
+        ) : data.length !== 0 ? (
           <>
-            {data
-              ?.filter(crop =>
-                crop.attributes.main_image_path.match(/(https)/gi)
-              )
-              .map(({ id, attributes }) => (
-                <CropItem
-                  key={id}
-                  name={attributes.name}
-                  image={attributes.main_image_path}
-                  onClick={() => onDetails(id)}
-                />
-              ))}
+            {data?.map(crop => (
+              <CropItem
+                key={crop.id}
+                name={getCropName(crop)}
+                image={getCropPhoto(crop)}
+                onClick={() => onDetails(crop.id)}
+              />
+            ))}
           </>
         ) : (
           <Paragraph>

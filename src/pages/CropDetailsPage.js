@@ -5,6 +5,15 @@ import Button from '../components/Button'
 import Spinner from '../components/Spinner'
 import useCropDetails from '../hooks/useCropDetails.js'
 import Arrow from '../images/left-arrow.png'
+import {
+  getCropBotanicalName,
+  getCropDescription,
+  getCropName,
+  getCropPhoto,
+  getCropRowSpacing,
+  getCropSpread,
+  getCropSun,
+} from '../utils/crops'
 
 CropDetailsPage.propTypes = {
   favoriteCrops: PropTypes.array,
@@ -19,7 +28,7 @@ export default function CropDetailsPage({
   onFavorites,
 }) {
   const { id } = useParams()
-  const { data, isQuerying } = useCropDetails(id)
+  const { data, error, isQuerying } = useCropDetails(id)
 
   const isFavorite = favoriteCrops?.some(favoriteCrop => favoriteCrop.id === id)
 
@@ -30,17 +39,28 @@ export default function CropDetailsPage({
       </SpinnerWrapper>
     )
 
-  const {
-    attributes: {
-      main_image_path: image,
-      name,
-      binomial_name: botanicalName,
-      sun_requirements: sun,
-      spread,
-      row_spacing: rowSpace,
-      description: details,
-    },
-  } = data
+  if (error)
+    return (
+      <Wrapper>
+        <BackButton onClick={onBack}>
+          <ArrowLeft src={Arrow} alt="back" />
+        </BackButton>
+        <ErrorMessage>
+          We could not load this crop right now.
+          <br />
+          {error}
+        </ErrorMessage>
+      </Wrapper>
+    )
+
+  const image = getCropPhoto(data)
+  const name = getCropName(data)
+  const botanicalName = getCropBotanicalName(data)
+  const sun = getCropSun(data)
+  const spread = getCropSpread(data)
+  const rowSpace = getCropRowSpacing(data)
+  const details = getCropDescription(data)
+
   return (
     <Wrapper>
       <BackButton onClick={onBack}>
@@ -129,6 +149,11 @@ to {
 const Wrapper = styled.div`
   animation-duration: 1s;
   animation-name: ${fadein};
+`
+
+const ErrorMessage = styled.p`
+  text-align: center;
+  padding: 120px 20px 0;
 `
 
 const BackButton = styled(Button)`
